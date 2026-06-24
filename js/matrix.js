@@ -3,8 +3,8 @@
 // ─── POPULATE TURF DROPDOWN ───────────────────────────────────────────────────
 
 function populateMatrixTurfTypes() {
-  const allTurfs = new Set();
-  PRODUCTS.forEach(function(p) {
+  var allTurfs = new Set();
+  PRODUCTS.filter(function(p) { return p.category === "herbicide"; }).forEach(function(p) {
     p.turfTypes.forEach(function(t) { allTurfs.add(t); });
   });
 
@@ -27,10 +27,10 @@ function getTurfSafetyStatus(product, turfType) {
 // ─── POPULATE WEED CHECKBOXES ─────────────────────────────────────────────────
 
 function populateMatrixWeeds() {
-  const container = document.getElementById("matrix-weed-checkboxes");
-  const allWeeds = new Set();
+  var container = document.getElementById("matrix-weed-checkboxes");
+  var allWeeds = new Set();
 
-  PRODUCTS.forEach(function(p) {
+  PRODUCTS.filter(function(p) { return p.category === "herbicide"; }).forEach(function(p) {
     p.targetWeeds.forEach(function(w) {
       // targetWeeds is either an array of strings, or an array of objects with .name
       const weedName = typeof w === "string" ? w : w.name;
@@ -51,6 +51,33 @@ function populateMatrixWeeds() {
     label.appendChild(checkbox);
     label.appendChild(document.createTextNode(" " + w));
     container.appendChild(label);
+  });
+}
+
+// ─── POPULATE MATRIX PRODUCT FILTER ──────────────────────────────────────────
+
+function populateMatrixProducts() {
+  var container = document.getElementById("matrix-product-checkboxes");
+  PRODUCTS.filter(function(p) { return p.category === "herbicide"; })
+    .slice().sort(function(a, b) { return a.fullName.localeCompare(b.fullName); })
+    .forEach(function(p) {
+      var label = document.createElement("label");
+      label.className = "product-label";
+      label.dataset.productName = p.fullName.toLowerCase();
+      var checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.value = p.id;
+      checkbox.className = "matrix-product-checkbox";
+      label.appendChild(checkbox);
+      label.appendChild(document.createTextNode(" " + p.fullName));
+      container.appendChild(label);
+    });
+}
+
+function filterMatrixProductCheckboxes() {
+  var query = document.getElementById("matrix-product-search").value.toLowerCase().trim();
+  document.querySelectorAll("#matrix-product-checkboxes .product-label").forEach(function(label) {
+    label.classList.toggle("hidden", !label.dataset.productName.includes(query));
   });
 }
 
@@ -88,16 +115,16 @@ function getWeedCoverage(product, selectedWeeds) {
 
 // ─── SHARED RESULT BUILDER (table or cards) ────────────────────────────────────
 
-function buildProductWeedTable(turfType, products, weeds, viewMode) {
+function buildProductWeedTable(turfType, products, weeds, viewMode, showRemove) {
   if (viewMode === "cards") {
     return buildProductWeedCards(turfType, products, weeds);
   }
-  return buildProductWeedTableHTML(turfType, products, weeds);
+  return buildProductWeedTableHTML(turfType, products, weeds, showRemove);
 }
 
 // ─── TABLE VIEW ─────────────────────────────────────────────────────────────────
 
-function buildProductWeedTableHTML(turfType, products, weeds) {
+function buildProductWeedTableHTML(turfType, products, weeds, showRemove) {
   const turfSafety = {};
   products.forEach(function(product) {
     turfSafety[product.id] = getTurfSafetyStatus(product, turfType);
@@ -105,11 +132,14 @@ function buildProductWeedTableHTML(turfType, products, weeds) {
 
   let html = `<table id="matrix-table"><thead><tr><th>Weed</th>`;
   products.forEach(function(product) {
-    const safety = turfSafety[product.id];
-    let safetyTag = "";
-    if (safety === "unsafe")  safetyTag = `<br><span class="matrix-unsafe-tag">NOT SAFE for ${turfType}</span>`;
-    if (safety === "unknown") safetyTag = `<br><span class="matrix-unknown-tag">Not listed for ${turfType}</span>`;
-    html += `<th>${product.fullName}${safetyTag}</th>`;
+    var safety = turfSafety[product.id];
+    var safetyTag = "";
+    if (safety === "unsafe")  safetyTag = '<br><span class="matrix-unsafe-tag">NOT SAFE for ' + turfType + '</span>';
+    if (safety === "unknown") safetyTag = '<br><span class="matrix-unknown-tag">Not listed for ' + turfType + '</span>';
+    var removeBtn = showRemove
+      ? '<button class="matrix-col-remove" data-product-id="' + product.id + '" aria-label="Remove ' + product.fullName + '" title="Remove product">❌</button>'
+      : "";
+    html += "<th>" + product.fullName + safetyTag + removeBtn + "</th>";
   });
   html += `</tr></thead><tbody>`;
 
@@ -215,11 +245,11 @@ function setReverseView(mode) {
 // ─── FORWARD MATRIX: select weeds → see matching products ──────────────────────
 
 function renderMatrix() {
-  const turfType = document.getElementById("matrix-turf-type").value;
-  const selectedWeeds = Array.from(document.querySelectorAll(".matrix-weed-checkbox:checked"))
+  var turfType = document.getElementById("matrix-turf-type").value;
+  var selectedWeeds = Array.from(document.querySelectorAll(".matrix-weed-checkbox:checked"))
     .map(function(cb) { return cb.value; });
 
-  const resultsDiv = document.getElementById("matrix-results");
+  var resultsDiv = document.getElementById("matrix-results");
 
   if (!turfType) {
     resultsDiv.innerHTML = "<p>Please select a turf type.</p>";
@@ -230,11 +260,18 @@ function renderMatrix() {
     return;
   }
 
-  let relevantProducts = PRODUCTS.filter(function(product) {
+  // Use checked products if any; otherwise use all herbicides
+  var selectedProductIds = Array.from(document.querySelectorAll(".matrix-product-checkbox:checked"))
+    .map(function(cb) { return cb.value; });
+  var productPool = selectedProductIds.length > 0
+    ? PRODUCTS.filter(function(p) { return selectedProductIds.includes(p.id); })
+    : PRODUCTS.filter(function(p) { return p.category === "herbicide"; });
+
+  var relevantProducts = productPool.filter(function(product) {
     if (getTurfSafetyStatus(product, turfType) === "unsafe") return false;
     return selectedWeeds.some(function(weedName) {
       return product.targetWeeds.some(function(w) {
-        const name = typeof w === "string" ? w : w.name;
+        var name = typeof w === "string" ? w : w.name;
         return name === weedName;
       });
     });
@@ -245,24 +282,50 @@ function renderMatrix() {
     return;
   }
 
-  const coverageCount = {};
+  var coverageCount = {};
   relevantProducts.forEach(function(product) {
     coverageCount[product.id] = selectedWeeds.filter(function(weedName) {
       return product.targetWeeds.some(function(w) {
-        const name = typeof w === "string" ? w : w.name;
+        var name = typeof w === "string" ? w : w.name;
         return name === weedName;
       });
     }).length;
   });
 
   relevantProducts.sort(function(a, b) {
-    const diff = coverageCount[b.id] - coverageCount[a.id];
+    var diff = coverageCount[b.id] - coverageCount[a.id];
     if (diff !== 0) return diff;
     return a.fullName.localeCompare(b.fullName);
   });
 
   document.querySelector('#matrix-section .view-toggle').classList.add("visible");
-  resultsDiv.innerHTML = buildProductWeedTable(turfType, relevantProducts, selectedWeeds, matrixViewMode);
+  resultsDiv.innerHTML = buildProductWeedTable(turfType, relevantProducts, selectedWeeds, matrixViewMode, true);
+  wireMatrixColRemove();
+}
+
+// ─── WIRE COLUMN REMOVE BUTTONS ───────────────────────────────────────────────
+
+function wireMatrixColRemove() {
+  document.querySelectorAll(".matrix-col-remove").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      var productId = btn.dataset.productId;
+      var checkboxes = Array.from(document.querySelectorAll(".matrix-product-checkbox"));
+      var anyChecked = checkboxes.some(function(cb) { return cb.checked; });
+
+      if (!anyChecked) {
+        // Currently showing all — check all except the removed one
+        checkboxes.forEach(function(cb) {
+          cb.checked = cb.value !== productId;
+        });
+      } else {
+        // Uncheck just this one
+        checkboxes.forEach(function(cb) {
+          if (cb.value === productId) cb.checked = false;
+        });
+      }
+      renderMatrix();
+    });
+  });
 }
 
 // ─── REVERSE MATRIX: select products → see weeds covered ───────────────────────
@@ -324,8 +387,8 @@ function renderReverseMatrix() {
 // ─── POPULATE REVERSE TURF DROPDOWN ───────────────────────────────────────────
 
 function populateReverseTurfTypes() {
-  const allTurfs = new Set();
-  PRODUCTS.forEach(function(p) {
+  var allTurfs = new Set();
+  PRODUCTS.filter(function(p) { return p.category === "herbicide"; }).forEach(function(p) {
     p.turfTypes.forEach(function(t) { allTurfs.add(t); });
   });
 
@@ -338,7 +401,7 @@ function populateReverseTurfTypes() {
 function populateReverseProducts() {
   const container = document.getElementById("reverse-product-checkboxes");
 
-  PRODUCTS.slice().sort(function(a, b) {
+  PRODUCTS.filter(function(p) { return p.category === "herbicide"; }).slice().sort(function(a, b) {
     return a.fullName.localeCompare(b.fullName);
   }).forEach(function(p) {
     const label = document.createElement("label");
@@ -369,11 +432,12 @@ function filterProductCheckboxes() {
 
 function resetMatrix() {
   resetCustomSelect("matrix-turf-type");
-  document.querySelectorAll(".matrix-weed-checkbox").forEach(function(cb) {
-    cb.checked = false;
-  });
+  document.querySelectorAll(".matrix-weed-checkbox").forEach(function(cb) { cb.checked = false; });
+  document.querySelectorAll(".matrix-product-checkbox").forEach(function(cb) { cb.checked = false; });
   document.getElementById("weed-search").value = "";
-  filterWeedCheckboxes(); // show all weeds again
+  document.getElementById("matrix-product-search").value = "";
+  filterWeedCheckboxes();
+  filterMatrixProductCheckboxes();
   document.getElementById("matrix-results").innerHTML = "";
   document.querySelector("#matrix-section .view-toggle").classList.remove("visible");
 }
@@ -395,7 +459,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Forward matrix — only runs on matrix.html where these elements exist
   populateMatrixTurfTypes();
+  populateMatrixProducts();
   populateMatrixWeeds();
+  document.getElementById("matrix-product-search").addEventListener("input", filterMatrixProductCheckboxes);
   document.getElementById("weed-search").addEventListener("input", filterWeedCheckboxes);
   document.getElementById("matrix-submit-btn").addEventListener("click", renderMatrix);
   document.getElementById("matrix-reset-btn").addEventListener("click", resetMatrix);

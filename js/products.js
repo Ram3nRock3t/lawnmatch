@@ -3,6 +3,7 @@ const PRODUCTS = [
     id: "barricade-65wg",
     fullName: "Barricade 65WG Herbicide, Syngenta",
     brand: "Syngenta",
+    category: "herbicide",
     type: "pre-emergent",
     formulation: "granule",
     activeIngredients: [
@@ -140,6 +141,7 @@ const PRODUCTS = [
     id: "celsius-wg",
     fullName: "Celsius WG Herbicide, Envu",
     brand: "Envu",
+    category: "herbicide",
     type: "post-emergent",
     formulation: "granule",          // "granule" or "liquid"
     activeIngredients: [
@@ -244,6 +246,7 @@ const PRODUCTS = [
     id: "certainty-turf",
     fullName: "Certainty Turf Herbicide, Valent",
     brand: "Valent",
+    category: "herbicide",
     type: "post-emergent",
     formulation: "granule",
     activeIngredients: [
@@ -348,6 +351,7 @@ const PRODUCTS = [
     id: "drive-xlr8",
     fullName: "Drive XLR8 Herbicide, BASF",
     brand: "BASF",
+    category: "herbicide",
     type: "post-emergent",
     formulation: "liquid",
     activeIngredients: [
@@ -472,6 +476,7 @@ const PRODUCTS = [
     id: "fahrenheit-herbicide",
     fullName: "Fahrenheit Herbicide, Quali-Pro",
     brand: "Quali-Pro",
+    category: "herbicide",
     type: "post-emergent",
     formulation: "granule",
     activeIngredients: [
@@ -681,6 +686,7 @@ const PRODUCTS = [
     id: "msma-target-6-plus",
     fullName: "MSMA Target 6 Plus, Luxembourg-Pamol",
     brand: "Luxembourg-Pamol",
+    category: "herbicide",
     type: "post-emergent",
     formulation: "liquid",
     activeIngredients: [

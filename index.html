@@ -11,6 +11,9 @@
                  connect-src https://api.emailjs.com;">
   <meta http-equiv="X-XSS-Protection" content="0">
   <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Free lawn herbicide calculator for homeowners. Calculate application rates, match products to weeds, and look up label information for common turf herbicides.">
+  <meta property="og:title" content="LawnMatch — Lawn Herbicide Calculator">
+  <meta property="og:description" content="Calculate herbicide rates, match products to weeds, and look up product information for your turf type.">
   <title>LawnMatch</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -143,6 +146,12 @@
         <input type="hidden" id="matrix-turf-type">
       </label>
 
+      <fieldset id="matrix-product-fieldset">
+        <legend>Filter by product <span class="filter-legend-note">(optional — blank shows all)</span></legend>
+        <input type="text" id="matrix-product-search" placeholder="Type to filter products...">
+        <div id="matrix-product-checkboxes"></div>
+      </fieldset>
+
       <fieldset id="matrix-weed-fieldset">
         <legend>Target weed(s)</legend>
         <input type="text" id="weed-search" placeholder="Type to filter weeds...">
@@ -209,22 +218,19 @@
         <input type="text" id="product-name-search" placeholder="Search by name or active ingredient...">
       </label>
 
-      <div class="filter-group">
+      <div class="filter-group" id="type-filter-group">
         <span class="filter-label">Type</span>
-        <div class="filter-btn-row">
-          <button class="filter-btn active" data-filter="type" data-value="all">All</button>
-          <button class="filter-btn" data-filter="type" data-value="pre-emergent">Pre-emergent</button>
-          <button class="filter-btn" data-filter="type" data-value="post-emergent">Post-emergent</button>
-        </div>
+        <div class="filter-btn-row" id="type-filter-btn-row"></div>
       </div>
 
-      <div class="filter-group">
+      <div class="filter-group" id="form-filter-group">
         <span class="filter-label">Formulation</span>
-        <div class="filter-btn-row">
-          <button class="filter-btn active" data-filter="form" data-value="all">All</button>
-          <button class="filter-btn" data-filter="form" data-value="granule">Granule</button>
-          <button class="filter-btn" data-filter="form" data-value="liquid">Liquid</button>
-        </div>
+        <div class="filter-btn-row" id="form-filter-btn-row"></div>
+      </div>
+
+      <div class="filter-group" id="category-filter-group">
+        <span class="filter-label">Category</span>
+        <div class="filter-btn-row" id="category-filter-btn-row"></div>
       </div>
 
       <button id="products-reset-btn" class="btn-secondary">Clear Filters</button>
