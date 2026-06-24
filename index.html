@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+                 script-src 'self';
+                 style-src 'self';
+                 img-src 'self' data:;">
+  <meta http-equiv="X-XSS-Protection" content="0">
+  <meta name="referrer" content="no-referrer">
+  <title>LawnMatch</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav id="main-nav">
+  <a href="#calculator" class="nav-brand" data-page="calculator">🌿 LawnMatch</a>
+  <div class="nav-links-wrapper">
+  <div class="nav-links">
+    <a href="#calculator" class="nav-link" data-page="calculator">Calculator</a>
+    <a href="#matrix" class="nav-link" data-page="matrix">Product Matrix</a>
+    <a href="#reverse" class="nav-link" data-page="reverse">Weeds Coverage</a>
+    <a href="#products" class="nav-link" data-page="products">Products</a>
+  </div> 
+    <div class="nav-scroll-hint nav-scroll-hint-left hidden" id="nav-scroll-hint-left" aria-hidden="true"></div> 
+    <div class="nav-scroll-hint nav-scroll-hint-right hidden" id="nav-scroll-hint-right" aria-hidden="true"></div>
+  </div>
+  <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+</nav>
+
+<div id="app">
+
+  <!-- ── CALCULATOR ─────────────────────────────────────────────────────── -->
+  <div id="page-calculator">
+
+    <h1>Lawn Care Calculator</h1>
+    <p class="page-intro">Enter your lawn size and select a product to see how much to apply.</p>
+
+    <section id="inputs">
+
+      <div class="dimension-row">
+        <label class="dimension-label">Length
+          <input type="number" id="len" placeholder="e.g. 80" min="0">
+        </label>
+        <label class="dimension-label">Width
+          <input type="number" id="wid" placeholder="e.g. 50" min="0">
+        </label>
+        <label class="unit-label">Unit
+          <select id="dim-unit">
+            <option value="ft">ft</option>
+            <option value="yd">yd</option>
+            <option value="m">m</option>
+          </select>
+        </label>
+      </div>
+
+      <p>— or enter total area directly —</p>
+
+      <label>Total area
+        <div class="area-input-row">
+          <input type="number" id="sqft" placeholder="e.g. 4000" min="0">
+          <span id="area-unit-label" class="area-unit-display">sq ft</span>
+        </div>
+      </label>
+
+      <label>Turf type
+        <div class="custom-select" data-hidden-input="turf-type">
+          <button type="button" class="custom-select-trigger">— select your turf —</button>
+          <div class="custom-select-panel"></div>
+        </div>
+        <input type="hidden" id="turf-type">
+      </label>
+
+      <div id="turf-status-banner"></div>
+
+      <label>Product
+        <select id="product">
+          <option value="">— select a product —</option>
+        </select>
+      </label>
+
+      <label id="use-row" class="hidden">Application type
+        <select id="use-type"></select>
+      </label>
+
+      <button id="calculate-btn">Calculate</button>
+      <button id="reset-calc-btn" class="btn-secondary">Clear All</button>
+
+    </section>
+
+    <section id="results" class="hidden">
+      <h2>Results</h2>
+
+      <label>Show product amount in
+        <select id="result-unit">
+          <option value="base">Default</option>
+        </select>
+      </label>
+
+      <div id="metrics"></div>
+
+      <label id="size-row">Container size
+        <select id="size-select"></select>
+      </label>
+
+      <div id="bottle-result"></div>
+      <div id="info"></div>
+      <p id="note"></p>
+    </section>
+
+  </div>
+
+  <!-- ── PRODUCT MATRIX ──────────────────────────────────────────────────── -->
+  <div id="page-matrix" class="hidden">
+
+    <h1>Product Matrix</h1>
+    <p class="page-intro">Select your turf and the weeds you're dealing with to see which products fit.</p>
+
+    <section id="matrix-section">
+
+      <label>Turf type
+        <div class="custom-select" data-hidden-input="matrix-turf-type">
+          <button type="button" class="custom-select-trigger">— select your turf —</button>
+          <div class="custom-select-panel"></div>
+        </div>
+        <input type="hidden" id="matrix-turf-type">
+      </label>
+
+      <fieldset id="matrix-weed-fieldset">
+        <legend>Target weed(s)</legend>
+        <input type="text" id="weed-search" placeholder="Type to filter weeds...">
+        <div id="matrix-weed-checkboxes"></div>
+      </fieldset>
+
+      <button id="matrix-submit-btn">Check Products</button>
+      <button id="matrix-reset-btn" class="btn-secondary">Clear All</button>
+
+      <div class="view-toggle">
+        <button class="view-btn active" data-view="table">📊 Table</button>
+        <button class="view-btn" data-view="cards">🗂️ Cards</button>
+      </div>
+      <div id="matrix-results"></div>
+
+    </section>
+
+  </div>
+
+  <!-- ── WEEDS COVERAGE ──────────────────────────────────────────────────── -->
+  <div id="page-reverse" class="hidden">
+
+    <h1>Weeds Coverage</h1>
+    <p class="page-intro">Not sure what weeds you have? Select your turf and one or more products to see what they target.</p>
+
+    <section id="reverse-section">
+
+      <label>Turf type
+        <div class="custom-select" data-hidden-input="reverse-turf-type">
+          <button type="button" class="custom-select-trigger">— select your turf —</button>
+          <div class="custom-select-panel"></div>
+        </div>
+        <input type="hidden" id="reverse-turf-type">
+      </label>
+
+      <fieldset id="reverse-product-fieldset">
+        <legend>Product(s)</legend>
+        <input type="text" id="product-search" placeholder="Type to filter products...">
+        <div id="reverse-product-checkboxes"></div>
+      </fieldset>
+
+      <button id="reverse-submit-btn">Show Weeds Covered</button>
+      <button id="reverse-reset-btn" class="btn-secondary">Clear All</button>
+
+      <div class="view-toggle">
+        <button class="view-btn active" data-view="table">📊 Table</button>
+        <button class="view-btn" data-view="cards">🗂️ Cards</button>
+      </div>
+      <div id="reverse-results"></div>
+
+    </section>
+
+  </div>
+
+  <!-- ── PRODUCTS ────────────────────────────────────────────────────────── -->
+  <div id="page-products" class="hidden">
+
+    <h1>Products</h1>
+    <p class="page-intro">Reference information for all products in the database. Always read the full label before applying any herbicide.</p>
+
+    <section id="product-filter-section">
+
+      <label>Search products
+        <input type="text" id="product-name-search" placeholder="Search by name or active ingredient...">
+      </label>
+
+      <div class="filter-group">
+        <span class="filter-label">Type</span>
+        <div class="filter-btn-row">
+          <button class="filter-btn active" data-filter="type" data-value="all">All</button>
+          <button class="filter-btn" data-filter="type" data-value="pre-emergent">Pre-emergent</button>
+          <button class="filter-btn" data-filter="type" data-value="post-emergent">Post-emergent</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-label">Formulation</span>
+        <div class="filter-btn-row">
+          <button class="filter-btn active" data-filter="form" data-value="all">All</button>
+          <button class="filter-btn" data-filter="form" data-value="granule">Granule</button>
+          <button class="filter-btn" data-filter="form" data-value="liquid">Liquid</button>
+        </div>
+      </div>
+
+      <button id="products-reset-btn" class="btn-secondary">Clear Filters</button>
+
+    </section>
+
+    <p id="products-no-results" class="hidden">No products match your search or filters.</p>
+    <div id="products-list"></div>
+
+  </div>
+
+  <p id="disclaimer">Always read and follow the full product label. Label instructions are law. This calculator is a convenience tool only.</p>
+
+</div>
+
+<script src="js/products.js"></script>
+<script src="js/custom-select.js"></script>
+<script src="js/calculator.js"></script>
+<script src="js/matrix.js"></script>
+<script src="js/products-page.js"></script>
+<script src="js/router.js"></script>
+<script src="js/theme.js"></script>
+
+</body>
+</html>
