@@ -63,7 +63,12 @@
       <label>Total area
         <div class="area-input-row">
           <input type="number" id="sqft" placeholder="e.g. 4000" min="0">
-          <span id="area-unit-label" class="area-unit-display">sq ft</span>
+          <select id="area-unit">
+            <option value="ft">sq ft</option>
+            <option value="yd">sq yd</option>
+            <option value="m">sq m</option>
+            <option value="acre">acre</option>
+          </select>
         </div>
       </label>
 
@@ -95,20 +100,28 @@
     <section id="results" class="hidden">
       <h2>Results</h2>
 
-      <label>Show product amount in
-        <select id="result-unit">
-          <option value="base">Default</option>
-        </select>
-      </label>
+      <div class="result-card">
+        <h3 class="result-card-title">Calculation Summary</h3>
+        <label class="result-card-label">Show amount in
+          <select id="result-unit">
+            <option value="base">Default</option>
+          </select>
+        </label>
+        <div id="metrics"></div>
+      </div>
 
-      <div id="metrics"></div>
+      <div class="result-card">
+        <h3 class="result-card-title">Container Math</h3>
+        <label class="result-card-label">Container size
+          <select id="size-select"></select>
+        </label>
+        <div id="bottle-result"></div>
+      </div>
 
-      <label id="size-row">Container size
-        <select id="size-select"></select>
-      </label>
+      <div class="result-card">
+        <div id="info"></div>
+      </div>
 
-      <div id="bottle-result"></div>
-      <div id="info"></div>
       <p id="note"></p>
     </section>
 

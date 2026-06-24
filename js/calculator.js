@@ -2,14 +2,14 @@
 
 // ─── UNIT LABEL MAP ───────────────────────────────────────────────────────────
 
-const AREA_UNIT_LABELS = { ft: "sq ft", yd: "sq yd", m: "sq m" };
+const AREA_UNIT_LABELS = { ft: "sq ft", yd: "sq yd", m: "sq m" , acre: "acre" };
 
 // ─── UPDATE AREA UNIT LABEL ───────────────────────────────────────────────────
 
 function updateAreaUnitLabel() {
-  const unit = document.getElementById("dim-unit").value;
-  const label = document.getElementById("area-unit-label");
-  if (label) label.textContent = AREA_UNIT_LABELS[unit] || "sq ft";
+  var unit = document.getElementById("dim-unit").value;
+  var areaUnitEl = document.getElementById("area-unit");
+  if (areaUnitEl) areaUnitEl.value = unit;
 }
 
 // ─── RESULT UNIT OPTIONS BY FORMULATION ──────────────────────────────────────
@@ -64,19 +64,29 @@ function updateAreaFromDimensions() {
 // ─── READ AREA (always returns sq ft internally) ──────────────────────────────
 
 function getAreaSqFt() {
-  const len  = parseFloat(document.getElementById("len").value)  || 0;
-  const wid  = parseFloat(document.getElementById("wid").value)  || 0;
-  const unit = document.getElementById("dim-unit").value;
-  const totalArea = parseFloat(document.getElementById("sqft").value) || 0;
+  var len  = parseFloat(document.getElementById("len").value)  || 0;
+  var wid  = parseFloat(document.getElementById("wid").value)  || 0;
+  var unit = document.getElementById("dim-unit").value;
+  var totalArea = parseFloat(document.getElementById("sqft").value) || 0;
 
-  const rawArea = (len > 0 && wid > 0) ? len * wid : totalArea;
-  if (rawArea <= 0) return 0;
+  if (len > 0 && wid > 0) {
+    var rawArea = len * wid;
+    switch (unit) {
+      case "ft": return rawArea;
+      case "yd": return rawArea * 9;
+      case "m":  return rawArea * 10.7639;
+      default:   return rawArea;
+    }
+  }
 
-  switch (unit) {
-    case "ft": return rawArea;
-    case "yd": return rawArea * 9;
-    case "m":  return rawArea * 10.7639;
-    default:   return rawArea;
+  if (totalArea <= 0) return 0;
+  var areaUnit = document.getElementById("area-unit").value;
+  switch (areaUnit) {
+    case "ft":   return totalArea;
+    case "yd":   return totalArea * 9;
+    case "m":    return totalArea * 10.7639;
+    case "acre": return totalArea * 43560;
+    default:     return totalArea;
   }
 }
 
@@ -87,6 +97,7 @@ function displayArea(sqft) {
   switch (unit) {
     case "yd": return round(sqft / 9)       + " sq yd";
     case "m":  return round(sqft / 10.7639) + " sq m";
+    case "acre": return round(sqft / 43560)   + " acre";
     default:   return round(sqft)           + " sq ft";
   }
 }
@@ -174,6 +185,34 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("product").addEventListener("change", onProductChange);
   document.getElementById("turf-type").addEventListener("change", updateTurfStatus);
   document.getElementById("result-unit").addEventListener("change", renderResults);
+  var prevAreaUnit = document.getElementById("area-unit").value;
+  document.getElementById("area-unit").addEventListener("change", function() {
+    var newUnit = document.getElementById("area-unit").value;
+    var currentVal = parseFloat(document.getElementById("sqft").value);
+    if (!isNaN(currentVal) && currentVal > 0) {
+      var inSqFt;
+      switch (prevAreaUnit) {
+        case "ft":   inSqFt = currentVal;          break;
+        case "yd":   inSqFt = currentVal * 9;      break;
+        case "m":    inSqFt = currentVal * 10.7639; break;
+        case "acre": inSqFt = currentVal * 43560;  break;
+        default:     inSqFt = currentVal;
+      }
+      var converted;
+      switch (newUnit) {
+        case "ft":   converted = inSqFt;            break;
+        case "yd":   converted = inSqFt / 9;        break;
+        case "m":    converted = inSqFt / 10.7639;  break;
+        case "acre": converted = inSqFt / 43560;    break;
+        default:     converted = inSqFt;
+      }
+      document.getElementById("sqft").value = round(converted);
+    }
+    prevAreaUnit = newUnit;
+    if (!document.getElementById("results").classList.contains("hidden")) {
+      renderResults();
+    }
+  });
   document.getElementById("size-select").addEventListener("change", renderBottles);
   document.getElementById("calculate-btn").addEventListener("click", renderResults);
   document.getElementById("reset-calc-btn").addEventListener("click", resetCalculator);
@@ -225,11 +264,11 @@ function getRate(product, turfType, rateTierLabel) {
     return { rateMin: tier.ozPer1k, rateMax: tier.ozPer1k };
   }
   if (pattern === "both") {
-    const turfMatch = product.turfRates.find(function(g) { return g.turfGroup.includes(turfType); });
-    const tier = product.rateTiers.find(function(t) { return t.label === rateTierLabel; });
+    var turfMatch = product.turfRates.find(function(g) { return g.turfGroup.includes(turfType); });
+    var tier = product.rateTiers.find(function(t) { return t.label === rateTierLabel; });
     if (!turfMatch || !tier) return null;
-    const rate = Math.min(tier.ozPer1k, turfMatch.rateMax);
-    return { rateMin: rate, rateMax: turfMatch.rateMax };
+    var rate = Math.min(tier.ozPer1k, turfMatch.rateMax);
+    return { rateMin: rate, rateMax: rate };
   }
   return null;
 }
@@ -291,48 +330,48 @@ function calcContainers(amountMax, containerOz) {
 // ─── RENDER RESULTS ───────────────────────────────────────────────────────────
 
 function renderResults() {
-  const product = getSelectedProduct();
+  var product = getSelectedProduct();
   if (!product) return;
-  const sqft = getAreaSqFt();
+  var sqft = getAreaSqFt();
   if (sqft <= 0) return;
 
-  const turfType      = document.getElementById("turf-type").value || null;
-  const rateTierLabel = document.getElementById("use-type").value  || null;
-  const displayUnit   = document.getElementById("result-unit").value;
+  var turfType      = document.getElementById("turf-type").value  || null;
+  var rateTierLabel = document.getElementById("use-type").value   || null;
+  var displayUnit   = document.getElementById("result-unit").value;
 
-  const calc = calculate(product, sqft, turfType, rateTierLabel);
+  var calc = calculate(product, sqft, turfType, rateTierLabel);
   if (!calc) return;
 
-  const min          = convertAmount(calc.amountMin, product.formulation, displayUnit);
-  const max          = convertAmount(calc.amountMax, product.formulation, displayUnit);
-  const waterRounded = round(calc.water);
+  var min          = convertAmount(calc.amountMin, product.formulation, displayUnit);
+  var max          = convertAmount(calc.amountMax, product.formulation, displayUnit);
+  var waterRounded = round(calc.water);
 
-  let turfWarningHTML = "";
+  // ── Calculation Summary stats ──────────────────────────────────────────────
+  var metricsHTML = "";
+
   if (turfType && product.notSafeTurf && product.notSafeTurf.includes(turfType)) {
-    turfWarningHTML = `<p id="turf-warning">⚠️ ${product.fullName} is <strong>NOT SAFE</strong> for ${turfType}. <strong>DO NOT APPLY</strong>.</p>`;
+    metricsHTML += '<p class="result-warning-danger">⚠️ ' + product.fullName + ' is <strong>NOT SAFE</strong> for ' + turfType + '. <strong>DO NOT APPLY</strong>.</p>';
   }
 
-  let metricsHTML = `
-    ${turfWarningHTML}
-    <p><strong>Area:</strong> ${displayArea(sqft)}</p>
-    <p><strong>Product needed:</strong> ${
-      min.value === max.value
-        ? `${max.value} ${max.unit}`
-        : `${min.value} – ${max.value} ${max.unit}`
-    }</p>
-    <p><strong>Water / carrier:</strong> ${waterRounded} gal</p>
-  `;
+  var productAmount = min.value === max.value
+    ? (max.value + " " + max.unit)
+    : (min.value + " – " + max.value + " " + max.unit);
+
+  metricsHTML += '<div class="result-stat"><span class="result-stat-label">Area</span><span class="result-stat-value">' + displayArea(sqft) + '</span></div>';
+  metricsHTML += '<div class="result-stat"><span class="result-stat-label">Product needed</span><span class="result-stat-value result-stat-highlight">' + productAmount + '</span></div>';
+  metricsHTML += '<div class="result-stat"><span class="result-stat-label">Water / carrier</span><span class="result-stat-value">' + waterRounded + ' gal</span></div>';
 
   if (calc.overAnnualMax) {
-    metricsHTML += `<p id="annual-warning">⚠️ Amount exceeds annual maximum of ${round(calc.annualMax)} oz per application cycle. Split into multiple applications.</p>`;
+    metricsHTML += '<p class="result-warning-caution">⚠️ Amount exceeds annual maximum of ' + round(calc.annualMax) + ' oz. Split into multiple applications.</p>';
   }
 
   document.getElementById("metrics").innerHTML = metricsHTML;
 
-  const sizeSelect = document.getElementById("size-select");
+  // ── Container size dropdown ────────────────────────────────────────────────
+  var sizeSelect = document.getElementById("size-select");
   sizeSelect.innerHTML = "";
   product.containerSizes.forEach(function(s) {
-    const opt = document.createElement("option");
+    var opt = document.createElement("option");
     opt.value = s.oz;
     opt.textContent = s.label;
     sizeSelect.appendChild(opt);
@@ -340,56 +379,98 @@ function renderResults() {
 
   renderBottles();
 
-  let infoHTML = `<h3>${product.fullName}</h3>`;
-  infoHTML += `<p><strong>Type:</strong> ${product.type}</p>`;
-  infoHTML += `<p><strong>Active ingredients:</strong> ${product.activeIngredients.join(", ")}</p>`;
-  infoHTML += `<p><strong>EPA toxicity level:</strong> ${product.EPAtoxicityLevel}</p>`;
-  infoHTML += `<p><strong>Re-entry interval:</strong> ${product.reentryInterval}</p>`;
+  // ── Product Info card ──────────────────────────────────────────────────────
+  var toxicityClass = product.EPAtoxicityLevel === "CAUTION" ? "result-badge-caution"
+                    : product.EPAtoxicityLevel === "WARNING" ? "result-badge-warning"
+                    : product.EPAtoxicityLevel === "DANGER"  ? "result-badge-danger"
+                    : "";
+
+  var infoHTML = '<h3 class="result-product-name">' + product.fullName + '</h3>';
+  infoHTML += '<div class="result-badges">';
+  infoHTML += '<span class="result-badge">' + product.type + '</span>';
+  infoHTML += '<span class="result-badge">' + product.formulation + '</span>';
+  infoHTML += '<span class="result-badge ' + toxicityClass + '">' + product.EPAtoxicityLevel + '</span>';
+  infoHTML += '</div>';
+
+  infoHTML += '<div class="result-stat"><span class="result-stat-label">Active ingredients</span><span class="result-stat-value">' + product.activeIngredients.join(", ") + '</span></div>';
+  infoHTML += '<div class="result-stat"><span class="result-stat-label">Re-entry interval</span><span class="result-stat-value">' + product.reentryInterval + '</span></div>';
 
   if (product.applicationNotes && product.applicationNotes.length) {
-    infoHTML += `<p><strong>Application notes:</strong></p><ul>`;
-    product.applicationNotes.forEach(function(n) { infoHTML += `<li>${n}</li>`; });
-    infoHTML += `</ul>`;
+    var noteItems = product.applicationNotes.map(function(n) { return "<li>" + n + "</li>"; }).join("");
+    infoHTML += '<div class="result-collapsible">';
+    infoHTML += '<button class="result-collapsible-btn" aria-expanded="false" data-body="rc-notes">';
+    infoHTML += '<span>Application notes</span><span class="result-collapsible-count">' + product.applicationNotes.length + '</span><span class="result-chevron" aria-hidden="true">▼</span>';
+    infoHTML += '</button>';
+    infoHTML += '<div id="rc-notes" class="result-collapsible-body hidden"><ul>' + noteItems + '</ul></div>';
+    infoHTML += '</div>';
   }
+
   if (product.restrictions && product.restrictions.length) {
-    infoHTML += `<p><strong>Restrictions:</strong></p><ul>`;
-    product.restrictions.forEach(function(r) { infoHTML += `<li>${r}</li>`; });
-    infoHTML += `</ul>`;
+    var restrictItems = product.restrictions.map(function(r) { return "<li>" + r + "</li>"; }).join("");
+    infoHTML += '<div class="result-collapsible">';
+    infoHTML += '<button class="result-collapsible-btn" aria-expanded="false" data-body="rc-restrictions">';
+    infoHTML += '<span>Restrictions</span><span class="result-collapsible-count">' + product.restrictions.length + '</span><span class="result-chevron" aria-hidden="true">▼</span>';
+    infoHTML += '</button>';
+    infoHTML += '<div id="rc-restrictions" class="result-collapsible-body hidden"><ul>' + restrictItems + '</ul></div>';
+    infoHTML += '</div>';
   }
+
   if (product.genericAlternatives && product.genericAlternatives.length) {
-    infoHTML += `<p><strong>Generic alternatives:</strong></p><ul>`;
-    product.genericAlternatives.forEach(function(g) {
-      infoHTML += `<li><strong>${g.fullName}</strong> — ${g.activeIngredient}. ${g.note}</li>`;
-    });
-    infoHTML += `</ul>`;
+    var genericItems = product.genericAlternatives.map(function(g) {
+      return "<li><strong>" + g.fullName + "</strong> — " + g.activeIngredient + ". " + g.note + "</li>";
+    }).join("");
+    infoHTML += '<div class="result-collapsible">';
+    infoHTML += '<button class="result-collapsible-btn" aria-expanded="false" data-body="rc-generics">';
+    infoHTML += '<span>Generic alternatives</span><span class="result-collapsible-count">' + product.genericAlternatives.length + '</span><span class="result-chevron" aria-hidden="true">▼</span>';
+    infoHTML += '</button>';
+    infoHTML += '<div id="rc-generics" class="result-collapsible-body hidden"><ul>' + genericItems + '</ul></div>';
+    infoHTML += '</div>';
   }
-  infoHTML += `<p><a href="${product.labelUrl}" target="_blank">View full product label ↗</a></p>`;
+
+  infoHTML += '<a href="' + product.labelUrl + '" class="result-label-link" target="_blank" rel="noopener noreferrer">View full product label ↗</a>';
 
   document.getElementById("info").innerHTML = infoHTML;
+  wireResultCollapsibles();
+
   document.getElementById("results").classList.remove("hidden");
+}
+
+// ─── WIRE COLLAPSIBLES IN RESULT INFO CARD ────────────────────────────────────
+
+function wireResultCollapsibles() {
+  document.querySelectorAll("#info .result-collapsible-btn").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      var bodyId   = btn.dataset.body;
+      var body     = document.getElementById(bodyId);
+      if (!body) return;
+      var expanded = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!expanded));
+      body.classList.toggle("hidden", expanded);
+    });
+  });
 }
 
 // ─── RENDER BOTTLE CALCULATION ────────────────────────────────────────────────
 
 function renderBottles() {
-  const product = getSelectedProduct();
+  var product = getSelectedProduct();
   if (!product) return;
-  const sqft = getAreaSqFt();
+  var sqft = getAreaSqFt();
   if (sqft <= 0) return;
-  const containerOz = parseFloat(document.getElementById("size-select").value);
+  var containerOz = parseFloat(document.getElementById("size-select").value);
   if (!containerOz) return;
 
-  const turfType      = document.getElementById("turf-type").value || null;
-  const rateTierLabel = document.getElementById("use-type").value  || null;
-  const calc = calculate(product, sqft, turfType, rateTierLabel);
+  var turfType      = document.getElementById("turf-type").value || null;
+  var rateTierLabel = document.getElementById("use-type").value  || null;
+  var calc = calculate(product, sqft, turfType, rateTierLabel);
   if (!calc) return;
 
-  const result = calcContainers(calc.amountMax, containerOz);
-  document.getElementById("bottle-result").innerHTML = `
-    <p><strong>Containers to buy:</strong> ${result.needed}</p>
-    <p><strong>Total purchased:</strong> ${result.totalPurchased} oz</p>
-    <p><strong>Leftover after max rate:</strong> ${result.leftover} oz</p>
-  `;
+  var result = calcContainers(calc.amountMax, containerOz);
+
+  document.getElementById("bottle-result").innerHTML =
+    '<div class="result-stat"><span class="result-stat-label">Containers to buy</span><span class="result-stat-value result-stat-highlight">' + result.needed + '</span></div>' +
+    '<div class="result-stat"><span class="result-stat-label">Total purchased</span><span class="result-stat-value">' + result.totalPurchased + ' oz</span></div>' +
+    '<div class="result-stat"><span class="result-stat-label">Leftover after max rate</span><span class="result-stat-value">' + result.leftover + ' oz</span></div>';
 }
 
 // ─── RESET CALCULATOR ────────────────────────────────────────────────────────
@@ -399,6 +480,7 @@ function resetCalculator() {
   document.getElementById("wid").value         = "";
   document.getElementById("sqft").value        = "";
   document.getElementById("dim-unit").value    = "ft";
+  document.getElementById("area-unit").value   = "ft";
   document.getElementById("product").value     = "";
   document.getElementById("result-unit").value = "base";
   document.getElementById("use-row").classList.add("hidden");
