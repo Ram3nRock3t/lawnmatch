@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self';
-                 script-src 'self';
+                 script-src 'self' https://cdn.jsdelivr.net;
                  style-src 'self';
-                 img-src 'self' data:;">
+                 img-src 'self' data:;
+                 connect-src https://api.emailjs.com;">
   <meta http-equiv="X-XSS-Protection" content="0">
   <meta name="referrer" content="no-referrer">
   <title>LawnMatch</title>
@@ -23,6 +24,7 @@
     <a href="#matrix" class="nav-link" data-page="matrix">Product Matrix</a>
     <a href="#reverse" class="nav-link" data-page="reverse">Weeds Coverage</a>
     <a href="#products" class="nav-link" data-page="products">Products</a>
+    <a href="#contact" class="nav-link" data-page="contact">Contact</a>
   </div> 
     <div class="nav-scroll-hint nav-scroll-hint-left hidden" id="nav-scroll-hint-left" aria-hidden="true"></div> 
     <div class="nav-scroll-hint nav-scroll-hint-right hidden" id="nav-scroll-hint-right" aria-hidden="true"></div>
@@ -221,6 +223,42 @@
 
   </div>
 
+  <!-- ── CONTACT ────────────────────────────────────────────────────────────── -->
+  <div id="page-contact" class="hidden">
+
+    <h1>Contact</h1>
+    <p class="page-intro">Send feedback, report incorrect product data, or request a product to be added to the database.</p>
+
+    <section id="contact-section">
+
+      <label>Your name
+        <input type="text" id="contact-name" placeholder="e.g. John">
+      </label>
+
+      <label>Your email
+        <input type="text" id="contact-email" placeholder="you@example.com">
+      </label>
+
+      <label>Category
+        <select id="contact-category">
+          <option value="">— select a category —</option>
+          <option value="Feedback or Suggestion">Feedback or Suggestion</option>
+          <option value="Incorrect Product Data">Incorrect Product Data</option>
+          <option value="Product Request">Product Request</option>
+        </select>
+      </label>
+
+      <label>Message
+        <textarea id="contact-message" rows="6" placeholder="Describe your feedback, correction, or the product you'd like added..."></textarea>
+      </label>
+
+      <button id="contact-submit-btn">Send Message</button>
+      <div id="contact-status" class="hidden"></div>
+
+    </section>
+
+  </div>
+
   <p id="disclaimer">Always read and follow the full product label. Label instructions are law. This calculator is a convenience tool only.</p>
 
 </div>
@@ -232,6 +270,8 @@
 <script src="js/products-page.js"></script>
 <script src="js/router.js"></script>
 <script src="js/theme.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="js/contact.js"></script>
 
 </body>
 </html>

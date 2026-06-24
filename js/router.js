@@ -1,6 +1,6 @@
 // router.js
 
-const PAGES = ['calculator', 'matrix', 'reverse', 'products'];
+const PAGES = ['calculator', 'matrix', 'reverse', 'products', 'contact'];
 let currentPage = '';
 
 function navigateTo(pageId) {
