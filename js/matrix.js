@@ -1,5 +1,137 @@
 // matrix.js
 
+// ─── WEED DISPLAY NAME HELPER ─────────────────────────────────────────────────
+
+function getWeedCommonName(id) {
+  var found = WEEDS.find(function(w) { return w.id === id; });
+  return found ? found.commonName : id;
+}
+
+// ─── GENUS PARENT/CHILD MATCHING (STEP 3) ────────────────────────────────────
+// A weed entry counts as a "genus parent" if its scientificName ends in "spp.".
+// Selecting a genus parent surfaces products that target specific species
+// beneath it; selecting a species surfaces products that only target its
+// parent genus. This ONLY applies on the forward Matrix page (user selects
+// weeds). The Reverse Matrix (user selects products) always uses exact
+// matching only — see useGenusMatching flag threaded through below.
+
+// Sub-genus catch-alls that do NOT cover their entire genus (only a named
+// subset of species within it) go here, keyed by id, mapped to the exact
+// species ids they legitimately cover. Add future exceptions here as found.
+const PARTIAL_GENUS_CHILDREN = {
+  "hop-clover": ["hop-clover-large", "hop-clover-low"]
+};
+
+function isGenusParent(weed) {
+  return !!weed && typeof weed.scientificName === "string"
+    && weed.scientificName.trim().toLowerCase().endsWith("spp.");
+}
+
+// Children of a genus PARENT (used when the user selects a parent entry).
+function getGenusChildren(parentWeed) {
+  if (PARTIAL_GENUS_CHILDREN[parentWeed.id]) {
+    return PARTIAL_GENUS_CHILDREN[parentWeed.id]
+      .map(function(id) { return WEEDS.find(function(w) { return w.id === id; }); })
+      .filter(Boolean);
+  }
+  return WEEDS.filter(function(w) {
+    return w.parentGenus === parentWeed.parentGenus
+      && w.id !== parentWeed.id
+      && !isGenusParent(w);
+  });
+}
+
+// Parent(s) of a SPECIES (used when the user selects a specific species).
+// Only returns true genus-parent entries that legitimately cover this exact
+// species — never sibling species under the same genus.
+function getGenusParents(childWeed) {
+  return WEEDS.filter(function(w) {
+    if (!isGenusParent(w) || w.id === childWeed.id) return false;
+    if (w.parentGenus !== childWeed.parentGenus) return false;
+    if (PARTIAL_GENUS_CHILDREN[w.id]) {
+      return PARTIAL_GENUS_CHILDREN[w.id].includes(childWeed.id);
+    }
+    return true;
+  });
+}
+
+// Given a selected weed id, returns every id that should count as a match:
+// the weed itself, plus genus parents (if it's a species) or genus children
+// (if it's a parent) — never sideways to sibling species.
+function getWeedMatchSet(selectedId) {
+  var weed = WEEDS.find(function(w) { return w.id === selectedId; });
+  if (!weed) return [{ id: selectedId, relation: "exact" }];
+
+  var matches = [{ id: weed.id, relation: "exact" }];
+
+  if (isGenusParent(weed)) {
+    getGenusChildren(weed).forEach(function(child) {
+      matches.push({ id: child.id, relation: "child" });
+    });
+  } else {
+    getGenusParents(weed).forEach(function(parent) {
+      matches.push({ id: parent.id, relation: "parent" });
+    });
+  }
+
+  return matches;
+}
+
+function getWeedDisplayWithScientific(id) {
+  var w = WEEDS.find(function(x) { return x.id === id; });
+  if (!w) return id;
+  return w.commonName + " (" + w.scientificName + ")";
+}
+
+// Genus-aware match: expands the selected weed id per getWeedMatchSet before
+// checking product.targetWeeds. Used only on the forward Matrix page.
+function findWeedMatchGenusAware(product, selectedWeedId) {
+  var matchSet = getWeedMatchSet(selectedWeedId);
+  for (var i = 0; i < product.targetWeeds.length; i++) {
+    var entry = product.targetWeeds[i];
+    if (!Array.isArray(entry.ids)) continue;
+    for (var j = 0; j < entry.ids.length; j++) {
+      var hit = matchSet.find(function(m) { return m.id === entry.ids[j]; });
+      if (hit) return { entry: entry, relation: hit.relation, matchedId: hit.id };
+    }
+  }
+  return null;
+}
+
+// Exact-only match: no genus expansion at all. Used on the Reverse Matrix,
+// where the tool should display exactly what's on the label, nothing inferred.
+function findWeedMatchExact(product, selectedWeedId) {
+  var entry = product.targetWeeds.find(function(w) {
+    return Array.isArray(w.ids) && w.ids.includes(selectedWeedId);
+  });
+  return entry ? { entry: entry, relation: "exact", matchedId: selectedWeedId } : null;
+}
+
+function findWeedMatch(product, selectedWeedId, useGenusMatching) {
+  return useGenusMatching
+    ? findWeedMatchGenusAware(product, selectedWeedId)
+    : findWeedMatchExact(product, selectedWeedId);
+}
+
+function getMatchFlagLabel(relation, matchedId) {
+  if (relation === "exact") return null;
+  var display = getWeedDisplayWithScientific(matchedId);
+  if (relation === "child")  return "Targets specific species: " + display;
+  if (relation === "parent") return "Targets parent genus: " + display;
+  return null;
+}
+
+// Whether a weed can be reached by any herbicide product, either directly or
+// via genus parent/child matching — used to decide the Matrix checkbox list.
+function isWeedTargetable(weed) {
+  var matchIds = getWeedMatchSet(weed.id).map(function(m) { return m.id; });
+  return PRODUCTS.some(function(p) {
+    return p.targetWeeds.some(function(t) {
+      return Array.isArray(t.ids) && t.ids.some(function(id) { return matchIds.includes(id); });
+    });
+  });
+}
+
 // ─── POPULATE TURF DROPDOWN ───────────────────────────────────────────────────
 
 function populateMatrixTurfTypes() {
@@ -17,8 +149,6 @@ function populateMatrixTurfTypes() {
 function getTurfSafetyStatus(product, turfType) {
   if (product.turfTypes.includes(turfType)) return "safe";
   if (product.notSafeTurf.some(function(entry) {
-    // notSafeTurf entries sometimes include extra notes in parentheses,
-    // e.g. "Dichondra (do not apply where desirable)" — match on the turf name itself
     return entry.toLowerCase().indexOf(turfType.toLowerCase()) === 0;
   })) return "unsafe";
   return "unknown";
@@ -28,28 +158,23 @@ function getTurfSafetyStatus(product, turfType) {
 
 function populateMatrixWeeds() {
   var container = document.getElementById("matrix-weed-checkboxes");
-  var allWeeds = new Set();
 
-  PRODUCTS.filter(function(p) { return p.category === "herbicide"; }).forEach(function(p) {
-    p.targetWeeds.forEach(function(w) {
-      // targetWeeds is either an array of strings, or an array of objects with .name
-      const weedName = typeof w === "string" ? w : w.name;
-      allWeeds.add(weedName);
-    });
-  });
+  var targetableWeeds = WEEDS.filter(isWeedTargetable);
 
-  Array.from(allWeeds).sort().forEach(function(w) {
-    const label = document.createElement("label");
+  targetableWeeds.slice().sort(function(a, b) {
+    return a.commonName.localeCompare(b.commonName);
+  }).forEach(function(w) {
+    var label = document.createElement("label");
     label.className = "weed-label";
-    label.dataset.weedName = w.toLowerCase();
+    label.dataset.weedName = w.commonName.toLowerCase();
 
-    const checkbox = document.createElement("input");
+    var checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-    checkbox.value = w;
+    checkbox.value = w.id;
     checkbox.className = "matrix-weed-checkbox";
 
     label.appendChild(checkbox);
-    label.appendChild(document.createTextNode(" " + w));
+    label.appendChild(document.createTextNode(" " + w.commonName));
     container.appendChild(label);
   });
 }
@@ -96,17 +221,17 @@ function getWeedCoverage(product, selectedWeeds) {
   const covered = [];
   const notCovered = [];
 
-  selectedWeeds.forEach(function(weedName) {
-    const match = product.targetWeeds.find(function(w) {
-      const name = typeof w === "string" ? w : w.name;
-      return name === weedName;
-    });
-
+  selectedWeeds.forEach(function(weedId) {
+    const match = findWeedMatch(product, weedId, true);
     if (!match) {
-      notCovered.push(weedName);
+      notCovered.push(weedId);
     } else {
-      const rateRequired = typeof match === "string" ? null : match.rateRequired;
-      covered.push({ weedName: weedName, rateRequired: rateRequired });
+      covered.push({
+        weedId: weedId,
+        rateRequired: match.entry.rateRequired || null,
+        relation: match.relation,
+        matchedId: match.matchedId
+      });
     }
   });
 
@@ -115,16 +240,16 @@ function getWeedCoverage(product, selectedWeeds) {
 
 // ─── SHARED RESULT BUILDER (table or cards) ────────────────────────────────────
 
-function buildProductWeedTable(turfType, products, weeds, viewMode, showRemove) {
+function buildProductWeedTable(turfType, products, weeds, viewMode, showRemove, useGenusMatching) {
   if (viewMode === "cards") {
-    return buildProductWeedCards(turfType, products, weeds);
+    return buildProductWeedCards(turfType, products, weeds, useGenusMatching);
   }
-  return buildProductWeedTableHTML(turfType, products, weeds, showRemove);
+  return buildProductWeedTableHTML(turfType, products, weeds, showRemove, useGenusMatching);
 }
 
 // ─── TABLE VIEW ─────────────────────────────────────────────────────────────────
 
-function buildProductWeedTableHTML(turfType, products, weeds, showRemove) {
+function buildProductWeedTableHTML(turfType, products, weeds, showRemove, useGenusMatching) {
   const turfSafety = {};
   products.forEach(function(product) {
     turfSafety[product.id] = getTurfSafetyStatus(product, turfType);
@@ -136,26 +261,31 @@ function buildProductWeedTableHTML(turfType, products, weeds, showRemove) {
     var safetyTag = "";
     if (safety === "unsafe")  safetyTag = '<br><span class="matrix-unsafe-tag">NOT SAFE for ' + turfType + '</span>';
     if (safety === "unknown") safetyTag = '<br><span class="matrix-unknown-tag">Not listed for ' + turfType + '</span>';
+    var multiTypeTag = isMultiType(product)
+      ? '<br><span class="matrix-multitype-tag">ⓘ Pre- &amp; post-emergent — timing varies by weed</span>'
+      : "";
     var removeBtn = showRemove
       ? '<button class="matrix-col-remove" data-product-id="' + product.id + '" aria-label="Remove ' + product.fullName + '" title="Remove product">❌</button>'
       : "";
-    html += "<th>" + product.fullName + safetyTag + removeBtn + "</th>";
+    html += "<th>" + product.fullName + safetyTag + multiTypeTag + removeBtn + "</th>";
   });
   html += `</tr></thead><tbody>`;
 
-  weeds.forEach(function(weedName) {
-    html += `<tr><td><div class="weed-cell-content">${weedName}</div></td>`;
+  weeds.forEach(function(weedId) {
+    var displayName = getWeedCommonName(weedId);
+    html += `<tr><td><div class="weed-cell-content">${displayName}</div></td>`;
 
     products.forEach(function(product) {
-      const match = product.targetWeeds.find(function(w) {
-        const name = typeof w === "string" ? w : w.name;
-        return name === weedName;
-      });
+      const match = findWeedMatch(product, weedId, useGenusMatching);
 
       let cellContent = "";
       if (match) {
-        const rateRequired = typeof match === "string" ? null : match.rateRequired;
+        const rateRequired = match.entry.rateRequired || null;
+        const flag = getMatchFlagLabel(match.relation, match.matchedId);
         cellContent = `<span class="matrix-yes">✓</span>${rateRequired ? " (" + rateRequired + ")" : ""}`;
+        if (flag) {
+          cellContent += `<br><span class="matrix-genus-flag">ⓘ ${escapeHTML(flag)}</span>`;
+        }
       }
 
       let cellClass = "matrix-cell";
@@ -175,44 +305,47 @@ function buildProductWeedTableHTML(turfType, products, weeds, showRemove) {
 
 // ─── CARD VIEW ──────────────────────────────────────────────────────────────────
 
-function buildProductWeedCards(turfType, products, weeds) {
+function buildProductWeedCards(turfType, products, weeds, useGenusMatching) {
   let html = "";
 
   products.forEach(function(product) {
     const safety = getTurfSafetyStatus(product, turfType);
 
     let safetyTag = "";
-    if (safety === "unsafe")  safetyTag = `<p><span class="matrix-unsafe-tag" style="display:inline;">⚠️ NOT SAFE for ${turfType}</span></p>`;
-    if (safety === "unknown") safetyTag = `<p><span class="matrix-unknown-tag" style="display:inline;">❓ Not listed for ${turfType}</span></p>`;
+    if (safety === "unsafe")  safetyTag = `<p><span class="matrix-unsafe-tag">⚠️ NOT SAFE for ${turfType}</span></p>`;
+    if (safety === "unknown") safetyTag = `<p><span class="matrix-unknown-tag">❓ Not listed for ${turfType}</span></p>`;
 
-    const coveredWeeds = weeds.filter(function(weedName) {
-      return product.targetWeeds.some(function(w) {
-        const name = typeof w === "string" ? w : w.name;
-        return name === weedName;
-      });
+    const coveredWeedIds = weeds.filter(function(weedId) {
+      return !!findWeedMatch(product, weedId, useGenusMatching);
     });
 
     let cardClass = "product-card";
     if (safety === "unsafe")  cardClass += " product-card-unsafe";
     if (safety === "unknown") cardClass += " product-card-unknown";
 
+    var multiTypeNote = isMultiType(product)
+      ? `<p class="matrix-multitype-note">ⓘ ${MULTI_TYPE_DISCLAIMER}</p>`
+      : "";
+
     html += `<div class="${cardClass}">`;
     html += `<h4>${product.fullName}</h4>`;
     html += safetyTag;
+    html += multiTypeNote;
 
-    if (coveredWeeds.length > 0) {
+    if (coveredWeedIds.length > 0) {
       html += `<ul>`;
-      coveredWeeds.forEach(function(weedName) {
-        const match = product.targetWeeds.find(function(w) {
-          const name = typeof w === "string" ? w : w.name;
-          return name === weedName;
-        });
-        const rateRequired = typeof match === "object" ? match.rateRequired : null;
-        html += `<li>${weedName}${rateRequired ? " — rate: " + rateRequired : ""}</li>`;
+      coveredWeedIds.forEach(function(weedId) {
+        var displayName = getWeedCommonName(weedId);
+        var match = findWeedMatch(product, weedId, useGenusMatching);
+        var rateRequired = match ? (match.entry.rateRequired || null) : null;
+        var flag = match ? getMatchFlagLabel(match.relation, match.matchedId) : null;
+        html += `<li>${displayName}${rateRequired ? " — rate: " + rateRequired : ""}`;
+        if (flag) html += `<br><span class="matrix-genus-flag">ⓘ ${escapeHTML(flag)}</span>`;
+        html += `</li>`;
       });
       html += `</ul>`;
     } else {
-      html += `<p style="color: var(--color-text-muted);">No matching weeds from your selection.</p>`;
+      html += `<p class="matrix-no-weeds">No matching weeds from your selection.</p>`;
     }
 
     html += `</div>`;
@@ -243,6 +376,7 @@ function setReverseView(mode) {
 }
 
 // ─── FORWARD MATRIX: select weeds → see matching products ──────────────────────
+// Uses genus-aware matching (useGenusMatching = true).
 
 function renderMatrix() {
   var turfType = document.getElementById("matrix-turf-type").value;
@@ -260,7 +394,6 @@ function renderMatrix() {
     return;
   }
 
-  // Use checked products if any; otherwise use all herbicides
   var selectedProductIds = Array.from(document.querySelectorAll(".matrix-product-checkbox:checked"))
     .map(function(cb) { return cb.value; });
   var productPool = selectedProductIds.length > 0
@@ -269,11 +402,8 @@ function renderMatrix() {
 
   var relevantProducts = productPool.filter(function(product) {
     if (getTurfSafetyStatus(product, turfType) === "unsafe") return false;
-    return selectedWeeds.some(function(weedName) {
-      return product.targetWeeds.some(function(w) {
-        var name = typeof w === "string" ? w : w.name;
-        return name === weedName;
-      });
+    return selectedWeeds.some(function(weedId) {
+      return !!findWeedMatch(product, weedId, true);
     });
   });
 
@@ -284,11 +414,8 @@ function renderMatrix() {
 
   var coverageCount = {};
   relevantProducts.forEach(function(product) {
-    coverageCount[product.id] = selectedWeeds.filter(function(weedName) {
-      return product.targetWeeds.some(function(w) {
-        var name = typeof w === "string" ? w : w.name;
-        return name === weedName;
-      });
+    coverageCount[product.id] = selectedWeeds.filter(function(weedId) {
+      return !!findWeedMatch(product, weedId, true);
     }).length;
   });
 
@@ -299,7 +426,7 @@ function renderMatrix() {
   });
 
   document.querySelector('#matrix-section .view-toggle').classList.add("visible");
-  resultsDiv.innerHTML = buildProductWeedTable(turfType, relevantProducts, selectedWeeds, matrixViewMode, true);
+  resultsDiv.innerHTML = buildProductWeedTable(turfType, relevantProducts, selectedWeeds, matrixViewMode, true, true);
   wireMatrixColRemove();
 }
 
@@ -313,12 +440,10 @@ function wireMatrixColRemove() {
       var anyChecked = checkboxes.some(function(cb) { return cb.checked; });
 
       if (!anyChecked) {
-        // Currently showing all — check all except the removed one
         checkboxes.forEach(function(cb) {
           cb.checked = cb.value !== productId;
         });
       } else {
-        // Uncheck just this one
         checkboxes.forEach(function(cb) {
           if (cb.value === productId) cb.checked = false;
         });
@@ -329,6 +454,8 @@ function wireMatrixColRemove() {
 }
 
 // ─── REVERSE MATRIX: select products → see weeds covered ───────────────────────
+// Uses exact-only matching (useGenusMatching = false) — displays labels
+// exactly as they appear on the product, no genus inference.
 
 function renderReverseMatrix() {
   const turfType = document.getElementById("reverse-turf-type").value;
@@ -350,27 +477,25 @@ function renderReverseMatrix() {
     return selectedProductIds.includes(p.id);
   });
 
-  // Flags unsafe products
   const relevantProducts = selectedProducts;
 
-  // Build the weed list as the union of every weed targeted by the relevant products
   const weedSet = new Set();
   relevantProducts.forEach(function(product) {
     product.targetWeeds.forEach(function(w) {
-      const name = typeof w === "string" ? w : w.name;
-      weedSet.add(name);
+      if (Array.isArray(w.ids)) {
+        w.ids.forEach(function(id) { weedSet.add(id); });
+      }
     });
   });
-  const weeds = Array.from(weedSet).sort();
 
-  // Sort products by how many of those weeds they individually cover
+  const weeds = Array.from(weedSet).sort(function(a, b) {
+    return getWeedCommonName(a).localeCompare(getWeedCommonName(b));
+  });
+
   const coverageCount = {};
   relevantProducts.forEach(function(product) {
-    coverageCount[product.id] = weeds.filter(function(weedName) {
-      return product.targetWeeds.some(function(w) {
-        const name = typeof w === "string" ? w : w.name;
-        return name === weedName;
-      });
+    coverageCount[product.id] = weeds.filter(function(weedId) {
+      return !!findWeedMatch(product, weedId, false);
     }).length;
   });
 
@@ -381,7 +506,7 @@ function renderReverseMatrix() {
   });
 
   document.querySelector('#reverse-section .view-toggle').classList.add("visible");
-  resultsDiv.innerHTML = buildProductWeedTable(turfType, relevantProducts, weeds, reverseViewMode);
+  resultsDiv.innerHTML = buildProductWeedTable(turfType, relevantProducts, weeds, reverseViewMode, false, false);
 }
 
 // ─── POPULATE REVERSE TURF DROPDOWN ───────────────────────────────────────────
@@ -428,6 +553,14 @@ function filterProductCheckboxes() {
   });
 }
 
+// ─── MULTI-TYPE DISCLAIMER ────────────────────────────────────────────────────
+
+const MULTI_TYPE_DISCLAIMER = "Pre- and post-emergent product — weed control timing varies by species. Consult the full label before applying.";
+
+function isMultiType(product) {
+  return Array.isArray(product.type) && product.type.length > 1;
+}
+
 // ─── RESET MATRIX ─────────────────────────────────────────────────────────────
 
 function resetMatrix() {
@@ -448,7 +581,7 @@ function resetReverseMatrix() {
     cb.checked = false;
   });
   document.getElementById("product-search").value = "";
-  filterProductCheckboxes(); // show all products again
+  filterProductCheckboxes();
   document.getElementById("reverse-results").innerHTML = "";
   document.querySelector("#reverse-section .view-toggle").classList.remove("visible");
 }
@@ -457,7 +590,6 @@ function resetReverseMatrix() {
 
 document.addEventListener("DOMContentLoaded", function() {
 
-  // Forward matrix — only runs on matrix.html where these elements exist
   populateMatrixTurfTypes();
   populateMatrixProducts();
   populateMatrixWeeds();
@@ -469,7 +601,6 @@ document.addEventListener("DOMContentLoaded", function() {
     btn.addEventListener("click", function() { setMatrixView(btn.dataset.view); });
   });
 
-  // Reverse search — only runs on reverse.html where these elements exist
   populateReverseTurfTypes();
   populateReverseProducts();
   document.getElementById("product-search").addEventListener("input", filterProductCheckboxes);

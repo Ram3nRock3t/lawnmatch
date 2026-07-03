@@ -258,6 +258,7 @@ button:active {
 }
 
 #matrix-weed-checkboxes,
+#matrix-product-checkboxes,
 #reverse-product-checkboxes {
   max-height: 250px;
   overflow-y: auto;
@@ -575,6 +576,14 @@ button:active {
   font-weight: 600;
   padding: 10px 12px;
   border-radius: 6px;
+}
+
+.matrix-genus-flag {
+  font-size: 0.8em;
+  font-style: italic;
+  color: var(--color-primary-dark);
+  display: inline-block;
+  margin-top: 2px;
 }
 
 /* ─── MATRIX TABLE ───────────────────────────────────────────────────────────── */
@@ -974,6 +983,23 @@ button,
 [data-theme="dark"] .badge-type {
   background-color: var(--color-primary);
   color: var(--color-bg);
+}
+
+.pic-multi-type-note,
+.matrix-multitype-note {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin: 0.25rem 0 0.5rem;
+}
+
+.matrix-multitype-tag {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  font-weight: normal;
+}
+
+.matrix-no-weeds {
+  color: var(--color-text-muted);
 }
 
 .badge-form {
