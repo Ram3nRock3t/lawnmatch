@@ -136,7 +136,7 @@ function isWeedTargetable(weed) {
 
 function populateMatrixTurfTypes() {
   var allTurfs = new Set();
-  PRODUCTS.filter(function(p) { return p.category === "herbicide"; }).forEach(function(p) {
+  PRODUCTS.filter(function(p) { return p.category === "herbicide" && !p.excludeFromMatrix; }).forEach(function(p) {
     p.turfTypes.forEach(function(t) { allTurfs.add(t); });
   });
 
@@ -183,7 +183,7 @@ function populateMatrixWeeds() {
 
 function populateMatrixProducts() {
   var container = document.getElementById("matrix-product-checkboxes");
-  PRODUCTS.filter(function(p) { return p.category === "herbicide"; })
+  PRODUCTS.filter(function(p) { return p.category === "herbicide" && !p.excludeFromMatrix; })
     .slice().sort(function(a, b) { return a.fullName.localeCompare(b.fullName); })
     .forEach(function(p) {
       var label = document.createElement("label");
@@ -398,7 +398,7 @@ function renderMatrix() {
     .map(function(cb) { return cb.value; });
   var productPool = selectedProductIds.length > 0
     ? PRODUCTS.filter(function(p) { return selectedProductIds.includes(p.id); })
-    : PRODUCTS.filter(function(p) { return p.category === "herbicide"; });
+    : PRODUCTS.filter(function(p) { return p.category === "herbicide" && !p.excludeFromMatrix; });
 
   var relevantProducts = productPool.filter(function(product) {
     if (getTurfSafetyStatus(product, turfType) === "unsafe") return false;
@@ -513,7 +513,7 @@ function renderReverseMatrix() {
 
 function populateReverseTurfTypes() {
   var allTurfs = new Set();
-  PRODUCTS.filter(function(p) { return p.category === "herbicide"; }).forEach(function(p) {
+  PRODUCTS.filter(function(p) { return p.category === "herbicide" && !p.excludeFromMatrix; }).forEach(function(p) {
     p.turfTypes.forEach(function(t) { allTurfs.add(t); });
   });
 
@@ -526,7 +526,7 @@ function populateReverseTurfTypes() {
 function populateReverseProducts() {
   const container = document.getElementById("reverse-product-checkboxes");
 
-  PRODUCTS.filter(function(p) { return p.category === "herbicide"; }).slice().sort(function(a, b) {
+  PRODUCTS.filter(function(p) { return p.category === "herbicide" && !p.excludeFromMatrix; }).slice().sort(function(a, b) {
     return a.fullName.localeCompare(b.fullName);
   }).forEach(function(p) {
     const label = document.createElement("label");

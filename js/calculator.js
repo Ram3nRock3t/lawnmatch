@@ -281,7 +281,9 @@ function calculate(product, sqft, turfType, rateTierLabel) {
   const k = sqft / 1000;
   const amountMin     = rate.rateMin * k;
   const amountMax     = rate.rateMax * k;
-  const water         = product.waterPerUnit * k;
+  const water         = (product.waterPerUnit === null || product.waterPerUnit === undefined)
+                          ? null
+                          : product.waterPerUnit * k;
   const annualMax     = product.annualMaxPer1k * k;
   const overAnnualMax = amountMax > annualMax;
   return { sqft, k, amountMin, amountMax, water, annualMax, overAnnualMax };
@@ -344,7 +346,7 @@ function renderResults() {
 
   var min          = convertAmount(calc.amountMin, product.formulation, displayUnit);
   var max          = convertAmount(calc.amountMax, product.formulation, displayUnit);
-  var waterRounded = round(calc.water);
+  var waterRounded = calc.water === null ? "See label" : round(calc.water);
 
   // ── Calculation Summary stats ──────────────────────────────────────────────
   var metricsHTML = "";
@@ -359,7 +361,7 @@ function renderResults() {
 
   metricsHTML += '<div class="result-stat"><span class="result-stat-label">Area</span><span class="result-stat-value">' + displayArea(sqft) + '</span></div>';
   metricsHTML += '<div class="result-stat"><span class="result-stat-label">Product needed</span><span class="result-stat-value result-stat-highlight">' + productAmount + '</span></div>';
-  metricsHTML += '<div class="result-stat"><span class="result-stat-label">Water / carrier</span><span class="result-stat-value">' + waterRounded + ' gal</span></div>';
+  metricsHTML += '<div class="result-stat"><span class="result-stat-label">Water / carrier</span><span class="result-stat-value">' + waterRounded + (calc.water === null ? '' : ' gal') + '</span></div>';
 
   if (calc.overAnnualMax) {
     metricsHTML += '<p class="result-warning-caution">⚠️ Amount exceeds annual maximum of ' + round(calc.annualMax) + ' oz. Split into multiple applications.</p>';

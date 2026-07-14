@@ -1314,13 +1314,25 @@ const WEEDS = [
     id: "fiddleneck",
     commonName: "Fiddleneck",
     scientificName: "Amsinckia spp.",
-    aliases: ["tarweed", "fiddleneck tarweed", "common fiddleneck", "rancher's fiddleneck", "bristly fiddleneck"],
+    aliases: ["Tarweed", "Fiddleneck Tarweed"],
     parentGenus: "Amsinckia",
     category: "Broadleaf",
     lifecycle: "Annual",
     hracMoa: "2/4",
     seasonality: "Cool-season",
     notes: ""
+  },
+  {
+    id: "fiddleneck-common",
+    commonName: "Fiddleneck (Common)",
+    scientificName: "Amsinckia intermedia",
+    aliases: ["Common Fiddleneck", "Rancher's Fiddleneck", "Coast Fiddleneck", "Amsinckia menziesii var. intermedia"],
+    parentGenus: "Amsinckia",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Split out of the genus-level Fiddleneck entry, where it had been incorrectly bundled as an alias alongside the distinct species Bristly Fiddleneck (Amsinckia tessellata, not currently in this database) rather than listed as its own species."
   },
   {
     id: "field-bindweed",
@@ -1416,6 +1428,18 @@ const WEEDS = [
     hracMoa: "9/2", 
     seasonality: "Cool-season",
     notes: "Split from canada-fleabane; closely related species with similar herbicide susceptibility."
+  },
+  {
+    id: "flixweed",
+    commonName: "Flixweed",
+    scientificName: "Descurainia sophia",
+    aliases: ["Herb Sophia", "Tansy Mustard (alt.)"],
+    parentGenus: "Descurainia",
+    category: "Broadleaf",
+    lifecycle: "Winter Annual",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Distinct from Tansy Mustard (Descurainia pinnata, already in database) despite the similar common name overlap in some regional usage."
   },
   { id: "florida-betony", 
     commonName: "Florida Betony", 
@@ -1777,13 +1801,13 @@ const WEEDS = [
     id: "hop-clover-low",
     commonName: "Hop Clover (Low)",
     scientificName: "Trifolium campestre",
-    aliases: ["Low Hop Clover"],
+    aliases: ["Low Hop Clover", "Trifolium procumbens"],
     parentGenus: "Trifolium",
     category: "Broadleaf",
     lifecycle: "Annual",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from hop-clover. Appears on Drive XLR8 and Tenacity labels."
+    notes: "Split from hop-clover. Appears on Drive XLR8 and Tenacity labels. Trifolium procumbens is an older synonym still used on some herbicide labels."
   },
   {
     id: "horse-purslane",
@@ -2461,7 +2485,7 @@ const WEEDS = [
     id: "mustard-field",
     commonName: "Mustard (Field)",
     scientificName: "Brassica rapa",
-    aliases: ["Field Mustard", "Turnip Weed", "Bird's Rape", "Brassica campestris"],
+    aliases: ["Field Mustard", "Turnip Weed", "Bird's Rape", "Brassica campestris", "Wild Rape"],
     parentGenus: "Brassica",
     category: "Broadleaf",
     lifecycle: "Annual",
@@ -2649,6 +2673,18 @@ const WEEDS = [
     seasonality: "Warm-season",
     notes: "Documented multi-site resistance to Groups 2, 4, 9, 14, and 27 across US populations (HRAC Resistance Map, 2024). Verify local resistance profile with county extension before selecting MOA."
   },
+  {
+    id: "browntop-panicum",
+    commonName: "Panicum (Browntop)",
+    scientificName: "Urochloa fusca",
+    aliases: ["Browntop Panicum", "Browntop Signalgrass", "Panicum fasciculatum", "Brachiaria fasciculata"],
+    parentGenus: "Urochloa",
+    category: "Grass",
+    lifecycle: "Annual",
+    hracMoa: "",
+    seasonality: "Warm-season",
+    notes: "Reclassified from Panicum fasciculatum to Urochloa fusca per current taxonomy (USDA PLANTS); old name retained as alias. Distinct from Browntop Millet (Urochloa ramosa, already in database) despite the similar common name."
+  },
   { 
     id: "parsley-piert", 
     commonName: "Parsley-Piert", 
@@ -2677,7 +2713,7 @@ const WEEDS = [
     id: "pennycress",
     commonName: "Pennycress",
     scientificName: "Thlaspi arvense",
-    aliases: ["Field Pennycress", "French Weed", "Fanweed"],
+    aliases: ["Field Pennycress", "French Weed", "Fanweed", "Stinkweed"],
     parentGenus: "Thlaspi",
     category: "Broadleaf",
     lifecycle: "Winter Annual",
@@ -3157,13 +3193,13 @@ const WEEDS = [
     id: "sandbur-field",
     commonName: "Sandbur (Field)",
     scientificName: "Cenchrus spinifex",
-    aliases: ["Field Sandbur", "Common Sandbur"],
+    aliases: ["Field Sandbur", "Common Sandbur", "Cenchrus incertus"],
     parentGenus: "Cenchrus",
     category: "Grass",
     lifecycle: "Annual",
     hracMoa: "15/2",
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Sandbur entry. Major nuisance in sandy-soil lawns in Southeast and Gulf Coast."
+    notes: "Split from the genus-level Sandbur entry. Major nuisance in sandy-soil lawns in Southeast and Gulf Coast. Cenchrus incertus is an older synonym still used on some herbicide labels."
   },
   {
     id: "sandbur-southern",
@@ -3248,6 +3284,18 @@ const WEEDS = [
     hracMoa: "15/2", 
     seasonality: "Warm-season",
     notes: "Split from the genus-level Signalgrass entry."
+  },
+  {
+    id: "signalgrass-tropical",
+    commonName: "Signalgrass (Tropical)",
+    scientificName: "Urochloa subquadripara",
+    aliases: ["Tropical Signalgrass", "Wynne Grass", "Brachiaria subquadripara"],
+    parentGenus: "Urochloa",
+    category: "Grass",
+    lifecycle: "Perennial",
+    hracMoa: "",
+    seasonality: "Warm-season",
+    notes: "Stoloniferous, mat-forming grass weed particularly problematic in Florida turf; distinct from the annual Signalgrass (Broadleaf) (Urochloa platyphylla, already in database)."
   },
   {
     id: "slender-aster",
@@ -3493,13 +3541,13 @@ const WEEDS = [
     id: "spotted-spurge",
     commonName: "Spotted Spurge",
     scientificName: "Euphorbia maculata",
-    aliases: ["Prostrate Spotted Spurge", "Eyebane", "Chamaesyce maculata"],
+    aliases: ["Prostrate Spotted Spurge", "Eyebane", "Chamaesyce maculata", "Euphorbia supina"],
     parentGenus: "Euphorbia",
     category: "Broadleaf",
     lifecycle: "Annual",
     hracMoa: "14/4",
     seasonality: "Warm-season",
-    notes: ""
+    notes: "Euphorbia supina is a documented synonym for this species; some herbicide labels use 'Prostrate Spurge' with this synonym for E. maculata in one table while using the same common name for the distinct species E. humistrata (see spreading-spurge) elsewhere on the same label — verify against the scientific name given, not the common name alone."
   },
   { 
     id: "sprangletop", 
@@ -3536,6 +3584,30 @@ const WEEDS = [
     hracMoa: "15/2", 
     seasonality: "Warm-season",
     notes: "Split from the genus-level Sprangletop entry."
+  },
+  {
+    id: "sprangletop-mexican",
+    commonName: "Sprangletop (Mexican)",
+    scientificName: "Leptochloa uninervia",
+    aliases: ["Mexican Sprangletop"],
+    parentGenus: "Leptochloa",
+    category: "Grass",
+    lifecycle: "Annual",
+    hracMoa: "",
+    seasonality: "Warm-season",
+    notes: ""
+  },
+  {
+    id: "sprangletop-red",
+    commonName: "Sprangletop (Red)",
+    scientificName: "Leptochloa filiformis",
+    aliases: ["Red Sprangletop"],
+    parentGenus: "Leptochloa",
+    category: "Grass",
+    lifecycle: "Annual",
+    hracMoa: "",
+    seasonality: "Warm-season",
+    notes: ""
   },
   {
     id: "sprawling-horseweed",
@@ -3669,6 +3741,18 @@ const WEEDS = [
     seasonality: "Cool-season",
     notes: "Low label frequency in residential turf contexts. Appears on some specialty broadleaf herbicide labels. Primary management is typically physical removal. Confidence in residential label prevalence: 55%."
   },
+  {
+    id: "surinam-sedge",
+    commonName: "Surinam Sedge",
+    scientificName: "Cyperus surinamensis",
+    aliases: ["Surinam Flatsedge", "Tropical Flatsedge"],
+    parentGenus: "Cyperus",
+    category: "Sedge",
+    lifecycle: "Perennial",
+    hracMoa: "2/9",
+    seasonality: "Warm-season",
+    notes: ""
+  },
   { 
     id: "sweet-clover", 
     commonName: "Sweet Clover", 
@@ -3788,6 +3872,18 @@ const WEEDS = [
     hracMoa: "15/2",
     seasonality: "Warm-season",
     notes: "Primarily Southern US (Texas, Oklahoma, Gulf Coast). Documented on herbicide labels and Texas A&M AgriLife extension guides. Reclassified from Panicum texanum to Urochloa texana per current taxonomy (USDA PLANTS); old name retained as alias."
+  },
+  {
+    id: "texas-sedge",
+    commonName: "Texas Sedge",
+    scientificName: "Cyperus polystachyos",
+    aliases: ["Texas Flatsedge", "Bunched Flatsedge"],
+    parentGenus: "Cyperus",
+    category: "Sedge",
+    lifecycle: "Perennial",
+    hracMoa: "2/9",
+    seasonality: "Warm-season",
+    notes: "Distinct from the unrelated ornamental groundcover Texas Sedge (Carex texensis), a different genus not currently in this database."
   },
   {
     id: "thin-paspalum",
@@ -4052,6 +4148,18 @@ const WEEDS = [
     hracMoa: "2/4",
     seasonality: "Cool-season",
     notes: "Annual species distinct from Wild Violet (Viola sororia), which is perennial. Small cream and yellow flowers vs the purple flowers of V. sororia."
+  },
+  {
+    id: "violet-johnny-jump-up",
+    commonName: "Violet (Johnny Jump-up)",
+    scientificName: "Viola bicolor",
+    aliases: ["Viola rafinesquii", "Field Pansy", "American Field Pansy"],
+    parentGenus: "Viola",
+    category: "Broadleaf",
+    lifecycle: "Winter Annual",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Reclassified from Viola rafinesquii to Viola bicolor per current taxonomy (USDA PLANTS); old name retained as alias. Distinct from the European Field Violet/Wild Pansy (Viola arvensis, already in database) despite similar common names."
   },
   {
     id: "virginia-buttonweed",
