@@ -34,24 +34,24 @@ const PRODUCTS = [
     turfRates: [
         {
             turfGroup: [
-            "Bahiagrass", "Bermudagrass", "Centipedegrass", "Kikuyugrass",
-            "Seashore Paspalum", "St. Augustinegrass", "Tall Fescue", "Zoysiagrass"
+            "bahiagrass", "bermudagrass", "centipedegrass", "kikuyugrass",
+            "seashore-paspalum", "st-augustinegrass", "tall-fescue", "zoysiagrass"
             ],
             rateMin: 0.36,
             rateMax: 0.83
         },
         {
-            turfGroup: ["Buffalograss", "Kentucky Bluegrass", "Perennial Ryegrass"],
+            turfGroup: ["buffalograss", "kentucky-bluegrass", "perennial-ryegrass"],
             rateMin: 0.185,
             rateMax: 0.55
         },
         {
-            turfGroup: ["Fine Fescue"],
+            turfGroup: ["fine-fescue"],
             rateMin: 0.185,
             rateMax: 0.42
         },
         {
-            turfGroup: ["Creeping Bentgrass"],
+            turfGroup: ["creeping-bentgrass"],
             rateMin: 0.185,
             rateMax: 0.37,
             notes: "Must be mowed at 0.5 inches or more in height"
@@ -59,24 +59,24 @@ const PRODUCTS = [
     ],
     waterPerUnit: 0.5,
     turfTypes: [
-        "Bahiagrass",
-        "Bermudagrass",
-        "Buffalograss",
-        "Centipedegrass",
-        "Creeping Bentgrass",
-        "Fine Fescue",
-        "Kentucky Bluegrass",
-        "Kikuyugrass",
-        "Perennial Ryegrass",
-        "Seashore Paspalum",
-        "St. Augustinegrass",
-        "Tall Fescue",
-        "Zoysiagrass"
+        "bahiagrass",
+        "bermudagrass",
+        "buffalograss",
+        "centipedegrass",
+        "creeping-bentgrass",
+        "fine-fescue",
+        "kentucky-bluegrass",
+        "kikuyugrass",
+        "perennial-ryegrass",
+        "seashore-paspalum",
+        "st-augustinegrass",
+        "tall-fescue",
+        "zoysiagrass"
     ],
     notSafeTurf: [
-        "Dichondra (do not apply where desirable)",
-        "Colonial Bentgrass (do not apply where desirable)",
-        "Velvet Bentgrass (do not apply where desirable)",
+        "dichondra (do not apply where desirable)",
+        "colonial-bentgrass (do not apply where desirable)",
+        "velvet-bentgrass (do not apply where desirable)",
         "Newly seeded areas (wait 60 days after germination)",
         "Newly set sod (wait until rooted and edges filled in)"
     ],
@@ -312,19 +312,19 @@ const PRODUCTS = [
     annualMaxPer1k: 0.17,
     waterPerUnit: 1,   // gal per 1,000 sq ft (zone/spot)
     turfTypes: [
-        "Bermudagrass",
-        "Centipedegrass",
-        "St. Augustinegrass",
-        "Zoysiagrass"
+        "bermudagrass",
+        "centipedegrass",
+        "st-augustinegrass",
+        "zoysiagrass"
     ],
     notSafeTurf: [
-        "Bahiagrass",
-        "Creeping Bentgrass",
-        "Fine Fescue",
-        "Kentucky Bluegrass",
-        "Perennial Ryegrass",
-        "Seashore Paspalum",
-        "Tall Fescue"
+        "bahiagrass",
+        "creeping-bentgrass",
+        "fine-fescue",
+        "kentucky-bluegrass",
+        "perennial-ryegrass",
+        "seashore-paspalum",
+        "tall-fescue"
     ],
     targetWeeds: [
       { label: "American burnweed, Fireweed", ids: ["american-burnweed"], rateRequired: "Medium" },
@@ -514,28 +514,28 @@ const PRODUCTS = [
     surfactant: "NIS at 0.25–0.5% v/v (required)",
     rainfastHours: 2,
     turfTypes: [
-        "Bahiagrass",
-        "Bermudagrass",
-        "Big Bluestem",
-        "Buffalograss",
-        "Centipedegrass",
-        "Indiangrass",
-        "Kikuyugrass",
-        "Little Bluestem",
-        "Seashore Paspalum",
-        "St. Augustinegrass",
-        "Switchgrass",
-        "Zoysiagrass"
+        "bahiagrass",
+        "bermudagrass",
+        "big-bluestem",
+        "buffalograss",
+        "centipedegrass",
+        "indiangrass",
+        "kikuyugrass",
+        "little-bluestem",
+        "seashore-paspalum",
+        "st-augustinegrass",
+        "switchgrass",
+        "zoysiagrass"
     ],
     turfNotes: [
         "St. Augustinegrass and Seashore Paspalum are more sensitive — test on small area before wide-scale use",
         "May cause temporary chlorosis on all listed warm-season grasses"
     ],
     notSafeTurf: [
-        "Annual Bluegrass / Poa annua (actively removed)",
-        "Kentucky Bluegrass (not listed as safe)",
-        "Perennial Ryegrass (actively removed)",
-        "Tall Fescue (this product actively removes it)"
+        "annual-bluegrass / Poa annua (actively removed)",
+        "kentucky-bluegrass (not listed as safe)",
+        "perennial-ryegrass (actively removed)",
+        "tall-fescue (this product actively removes it)"
     ],
     targetWeeds: [
       { label: "Barley, Little", ids: ["barley-little"] },
@@ -633,24 +633,24 @@ const PRODUCTS = [
     annualMaxPer1k: 2.2,
     waterPerUnit: 0.5,
     turfTypes: [
-      "Bahiagrass",
-      "Bermudagrass",
-      "Buffalograss",
-      "Carpetgrass",
-      "Centipedegrass",
-      "Creeping Bentgrass",
-      "Fine Fescue",
-      "Kentucky Bluegrass",
-      "Kikuyugrass",
-      "Perennial Ryegrass",
-      "Seashore Paspalum",
-      "St. Augustinegrass",
-      "Tall Fescue",
-      "Zoysiagrass"
+        "bahiagrass",
+        "bermudagrass",
+        "buffalograss",
+        "carpetgrass",
+        "centipedegrass",
+        "creeping-bentgrass",
+        "fine-fescue",
+        "kentucky-bluegrass",
+        "kikuyugrass",
+        "perennial-ryegrass",
+        "seashore-paspalum",
+        "st-augustinegrass",
+        "tall-fescue",
+        "zoysiagrass"
     ],
     notSafeTurf: [
-      "Colonial Bentgrass (Agrostis tenuis) — do not apply",
-      "Tifgreen (328) Bermudagrass — do not apply"
+        "colonial-bentgrass (Agrostis tenuis) — do not apply",
+        "tifgreen-328-bermudagrass — do not apply"
     ],
     targetWeeds: [
       { label: "Barley", ids: ["wild-barley"] },
@@ -754,17 +754,17 @@ const PRODUCTS = [
     annualMaxPer1k: 0.331,
     waterPerUnit: 0.5,
     turfTypes: [
-      "Bahiagrass",
-      "Bermudagrass",
-      "Buffalograss",
-      "Centipedegrass",
-      "Kikuyugrass",
-      "Zoysiagrass"
+        "bahiagrass",
+        "bermudagrass",
+        "buffalograss",
+        "centipedegrass",
+        "kikuyugrass",
+        "zoysiagrass"
     ],
     notSafeTurf: [
-      "St. Augustinegrass (label excludes this species — not evaluated for this formulation)",
-      "Seashore Paspalum (label excludes this species — not evaluated for this formulation)",
-      "Cool-season turfgrasses (label limited to warm-season turfgrass use only)"
+        "st-augustinegrass (label excludes this species — not evaluated for this formulation)",
+        "seashore-paspalum (label excludes this species — not evaluated for this formulation)",
+        "Cool-season turfgrasses (label limited to warm-season turfgrass use only)"
     ],
     targetWeeds: [
       { label: "Bedstraw, Catchweed", ids: ["bedstraw-catchweed"] },
@@ -897,20 +897,20 @@ const PRODUCTS = [
     rateDefault: 0.275,
     turfRates: [
       {
-        turfGroup: ["Creeping Bentgrass"],
+        turfGroup: ["creeping-bentgrass"],
         rateMin: 0.092,
         rateMax: 0.092
       },
       {
-        turfGroup: ["Fine Fescue", "Kentucky Bluegrass", "Perennial Ryegrass", "Rough Bluegrass", "Tall Fescue"],
+        turfGroup: ["fine-fescue", "kentucky-bluegrass", "perennial-ryegrass", "rough-bluegrass", "tall-fescue"],
         rateMin: 0.092,
         rateMax: 0.18
       },
       {
         turfGroup: [
-          "Bahiagrass", "Bermudagrass", "Buffalograss", "Carpetgrass",
-          "Centipedegrass", "Kikuyugrass", "Seashore Paspalum",
-          "St. Augustinegrass", "Zoysiagrass"
+          "bahiagrass", "bermudagrass", "buffalograss", "carpetgrass",
+          "centipedegrass", "kikuyugrass", "seashore-paspalum",
+          "st-augustinegrass", "zoysiagrass"
         ],
         rateMin: 0.18,
         rateMax: 0.275
@@ -919,21 +919,21 @@ const PRODUCTS = [
     annualMaxPer1k: 0.275,
     waterPerUnit: 0.5,
     turfTypes: [
-      "Bahiagrass",
-      "Bermudagrass",
-      "Buffalograss",
-      "Carpetgrass",
-      "Centipedegrass",
-      "Creeping Bentgrass",
-      "Fine Fescue",
-      "Kentucky Bluegrass",
-      "Kikuyugrass",
-      "Perennial Ryegrass",
-      "Rough Bluegrass",
-      "Seashore Paspalum",
-      "St. Augustinegrass",
-      "Tall Fescue",
-      "Zoysiagrass"
+      "bahiagrass",
+      "bermudagrass",
+      "buffalograss",
+      "carpetgrass",
+      "centipedegrass",
+      "creeping-bentgrass",
+      "fine-fescue",
+      "kentucky-bluegrass",
+      "kikuyugrass",
+      "perennial-ryegrass",
+      "rough-bluegrass",
+      "seashore-paspalum",
+      "st-augustinegrass",
+      "tall-fescue",
+      "zoysiagrass"
     ],
     notSafeTurf: [],
     targetWeeds: [
@@ -1084,16 +1084,16 @@ const PRODUCTS = [
     turfRates: [
       {
         turfGroup: [
-          "Annual Bluegrass", "Annual Ryegrass", "Bermudagrass",
-          "Buffalograss", "Chewing's Fescue", "Fine Fescue",
-          "Hard Fescue", "Kentucky Bluegrass", "Perennial Ryegrass",
-          "Red Fescue", "Rough Bluegrass", "Tall Fescue", "Zoysiagrass"
+          "annual-bluegrass", "annual-ryegrass", "bermudagrass",
+          "buffalograss", "chewings-fescue", "fine-fescue",
+          "hard-fescue", "kentucky-bluegrass", "perennial-ryegrass",
+          "red-fescue", "rough-bluegrass", "tall-fescue", "zoysiagrass"
         ],
         rateMin: 1.45,
-        rateMax: 1.45   // single application rate per label; no low/high range for standard turf
+        rateMax: 1.45
       },
       {
-        turfGroup: ["Creeping Bentgrass"],
+        turfGroup: ["creeping-bentgrass"],
         rateMin: 0.5,
         rateMax: 1.0,
         notes: "Apply in 2–3 split applications 14–21 days apart; minimum 0.65 fl oz in California"
@@ -1102,30 +1102,30 @@ const PRODUCTS = [
     annualMaxPer1k: 2.9,   // fl oz per 1000 sq ft (128 fl oz per acre per label)
     waterPerUnit: 0.5,      // gal per 1000 sq ft — label minimum (20 gal/acre = 0.46 gal/1000; label rounds to 0.5)
     turfTypes: [
-      "Annual Bluegrass",
-      "Annual Ryegrass",
-      "Bermudagrass",
-      "Buffalograss",
-      "Chewing's Fescue",
-      "Creeping Bentgrass",
-      "Fine Fescue",
-      "Hard Fescue",
-      "Kentucky Bluegrass",
-      "Perennial Ryegrass",
-      "Red Fescue",
-      "Rough Bluegrass",
-      "Tall Fescue",
-      "Zoysiagrass"
+      "annual-bluegrass",
+      "annual-ryegrass",
+      "bermudagrass",
+      "buffalograss",
+      "chewings-fescue",
+      "creeping-bentgrass",
+      "fine-fescue",
+      "hard-fescue",
+      "kentucky-bluegrass",
+      "perennial-ryegrass",
+      "red-fescue",
+      "rough-bluegrass",
+      "tall-fescue",
+      "zoysiagrass"
     ],
     notSafeTurf: [
-      "Bahiagrass",
-      "Carpetgrass",
-      "Centipedegrass",
-      "Colonial Bentgrass",
-      "Dichondra",
-      "Seashore Paspalum",
-      "Seaside Bentgrass",
-      "St. Augustinegrass"
+      "bahiagrass",
+      "carpetgrass",
+      "centipedegrass",
+      "colonial-bentgrass",
+      "dichondra",
+      "seashore-paspalum",
+      "seaside-bentgrass",
+      "st-augustinegrass"
     ],
     targetWeeds: [
       { label: "Barnyardgrass", ids: ["barnyardgrass"] },
@@ -1207,12 +1207,12 @@ const PRODUCTS = [
     rateDefault: 0.138,
     turfRates: [
       {
-        turfGroup: ["Bermudagrass", "St. Augustinegrass", "Zoysiagrass"],
+        turfGroup: ["bermudagrass", "st-augustinegrass", "zoysiagrass"],
         rateMin: 0.069,
         rateMax: 0.275
       },
       {
-        turfGroup: ["Centipedegrass"],
+        turfGroup: ["centipedegrass"],
         rateMin: 0.069,
         rateMax: 0.138
       }
@@ -1225,13 +1225,13 @@ const PRODUCTS = [
     annualMaxPer1k: 0.275,
     waterPerUnit: 1,
     turfTypes: [
-      "Bermudagrass",
-      "Centipedegrass",
-      "St. Augustinegrass",
-      "Zoysiagrass"
+      "bermudagrass",
+      "centipedegrass",
+      "st-augustinegrass",
+      "zoysiagrass"
     ],
     notSafeTurf: [
-      "Bahiagrass (this product selectively removes it — not a safe turf type)"
+      "bahiagrass (this product selectively removes it — not a safe turf type)"
     ],
     targetWeeds: [
       { label: "Ryegrass", ids: ["ryegrass-annual", "ryegrass-perennial"], rateRequired: "Low" },
@@ -1415,22 +1415,22 @@ const PRODUCTS = [
     annualMaxPer1k: 10.28,
     waterPerUnit: 2,
     turfTypes: [
-      "Bermudagrass",
-      "Centipedegrass",
-      "Fine Fescue",
-      "Kentucky Bluegrass",
-      "Perennial Ryegrass",
-      "St. Augustinegrass",
-      "Tall Fescue",
-      "Zoysiagrass"
+      "bermudagrass",
+      "centipedegrass",
+      "fine-fescue",
+      "kentucky-bluegrass",
+      "perennial-ryegrass",
+      "st-augustinegrass",
+      "tall-fescue",
+      "zoysiagrass"
     ],
     turfNotes: [
       "Bermudagrass and Zoysiagrass are generally tolerant, but repeated or heavy applications may cause temporary yellowing",
       "St. Augustinegrass and Centipedegrass are sensitive — use only the lower end of the labeled rate range; higher rates carry a real risk of turf injury"
     ],
     notSafeTurf: [
-      "Bentgrass (extremely susceptible — severe yellowing, root damage, and death may occur; do not use)",
-      "Dichondra (do not apply)",
+      "bentgrass (extremely susceptible — severe yellowing, root damage, and death may occur; do not use)",
+      "dichondra (do not apply)",
       "Other herbaceous ground covers (do not apply)",
       "Freshly seeded turf (wait until well established)"
     ],
@@ -1571,19 +1571,19 @@ const PRODUCTS = [
     annualMaxPer1k: 2.3,
     waterPerUnit: 1.5,
     turfTypes: [
-      "Bermudagrass",
-      "Centipedegrass",
-      "Fine Fescue",
-      "Kentucky Bluegrass",
-      "Perennial Ryegrass",
-      "Tall Fescue",
-      "Zoysiagrass"
+      "bermudagrass",
+      "centipedegrass",
+      "fine-fescue",
+      "kentucky-bluegrass",
+      "perennial-ryegrass",
+      "tall-fescue",
+      "zoysiagrass"
     ],
     notSafeTurf: [
-      "St. Augustinegrass (do not use on this or other susceptible southern grasses)",
+      "st-augustinegrass (do not use on this or other susceptible southern grasses)",
       "Newly seeded areas (wait until grass is well established)",
-      "Bentgrass (may be injured)",
-      "Dichondra (may be injured)"
+      "bentgrass (may be injured)",
+      "dichondra (may be injured)"
     ],
     targetWeeds: [
       { label: "Alligator Weed", ids: ["alligatorweed"] },
@@ -1729,14 +1729,14 @@ const PRODUCTS = [
     annualMaxPer1k: 1.6,
     waterPerUnit: 15,
     turfTypes: [
-      "St. Augustinegrass",
-      "Bentgrass",
-      "Fescue",
-      "Buffalograss",
-      "Bahiagrass",
-      "Bluegrass",
-      "Perennial Ryegrass",
-      "Centipedegrass"
+      "st-augustinegrass",
+      "bentgrass",
+      "fescue",
+      "buffalograss",
+      "bahiagrass",
+      "bluegrass",
+      "perennial-ryegrass",
+      "centipedegrass"
     ],
     notSafeTurf: [
       "Sod farm and golf course turf (not labeled for this use — homeowner residential use only)"
@@ -1790,15 +1790,15 @@ const PRODUCTS = [
     annualMaxPer1k: 4.1,
     waterPerUnit: null,
     turfTypes: [
-      "Bermudagrass",
-      "Centipedegrass",
-      "St. Augustinegrass",
-      "Fine Fescue",
-      "Tall Fescue",
-      "Kentucky Bluegrass",
-      "Zoysiagrass",
-      "Buffalograss",
-      "Bahiagrass"
+      "bermudagrass",
+      "centipedegrass",
+      "st-augustinegrass",
+      "fine-fescue",
+      "tall-fescue",
+      "kentucky-bluegrass",
+      "zoysiagrass",
+      "buffalograss",
+      "bahiagrass"
     ],
     notSafeTurf: [
       "Sod farms (not labeled for this use)",
@@ -1853,20 +1853,20 @@ const PRODUCTS = [
     waterPerUnit: 1,
     turfTypes: [],
     notSafeTurf: [
-      "Bahiagrass (non-selective — will kill all vegetation, including desirable turfgrass)",
-      "Bermudagrass (non-selective — will kill all vegetation, including desirable turfgrass)",
-      "Bentgrass (non-selective — will kill all vegetation, including desirable turfgrass)",
-      "Buffalograss (non-selective — will kill all vegetation, including desirable turfgrass)",
-      "Carpetgrass (non-selective — will kill all vegetation, including desirable turfgrass)",
-      "Centipedegrass (non-selective — will kill all vegetation, including desirable turfgrass)",
-      "Fine Fescue (non-selective — will kill all vegetation, including desirable turfgrass)",
-      "Kentucky Bluegrass (non-selective — will kill all vegetation, including desirable turfgrass)",
-      "Kikuyugrass (non-selective — will kill all vegetation, including desirable turfgrass)",
-      "Perennial Ryegrass (non-selective — will kill all vegetation, including desirable turfgrass)",
-      "St. Augustinegrass (non-selective — will kill all vegetation, including desirable turfgrass)",
-      "Seashore Paspalum (non-selective — will kill all vegetation, including desirable turfgrass)",
-      "Tall Fescue (non-selective — will kill all vegetation, including desirable turfgrass)",
-      "Zoysiagrass (non-selective — will kill all vegetation, including desirable turfgrass)"
+      "bahiagrass (non-selective — will kill all vegetation, including desirable turfgrass)",
+      "bermudagrass (non-selective — will kill all vegetation, including desirable turfgrass)",
+      "bentgrass (non-selective — will kill all vegetation, including desirable turfgrass)",
+      "buffalograss (non-selective — will kill all vegetation, including desirable turfgrass)",
+      "carpetgrass (non-selective — will kill all vegetation, including desirable turfgrass)",
+      "centipedegrass (non-selective — will kill all vegetation, including desirable turfgrass)",
+      "fine-fescue (non-selective — will kill all vegetation, including desirable turfgrass)",
+      "kentucky-bluegrass (non-selective — will kill all vegetation, including desirable turfgrass)",
+      "kikuyugrass (non-selective — will kill all vegetation, including desirable turfgrass)",
+      "perennial-ryegrass (non-selective — will kill all vegetation, including desirable turfgrass)",
+      "st-augustinegrass (non-selective — will kill all vegetation, including desirable turfgrass)",
+      "seashore-paspalum (non-selective — will kill all vegetation, including desirable turfgrass)",
+      "tall-fescue (non-selective — will kill all vegetation, including desirable turfgrass)",
+      "zoysiagrass (non-selective — will kill all vegetation, including desirable turfgrass)"
     ],
     targetWeeds: [],
     containerSizes: [
@@ -1920,31 +1920,31 @@ const PRODUCTS = [
     rateDefault: 1.0,
     turfRates: [
       {
-        turfGroup: ["Bermudagrass", "Zoysiagrass"],
+        turfGroup: ["bermudagrass", "zoysiagrass"],
         rateMin: 1.0,
         rateMax: 2.0
       },
       {
-        turfGroup: ["Kentucky Bluegrass"],
+        turfGroup: ["kentucky-bluegrass"],
         rateMin: 1.0,
         rateMax: 1.0
       }
     ],
     waterPerUnit: 1.0,   // gal per 1000 sq ft — label minimum (label range: 1 to 2.5 gal per 1000 sq ft)
     turfTypes: [
-      "Bermudagrass",
-      "Kentucky Bluegrass",
-      "Zoysiagrass"
+      "bermudagrass",
+      "kentucky-bluegrass",
+      "zoysiagrass"
     ],
     notSafeTurf: [
-      "Bahiagrass (this product removes it — do not use on bahiagrass lawns)",
-      "Carpetgrass",
-      "Centipedegrass",
-      "Creeping Bentgrass (injury may result)",
-      "Dichondra",
-      "Fine Fescue (injury may result)",
-      "St. Augustinegrass",
-      "Tall Fescue (injury may result)"
+      "bahiagrass (this product removes it — do not use on bahiagrass lawns)",
+      "carpetgrass",
+      "centipedegrass",
+      "creeping-bentgrass (injury may result)",
+      "dichondra",
+      "fine-fescue (injury may result)",
+      "st-augustinegrass",
+      "tall-fescue (injury may result)"
     ],
     targetWeeds: [
       { label: "Bahiagrass", ids: ["bahiagrass"] },
@@ -2015,20 +2015,20 @@ const PRODUCTS = [
     rateDefault: 1.6,
     turfRates: [
       {
-        turfGroup: ["Creeping Bentgrass", "Established Annual Bluegrass (non-greens/tees)"],
+        turfGroup: ["creeping-bentgrass", "established-annual-bluegrass (non-greens/tees)"],
         rateMin: 0.86,
         rateMax: 1.1,
         notes: "Do not use on bentgrass or Poa annua greens and tees. Initial application is 1.1 fl oz/1,000 sq ft; repeat applications after 5–8 weeks may use 0.86–1.1 fl oz/1,000 sq ft."
       },
       {
-        turfGroup: ["Kentucky Bluegrass", "Fine Fescue", "Tall Fescue", "Perennial Ryegrass"],
+        turfGroup: ["kentucky-bluegrass", "fine-fescue", "tall-fescue", "perennial-ryegrass"],
         rateMin: 1.1,
         rateMax: 1.6
       },
       {
         turfGroup: [
-          "Bahiagrass", "Bermudagrass", "Buffalograss", "Centipedegrass",
-          "Seashore Paspalum", "St. Augustinegrass", "Zoysiagrass"
+          "bahiagrass", "bermudagrass", "buffalograss", "centipedegrass",
+          "seashore-paspalum", "st-augustinegrass", "zoysiagrass"
         ],
         rateMin: 1.1,
         rateMax: 1.6
@@ -2037,21 +2037,21 @@ const PRODUCTS = [
     annualMaxPer1k: null,
     waterPerUnit: 0.5,
     turfTypes: [
-      "Bahiagrass",
-      "Bermudagrass",
-      "Buffalograss",
-      "Centipedegrass",
-      "Creeping Bentgrass",
-      "Fine Fescue",
-      "Kentucky Bluegrass",
-      "Perennial Ryegrass",
-      "Seashore Paspalum",
-      "St. Augustinegrass",
-      "Tall Fescue",
-      "Zoysiagrass"
+      "bahiagrass",
+      "bermudagrass",
+      "buffalograss",
+      "centipedegrass",
+      "creeping-bentgrass",
+      "fine-fescue",
+      "kentucky-bluegrass",
+      "perennial-ryegrass",
+      "seashore-paspalum",
+      "st-augustinegrass",
+      "tall-fescue",
+      "zoysiagrass"
     ],
     notSafeTurf: [
-      "Bentgrass greens and tees (do not apply — injury may occur)",
+      "bentgrass greens and tees (do not apply — injury may occur)",
       "Poa annua greens and tees (do not apply — injury may occur)",
       "Newly planted turf not yet filled in or mowed at least 4 times",
       "Overseeded warm-season turf may show thinning or injury to the overseeded cool-season species"
@@ -2158,58 +2158,58 @@ const PRODUCTS = [
     turfRates: [
         {
             turfGroup: [
-                "Annual Bluegrass",
-                "Annual Ryegrass",
-                "Bentgrass (mowed at ½ inch or higher)",
-                "Fine Fescue",
-                "Kentucky Bluegrass",
-                "Perennial Ryegrass",
-                "Red Fescue",
-                "Tall Fescue"
+                "annual-bluegrass",
+                "annual-ryegrass",
+                "bentgrass (mowed at ½ inch or higher)",
+                "fine-fescue",
+                "kentucky-bluegrass",
+                "perennial-ryegrass",
+                "red-fescue",
+                "tall-fescue"
             ],
             rateMin: 1.5,
-            rateMax: 2.2   // 4–6 pt/acre per label Table 1
+            rateMax: 2.2
         },
         {
             turfGroup: [
-                "Bahiagrass",
-                "Bermudagrass",
-                "Buffalograss",
-                "Centipedegrass",
-                "Seashore Paspalum",
-                "St. Augustinegrass",  // excluding 'Floratam' and 'Bitterblue' varieties — see notSafeTurf
-                "Zoysiagrass"
+                "bahiagrass",
+                "bermudagrass",
+                "buffalograss",
+                "centipedegrass",
+                "seashore-paspalum",
+                "st-augustinegrass",
+                "zoysiagrass"
             ],
             rateMin: 0.7,
-            rateMax: 1.5,  // 2–4 pt/acre per label Table 1
+            rateMax: 1.5,
             notes: "Do not use on 'Floratam' or 'Bitterblue' varieties of St. Augustinegrass"
         }
     ],
     annualMaxPer1k: 4.41,   // 12 pt/acre (seasonal max) ÷ 43.56; max 2 broadcast applications per year
     waterPerUnit: 1.0,      // spot treatment: 1 gal per 1,000 sq ft; broadcast range: 3–175 gal/acre (0.07–4 gal/1,000 sq ft)
     turfTypes: [
-        "Annual Bluegrass",
-        "Annual Ryegrass",
-        "Bahiagrass",
-        "Bentgrass",
-        "Bermudagrass",
-        "Buffalograss",
-        "Centipedegrass",
-        "Fine Fescue",
-        "Kentucky Bluegrass",
-        "Perennial Ryegrass",
-        "Red Fescue",
-        "Seashore Paspalum",
-        "St. Augustinegrass",
-        "Tall Fescue",
-        "Zoysiagrass"
+        "annual-bluegrass",
+        "annual-ryegrass",
+        "bahiagrass",
+        "bentgrass",
+        "bermudagrass",
+        "buffalograss",
+        "centipedegrass",
+        "fine-fescue",
+        "kentucky-bluegrass",
+        "perennial-ryegrass",
+        "red-fescue",
+        "seashore-paspalum",
+        "st-augustinegrass",
+        "tall-fescue",
+        "zoysiagrass"
     ],
     notSafeTurf: [
-        "Bentgrass (mowed below ¼ inch)",
-        "Bitterblue St. Augustinegrass",
-        "Carpetgrass",
-        "Dichondra",
-        "Floratam St. Augustinegrass",
+        "bentgrass (mowed below ¼ inch)",
+        "bitterblue-st-augustinegrass",
+        "carpetgrass",
+        "dichondra",
+        "floratam-st-augustinegrass",
         "Lawns where desirable clovers are present",
         "Legumes"
     ],
@@ -2426,224 +2426,224 @@ const PRODUCTS = [
     labelUrl: "https://www.controlsolutionsinc.com/hubfs/Specimen%20Labels/Specimen-TNEX-53883-353.pdf?hsLang=en"
   },
   {
-  id: "talstar-p-professional",
-  fullName: "Talstar P Professional Insecticide",
-  brand: "FMC Corporation",
-  category: "insecticide",
-  type: "residual",
-  formulation: "Emulsifiable Concentrate (EC)",
-  activeIngredients: ["Bifenthrin 7.9%"],
-  genericAlternatives: [
-    {
-      fullName: "Bifen I/T",
-      activeIngredient: "Bifenthrin 7.9%",
-      note: "Widely available generic with the same active ingredient and concentration, manufactured by Control Solutions Inc."
-    }
-  ],
-  mixUnit: "fl oz",
-  perUnit: "1000 sq ft",
-  rateMin: 0.18,
-  rateMax: 1.0,
-  rateDefault: 0.5,
-  annualMaxPer1k: null,
-  waterPerUnit: 1,
-  turfTypes: [
-    "bahiagrass",
-    "bermudagrass",
-    "bluegrass",
-    "buffalograss",
-    "centipedegrass",
-    "fescue",
-    "ryegrass",
-    "st-augustinegrass",
-    "zoysiagrass"
-  ],
-  notSafeTurf: [],
-  targetWeeds: [],
-  containerSizes: [
-    { label: "1 gallon", oz: 128 }
-  ],
-  EPAtoxicityLevel: "III (CAUTION)",
-  reentryInterval: "12 hours",
-  applicationNotes: [
-    "Apply as a broadcast treatment using up to 10 gallons of finished spray per 1,000 sq ft to penetrate thatch, mulch, or dense foliage.",
-    "For low-volume applications (less than 2 gal/1,000 sq ft), irrigate immediately after with at least 0.25 inches of water to ensure efficacy against sub-surface pests such as mole crickets.",
-    "Lower rate (0.18–0.25 fl oz/1,000 sq ft) targets: Annual Bluegrass Weevil adults, Banks Grass Mite, Billbugs adults, Black Turfgrass Ataenius adults, Centipedes, Crickets, Earwigs, Fleas (adults), Grasshoppers, Leafhoppers, Mealybugs, Millipedes, Mites, Pillbugs, Sowbugs.",
-    "Mid rate (0.25–0.5 fl oz/1,000 sq ft) targets: Armyworms, Cutworms, Sod Webworms, Ants, Chinch Bugs, Fleas (larvae), Imported Fire Ants, Japanese Beetle adults, Mole Cricket adults and nymphs, Stink Bugs, Ticks, Crane Flies.",
-    "Use 0.5–1.0 fl oz/1,000 sq ft for heavy pest pressure or maximum residual control.",
-    "Armyworms, cutworms, sod webworms: delay watering or mowing for 24 hours after application.",
-    "Chinch bugs: irrigate before treatment to move the insecticide into the thatch layer where chinch bugs are located.",
-    "Mole crickets: apply as late in the day as possible and water in immediately with up to 0.5 inches of water after treatment.",
-    "Ticks: treat the entire area — do not spot-treat. Use higher spray volumes in dense ground cover or heavy leaf litter.",
-    "Imported Fire Ant mounds: apply 1 fl oz per mound in 1–2 gallons of water; treat 3 feet out around each mound. Break the apex of the mound to allow solution into tunnels. Best applied in cool weather (65–80°F) or early morning/late evening.",
-    "Do not apply when wind speed exceeds 10 MPH."
-  ],
-  restrictions: [
-    "Not for use on sod farm turf, golf course turf, or grass grown for seed.",
-    "Do not apply by air.",
-    "Do not apply through any type of irrigation system.",
-    "Do not apply to the point of runoff; do not apply during rain.",
-    "Maximum 1.0 fl oz per 1,000 sq ft per application.",
-    "At rates below 1.0 fl oz/1,000 sq ft: do not reapply more than once every 7 days.",
-    "At 1.0 fl oz/1,000 sq ft: do not reapply more than once every 4 weeks.",
-    "New York State only: do not apply to any turf within 100 feet of a lake, pond, river, stream, wetland, or drainage ditch.",
-    "Extremely toxic to fish and aquatic invertebrates — prevent runoff or drift to water bodies.",
-    "Highly toxic to bees — do not apply when bees are actively foraging or when blooming weeds are present in the treatment area."
-  ],
-  labelUrl: "https://www.cdms.net/ldat/ld8PP004.pdf"
+    id: "talstar-p-professional",
+    fullName: "Talstar P Professional Insecticide",
+    brand: "FMC Corporation",
+    category: "insecticide",
+    type: "residual",
+    formulation: "Emulsifiable Concentrate (EC)",
+    activeIngredients: ["Bifenthrin 7.9%"],
+    genericAlternatives: [
+      {
+        fullName: "Bifen I/T",
+        activeIngredient: "Bifenthrin 7.9%",
+        note: "Widely available generic with the same active ingredient and concentration, manufactured by Control Solutions Inc."
+      }
+    ],
+    mixUnit: "fl oz",
+    perUnit: "1000 sq ft",
+    rateMin: 0.18,
+    rateMax: 1.0,
+    rateDefault: 0.5,
+    annualMaxPer1k: null,
+    waterPerUnit: 1,
+    turfTypes: [
+      "bahiagrass",
+      "bermudagrass",
+      "bluegrass",
+      "buffalograss",
+      "centipedegrass",
+      "fescue",
+      "ryegrass",
+      "st-augustinegrass",
+      "zoysiagrass"
+    ],
+    notSafeTurf: [],
+    targetWeeds: [],
+    containerSizes: [
+      { label: "1 gallon", oz: 128 }
+    ],
+    EPAtoxicityLevel: "III (CAUTION)",
+    reentryInterval: "12 hours",
+    applicationNotes: [
+      "Apply as a broadcast treatment using up to 10 gallons of finished spray per 1,000 sq ft to penetrate thatch, mulch, or dense foliage.",
+      "For low-volume applications (less than 2 gal/1,000 sq ft), irrigate immediately after with at least 0.25 inches of water to ensure efficacy against sub-surface pests such as mole crickets.",
+      "Lower rate (0.18–0.25 fl oz/1,000 sq ft) targets: Annual Bluegrass Weevil adults, Banks Grass Mite, Billbugs adults, Black Turfgrass Ataenius adults, Centipedes, Crickets, Earwigs, Fleas (adults), Grasshoppers, Leafhoppers, Mealybugs, Millipedes, Mites, Pillbugs, Sowbugs.",
+      "Mid rate (0.25–0.5 fl oz/1,000 sq ft) targets: Armyworms, Cutworms, Sod Webworms, Ants, Chinch Bugs, Fleas (larvae), Imported Fire Ants, Japanese Beetle adults, Mole Cricket adults and nymphs, Stink Bugs, Ticks, Crane Flies.",
+      "Use 0.5–1.0 fl oz/1,000 sq ft for heavy pest pressure or maximum residual control.",
+      "Armyworms, cutworms, sod webworms: delay watering or mowing for 24 hours after application.",
+      "Chinch bugs: irrigate before treatment to move the insecticide into the thatch layer where chinch bugs are located.",
+      "Mole crickets: apply as late in the day as possible and water in immediately with up to 0.5 inches of water after treatment.",
+      "Ticks: treat the entire area — do not spot-treat. Use higher spray volumes in dense ground cover or heavy leaf litter.",
+      "Imported Fire Ant mounds: apply 1 fl oz per mound in 1–2 gallons of water; treat 3 feet out around each mound. Break the apex of the mound to allow solution into tunnels. Best applied in cool weather (65–80°F) or early morning/late evening.",
+      "Do not apply when wind speed exceeds 10 MPH."
+    ],
+    restrictions: [
+      "Not for use on sod farm turf, golf course turf, or grass grown for seed.",
+      "Do not apply by air.",
+      "Do not apply through any type of irrigation system.",
+      "Do not apply to the point of runoff; do not apply during rain.",
+      "Maximum 1.0 fl oz per 1,000 sq ft per application.",
+      "At rates below 1.0 fl oz/1,000 sq ft: do not reapply more than once every 7 days.",
+      "At 1.0 fl oz/1,000 sq ft: do not reapply more than once every 4 weeks.",
+      "New York State only: do not apply to any turf within 100 feet of a lake, pond, river, stream, wetland, or drainage ditch.",
+      "Extremely toxic to fish and aquatic invertebrates — prevent runoff or drift to water bodies.",
+      "Highly toxic to bees — do not apply when bees are actively foraging or when blooming weeds are present in the treatment area."
+    ],
+    labelUrl: "https://www.cdms.net/ldat/ld8PP004.pdf"
   },
   {
-      id: "tenacity-herbicide",
-      fullName: "Tenacity Herbicide, Syngenta",
-      brand: "Syngenta",
-      category: "herbicide",
-      type: ["pre-emergent", "post-emergent"],
-      formulation: "liquid",
-      activeIngredients: [
-          "Mesotrione 40.0%"
-      ],
-      genericAlternatives: [
+    id: "tenacity-herbicide",
+    fullName: "Tenacity Herbicide, Syngenta",
+    brand: "Syngenta",
+    category: "herbicide",
+    type: ["pre-emergent", "post-emergent"],
+    formulation: "liquid",
+    activeIngredients: [
+        "Mesotrione 40.0%"
+    ],
+    genericAlternatives: [
+      {
+          fullName: "Torocity, Atticus",
+          activeIngredient: "Mesotrione 40.0%",
+          note: "Same active ingredient and concentration. Typically available at lower cost."
+      },
+      {
+          fullName: "Meso 4SC, Prime Source",
+          activeIngredient: "Mesotrione 40.0%",
+          note: "Same active ingredient and concentration. Typically available at lower cost."
+      }
+    ],
+    mixUnit: "fl oz",
+    perUnit: 1000,
+    rateMin: 0.092,     // 4 fl oz/acre ÷ 43.56 — general minimum; also St. Augustinegrass sod max
+    rateMax: 0.184,     // 8 fl oz/acre ÷ 43.56 — standard turf maximum
+    rateDefault: 0.115, // 5 fl oz/acre ÷ 43.56 — most common labeled rate
+    turfRates: [
         {
-            fullName: "Torocity, Atticus",
-            activeIngredient: "Mesotrione 40.0%",
-            note: "Same active ingredient and concentration. Typically available at lower cost."
+            turfGroup: ["buffalograss", "centipedegrass", "kentucky-bluegrass", "tall-fescue"],
+            rateMin: 0.092,
+            rateMax: 0.184
         },
         {
-            fullName: "Meso 4SC, Prime Source",
-            activeIngredient: "Mesotrione 40.0%",
-            note: "Same active ingredient and concentration. Typically available at lower cost."
+            turfGroup: ["fine-fescue", "perennial-ryegrass"],
+            rateMin: 0.092,
+            rateMax: 0.115,
+        },
+        {
+            turfGroup: ["st-augustinegrass"],
+            rateMin: 0.092,
+            rateMax: 0.092,
+            notes: "Sod uses only — DO NOT exceed 4 fl oz/acre"
         }
-      ],
-      mixUnit: "fl oz",
-      perUnit: 1000,
-      rateMin: 0.092,     // 4 fl oz/acre ÷ 43.56 — general minimum; also St. Augustinegrass sod max
-      rateMax: 0.184,     // 8 fl oz/acre ÷ 43.56 — standard turf maximum
-      rateDefault: 0.115, // 5 fl oz/acre ÷ 43.56 — most common labeled rate
-      turfRates: [
-          {
-              turfGroup: ["Buffalograss", "Centipedegrass", "Kentucky Bluegrass", "Tall Fescue"],
-              rateMin: 0.092,
-              rateMax: 0.184
-          },
-          {
-              turfGroup: ["Fine Fescue", "Perennial Ryegrass"],
-              rateMin: 0.092,
-              rateMax: 0.115, // DO NOT exceed 5 fl oz/acre; applies to mixed stands with >50% perennial ryegrass and/or fine fescue
-          },
-          {
-              turfGroup: ["St. Augustinegrass"],
-              rateMin: 0.092,
-              rateMax: 0.092, // DO NOT exceed 4 fl oz/acre; sod uses only
-              notes: "Sod uses only — DO NOT exceed 4 fl oz/acre"
-          }
-      ],
-      annualMaxPer1k: 0.367,  // 16 fl oz/acre ÷ 43.56
-      waterPerUnit: 0.69,     // minimum 30 gal/acre ÷ 43.56; spot treatments use 1 gal/1,000 sq ft
-      turfTypes: [
-          "Buffalograss",
-          "Centipedegrass",
-          "Fine Fescue",
-          "Kentucky Bluegrass",
-          "Perennial Ryegrass",
-          "St. Augustinegrass", // sod uses only
-          "Tall Fescue"
-      ],
-      notSafeTurf: [
-          "Bermudagrass (sensitive — avoid unless injury can be tolerated; dormant applications only per label)",
-          "Creeping Bentgrass (sensitive — avoid unless removal of bentgrass is intended; maintain 5-foot buffer from bentgrass greens)",
-          "Kikuyugrass (sensitive — avoid unless control/injury can be tolerated)",
-          "Poa annua / Annual Bluegrass (sensitive — maintain 5-foot buffer from Poa annua greens)",
-          "Seashore Paspalum (sensitive — avoid unless control/injury can be tolerated)",
-          "Zoysiagrass (sensitive — avoid unless control/injury can be tolerated)"
-      ],
-      targetWeeds: [
-        { label: "Barnyardgrass", ids: ["barnyardgrass"] },
-        { label: "Bentgrass, Creeping", ids: ["creeping-bentgrass-weed-escape"] },
-        { label: "Bluegrass, Annual", ids: ["annual-bluegrass"] },
-        { label: "Buckhorn Plantain", ids: ["plantain-buckhorn"] },
-        { label: "Buttercup", ids: ["buttercup-sardous"] },
-        { label: "Carpetweed", ids: ["carpetweed"] },
-        { label: "Chickweed, Common", ids: ["chickweed"] },
-        { label: "Chickweed, Mouseear", ids: ["mouseear-chickweed"] },
-        { label: "Clover, Large Hop", ids: ["hop-clover-large"] },
-        { label: "Clover, White", ids: ["white-clover"] },
-        { label: "Crabgrass, Large", ids: ["crabgrass-large"] },
-        { label: "Crabgrass, Smooth", ids: ["crabgrass-smooth"] },
-        { label: "Crabgrass, Southern", ids: ["crabgrass-hairy"] },
-        { label: "Curly Dock", ids: ["dock-curly"] },
-        { label: "Dandelion, Catsear", ids: ["catsear"] },
-        { label: "Dandelion, Common", ids: ["dandelion"] },
-        { label: "Florida Betony", ids: ["florida-betony"] },
-        { label: "Florida Pusley", ids: ["florida-pusley"] },
-        { label: "Foxtail, Yellow", ids: ["foxtail-yellow"] },
-        { label: "Galinsoga", ids: ["galinsoga-hairy"] },
-        { label: "Goosegrass", ids: ["goosegrass"] },
-        { label: "Ground Ivy", ids: ["ground-ivy"] },
-        { label: "Healall", ids: ["healall"] },
-        { label: "Henbit", ids: ["henbit"] },
-        { label: "Lambsquarters, Common", ids: ["lambsquarters"] },
-        { label: "Lawn Burweed", ids: ["lawn-burweed"] },
-        { label: "Lovegrass, Tufted", ids: ["lovegrass-tufted"] },
-        { label: "Marestail", ids: ["canada-fleabane"] },
-        { label: "Nimblewill", ids: ["nimblewill"] },
-        { label: "Nutsedge, Yellow", ids: ["nutsedge-yellow"] },
-        { label: "Oxalis", ids: ["woodsorrel-yellow"] },
-        { label: "Pigweed, Redroot", ids: ["pigweed-redroot"] },
-        { label: "Pigweed, Smooth", ids: ["pigweed-smooth"] },
-        { label: "Purslane, Common", ids: ["purslane"] },
-        { label: "Shepherd's Purse", ids: ["shepherds-purse"] },
-        { label: "Smartweed, Pale", ids: ["smartweed-pale"] },
-        { label: "Smartweed, Pennsylvania", ids: ["smartweed-pennsylvania"] },
-        { label: "Sowthistle", ids: ["common-sowthistle"] },
-        { label: "Speedwell, Persian", ids: ["speedwell-persian"] },
-        { label: "Speedwell, Purslane", ids: ["speedwell-purslane"] },
-        { label: "Swinecress", ids: ["swinecress"] },
-        { label: "Thistle, Canada", ids: ["thistle-canada"] },
-        { label: "Verbena", ids: ["verbena-blue-vervain"] },
-        { label: "Wild Carrot", ids: ["wild-carrot"] },
-        { label: "Wild Violet", ids: ["violet-common-blue"] },
-        { label: "Windmillgrass", ids: ["windmill-grass-tumble"] }
-      ],
-      containerSizes: [
-        { label: "8 fl oz bottle", oz: 8 },
-        { label: "1 gallon", oz: 128 }
-      ],
-      EPAtoxicityLevel: "CAUTION",
-      reentryInterval: "Until sprays have dried (agricultural use: 12 hours)",
-      applicationNotes: [
-          "Apply preemergence before target weed seed germination; if 0.15 inches of rainfall has not occurred within 10 days of a preemergence application, activate with at least 0.15 inches of irrigation",
-          "For postemergence applications, add a non-ionic surfactant (NIS); a repeat application after 2–3 weeks is required for adequate control — weed control is most effective on young, actively growing weeds",
-          "Treated weed foliage turns white (loss of chlorophyll) after application; death may take up to three weeks",
-          "May cause temporary whitening of turfgrass foliage 5–7 days after application, lasting several weeks; a repeat application to the same site causes less whitening",
-          "For preemergence use in established turf, tank mixing with Barricade 65WG (prodiamine) is advised for extended residual and broader weed control coverage",
-          "For postemergence removal of creeping bentgrass and nimblewill: apply at 5 fl oz/acre (0.115 fl oz/1,000 sq ft) with NIS at 2–3 week intervals for up to three applications; late summer or early fall timing is more effective than spring or early summer",
-          "For best postemergence control of crabgrass and goosegrass, apply when weeds have fewer than 4 tillers",
-          "On dormant bermudagrass only: apply at 5 fl oz/acre (0.115 fl oz/1,000 sq ft) to control winter weeds listed on the label; repeat in 2–3 weeks — applications to semi-dormant turf will cause whitening",
-          "For new seedings: apply at or close to seeding for best preemergence performance; do not make a postemergence application until newly germinated turf has been mowed twice or 4 weeks after emergence, whichever is longer",
-          "Spot application rate: 1 teaspoon of Tenacity per 2 gallons of water, with 3 teaspoons of NIS, applied at 1 gallon per 1,000 sq ft",
-          "After application, keep people and pets off treated areas until spray has dried; irrigate lightly to move product off turf foliage before resuming normal irrigation",
-          "Avoid overspray or drift onto ornamentals — roses and daylilies are sensitive; avoid applications over exposed roots of trees and ornamentals",
-          "Clean sprayer thoroughly after application if the same equipment will be used on bentgrass or bentgrass/Poa annua turf areas"
-      ],
-      restrictions: [
-          "DO NOT apply more than 8 fl oz per acre (0.184 fl oz/1,000 sq ft) in a single application",
-          "DO NOT apply more than 16 fl oz per acre (0.367 fl oz/1,000 sq ft) per year — maximum of 2 applications at the full single-application rate",
-          "Wait a minimum of 14 days before retreating",
-          "DO NOT exceed 5 fl oz per acre (0.115 fl oz/1,000 sq ft) on perennial ryegrass, fine fescues, or mixed stands containing more than 50% perennial ryegrass and/or fine fescue",
-          "DO NOT exceed 4 fl oz per acre (0.092 fl oz/1,000 sq ft) on St. Augustinegrass — sod uses only",
-          "Tenacity may reduce density of fine fescue seedings; do not use on grass seed blends containing more than 20% by weight of hard or fine fescue",
-          "DO NOT use on golf course putting greens; maintain a 5-foot buffer between treated areas and putting greens",
-          "Maintain a 5-foot buffer between treated areas and bentgrass or Poa annua greens",
-          "DO NOT apply an organophosphate or carbamate insecticide within 7 days of a Tenacity application — turf injury may occur",
-          "DO NOT apply through any type of irrigation system",
-          "DO NOT apply aerially",
-          "DO NOT use grass clippings from treated turf as mulch around trees or in vegetable/flower gardens",
-          "DO NOT plant any crop other than turfgrass species for 18 months after the last application",
-          "Do not apply when wind speeds exceed 15 mph",
-          "Do not apply during temperature inversions",
-          "Avoid applications when rainfall or irrigation is expected within 48 hours — product has high potential to reach surface water via runoff"
-      ],
-      labelUrl: "https://www.cdms.net/ldat/ld8D9005.pdf"
+    ],
+    annualMaxPer1k: 0.367,  // 16 fl oz/acre ÷ 43.56
+    waterPerUnit: 0.69,     // minimum 30 gal/acre ÷ 43.56; spot treatments use 1 gal/1,000 sq ft
+    turfTypes: [
+        "buffalograss",
+        "centipedegrass",
+        "fine-fescue",
+        "kentucky-bluegrass",
+        "perennial-ryegrass",
+        "st-augustinegrass",
+        "tall-fescue"
+    ],
+    notSafeTurf: [
+        "bermudagrass (sensitive — avoid unless injury can be tolerated; dormant applications only per label)",
+        "creeping-bentgrass (sensitive — avoid unless removal of bentgrass is intended; maintain 5-foot buffer from bentgrass greens)",
+        "kikuyugrass (sensitive — avoid unless control/injury can be tolerated)",
+        "Poa annua / annual-bluegrass (sensitive — maintain 5-foot buffer from Poa annua greens)",
+        "seashore-paspalum (sensitive — avoid unless control/injury can be tolerated)",
+        "zoysiagrass (sensitive — avoid unless control/injury can be tolerated)"
+    ],
+    targetWeeds: [
+      { label: "Barnyardgrass", ids: ["barnyardgrass"] },
+      { label: "Bentgrass, Creeping", ids: ["creeping-bentgrass-weed-escape"] },
+      { label: "Bluegrass, Annual", ids: ["annual-bluegrass"] },
+      { label: "Buckhorn Plantain", ids: ["plantain-buckhorn"] },
+      { label: "Buttercup", ids: ["buttercup-sardous"] },
+      { label: "Carpetweed", ids: ["carpetweed"] },
+      { label: "Chickweed, Common", ids: ["chickweed"] },
+      { label: "Chickweed, Mouseear", ids: ["mouseear-chickweed"] },
+      { label: "Clover, Large Hop", ids: ["hop-clover-large"] },
+      { label: "Clover, White", ids: ["white-clover"] },
+      { label: "Crabgrass, Large", ids: ["crabgrass-large"] },
+      { label: "Crabgrass, Smooth", ids: ["crabgrass-smooth"] },
+      { label: "Crabgrass, Southern", ids: ["crabgrass-hairy"] },
+      { label: "Curly Dock", ids: ["dock-curly"] },
+      { label: "Dandelion, Catsear", ids: ["catsear"] },
+      { label: "Dandelion, Common", ids: ["dandelion"] },
+      { label: "Florida Betony", ids: ["florida-betony"] },
+      { label: "Florida Pusley", ids: ["florida-pusley"] },
+      { label: "Foxtail, Yellow", ids: ["foxtail-yellow"] },
+      { label: "Galinsoga", ids: ["galinsoga-hairy"] },
+      { label: "Goosegrass", ids: ["goosegrass"] },
+      { label: "Ground Ivy", ids: ["ground-ivy"] },
+      { label: "Healall", ids: ["healall"] },
+      { label: "Henbit", ids: ["henbit"] },
+      { label: "Lambsquarters, Common", ids: ["lambsquarters"] },
+      { label: "Lawn Burweed", ids: ["lawn-burweed"] },
+      { label: "Lovegrass, Tufted", ids: ["lovegrass-tufted"] },
+      { label: "Marestail", ids: ["canada-fleabane"] },
+      { label: "Nimblewill", ids: ["nimblewill"] },
+      { label: "Nutsedge, Yellow", ids: ["nutsedge-yellow"] },
+      { label: "Oxalis", ids: ["woodsorrel-yellow"] },
+      { label: "Pigweed, Redroot", ids: ["pigweed-redroot"] },
+      { label: "Pigweed, Smooth", ids: ["pigweed-smooth"] },
+      { label: "Purslane, Common", ids: ["purslane"] },
+      { label: "Shepherd's Purse", ids: ["shepherds-purse"] },
+      { label: "Smartweed, Pale", ids: ["smartweed-pale"] },
+      { label: "Smartweed, Pennsylvania", ids: ["smartweed-pennsylvania"] },
+      { label: "Sowthistle", ids: ["common-sowthistle"] },
+      { label: "Speedwell, Persian", ids: ["speedwell-persian"] },
+      { label: "Speedwell, Purslane", ids: ["speedwell-purslane"] },
+      { label: "Swinecress", ids: ["swinecress"] },
+      { label: "Thistle, Canada", ids: ["thistle-canada"] },
+      { label: "Verbena", ids: ["verbena-blue-vervain"] },
+      { label: "Wild Carrot", ids: ["wild-carrot"] },
+      { label: "Wild Violet", ids: ["violet-common-blue"] },
+      { label: "Windmillgrass", ids: ["windmill-grass-tumble"] }
+    ],
+    containerSizes: [
+      { label: "8 fl oz bottle", oz: 8 },
+      { label: "1 gallon", oz: 128 }
+    ],
+    EPAtoxicityLevel: "CAUTION",
+    reentryInterval: "Until sprays have dried (agricultural use: 12 hours)",
+    applicationNotes: [
+        "Apply preemergence before target weed seed germination; if 0.15 inches of rainfall has not occurred within 10 days of a preemergence application, activate with at least 0.15 inches of irrigation",
+        "For postemergence applications, add a non-ionic surfactant (NIS); a repeat application after 2–3 weeks is required for adequate control — weed control is most effective on young, actively growing weeds",
+        "Treated weed foliage turns white (loss of chlorophyll) after application; death may take up to three weeks",
+        "May cause temporary whitening of turfgrass foliage 5–7 days after application, lasting several weeks; a repeat application to the same site causes less whitening",
+        "For preemergence use in established turf, tank mixing with Barricade 65WG (prodiamine) is advised for extended residual and broader weed control coverage",
+        "For postemergence removal of creeping bentgrass and nimblewill: apply at 5 fl oz/acre (0.115 fl oz/1,000 sq ft) with NIS at 2–3 week intervals for up to three applications; late summer or early fall timing is more effective than spring or early summer",
+        "For best postemergence control of crabgrass and goosegrass, apply when weeds have fewer than 4 tillers",
+        "On dormant bermudagrass only: apply at 5 fl oz/acre (0.115 fl oz/1,000 sq ft) to control winter weeds listed on the label; repeat in 2–3 weeks — applications to semi-dormant turf will cause whitening",
+        "For new seedings: apply at or close to seeding for best preemergence performance; do not make a postemergence application until newly germinated turf has been mowed twice or 4 weeks after emergence, whichever is longer",
+        "Spot application rate: 1 teaspoon of Tenacity per 2 gallons of water, with 3 teaspoons of NIS, applied at 1 gallon per 1,000 sq ft",
+        "After application, keep people and pets off treated areas until spray has dried; irrigate lightly to move product off turf foliage before resuming normal irrigation",
+        "Avoid overspray or drift onto ornamentals — roses and daylilies are sensitive; avoid applications over exposed roots of trees and ornamentals",
+        "Clean sprayer thoroughly after application if the same equipment will be used on bentgrass or bentgrass/Poa annua turf areas"
+    ],
+    restrictions: [
+        "DO NOT apply more than 8 fl oz per acre (0.184 fl oz/1,000 sq ft) in a single application",
+        "DO NOT apply more than 16 fl oz per acre (0.367 fl oz/1,000 sq ft) per year — maximum of 2 applications at the full single-application rate",
+        "Wait a minimum of 14 days before retreating",
+        "DO NOT exceed 5 fl oz per acre (0.115 fl oz/1,000 sq ft) on perennial ryegrass, fine fescues, or mixed stands containing more than 50% perennial ryegrass and/or fine fescue",
+        "DO NOT exceed 4 fl oz per acre (0.092 fl oz/1,000 sq ft) on St. Augustinegrass — sod uses only",
+        "Tenacity may reduce density of fine fescue seedings; do not use on grass seed blends containing more than 20% by weight of hard or fine fescue",
+        "DO NOT use on golf course putting greens; maintain a 5-foot buffer between treated areas and putting greens",
+        "Maintain a 5-foot buffer between treated areas and bentgrass or Poa annua greens",
+        "DO NOT apply an organophosphate or carbamate insecticide within 7 days of a Tenacity application — turf injury may occur",
+        "DO NOT apply through any type of irrigation system",
+        "DO NOT apply aerially",
+        "DO NOT use grass clippings from treated turf as mulch around trees or in vegetable/flower gardens",
+        "DO NOT plant any crop other than turfgrass species for 18 months after the last application",
+        "Do not apply when wind speeds exceed 15 mph",
+        "Do not apply during temperature inversions",
+        "Avoid applications when rainfall or irrigation is expected within 48 hours — product has high potential to reach surface water via runoff"
+    ],
+    labelUrl: "https://www.cdms.net/ldat/ld8D9005.pdf"
   },
   {
     id: "turflon-ester",
@@ -2675,17 +2675,17 @@ const PRODUCTS = [
     annualMaxPer1k: 5.88,
     waterPerUnit: 1,
     turfTypes: [
-      "Perennial Bluegrass",
-      "Perennial Ryegrass",
-      "Tall Fescue"
+      "perennial-bluegrass",
+      "perennial-ryegrass",
+      "tall-fescue"
     ],
     notSafeTurf: [
-      "Bahiagrass (do not use unless turfgrass injury can be tolerated)",
-      "Bentgrass (do not use unless turfgrass injury can be tolerated)",
-      "Bermudagrass (do not use as a lawn turf unless injury can be tolerated — see Bermudagrass Suppression use for the one exception)",
-      "Centipedegrass (do not use unless turfgrass injury can be tolerated)",
-      "St. Augustinegrass (do not use unless turfgrass injury can be tolerated)",
-      "Zoysiagrass (do not use unless turfgrass injury can be tolerated)",
+      "bahiagrass (do not use unless turfgrass injury can be tolerated)",
+      "bentgrass (do not use unless turfgrass injury can be tolerated)",
+      "bermudagrass (do not use as a lawn turf unless injury can be tolerated — see Bermudagrass Suppression use for the one exception)",
+      "centipedegrass (do not use unless turfgrass injury can be tolerated)",
+      "st-augustinegrass (do not use unless turfgrass injury can be tolerated)",
+      "zoysiagrass (do not use unless turfgrass injury can be tolerated)",
       "Golf course putting greens (do not apply)"
     ],
     targetWeeds: [

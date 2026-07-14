@@ -117,7 +117,7 @@ function populateProducts() {
 function populateTurfTypes() {
   const allTurfs = new Set();
   PRODUCTS.forEach(function(p) {
-    p.turfTypes.forEach(function(t) { allTurfs.add(t); });
+    p.turfTypes.forEach(function(t) { allTurfs.add(t.toLowerCase()); });
   });
   const wrapper = document.querySelector('[data-hidden-input="turf-type"]');
   initCustomSelect(wrapper, Array.from(allTurfs).sort());
@@ -151,9 +151,10 @@ function onProductChange() {
 // ─── TURF SAFETY BANNER ───────────────────────────────────────────────────────
 
 function getTurfStatusForProduct(product, turfType) {
-  if (product.turfTypes.includes(turfType)) return "safe";
+  const turfLower = turfType.toLowerCase();
+  if (product.turfTypes.some(t => t.toLowerCase() === turfLower)) return "safe";
   const isUnsafe = product.notSafeTurf.some(function(entry) {
-    return entry.toLowerCase().indexOf(turfType.toLowerCase()) === 0;
+    return entry.toLowerCase().indexOf(turfLower) === 0;
   });
   return isUnsafe ? "unsafe" : "unknown";
 }
