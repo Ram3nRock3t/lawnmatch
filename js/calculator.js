@@ -105,13 +105,9 @@ function displayArea(sqft) {
 // ─── POPULATE PRODUCT DROPDOWN ────────────────────────────────────────────────
 
 function populateProducts() {
-  const select = document.getElementById("product");
-  PRODUCTS.forEach(function(p) {
-    const option = document.createElement("option");
-    option.value = p.id;
-    option.textContent = p.fullName;
-    select.appendChild(option);
-  });
+  const wrapper = document.querySelector('[data-hidden-input="product"]');
+  const options = PRODUCTS.map(function(p) { return { label: p.fullName, value: p.id }; });
+  initCustomSelect(wrapper, options);
 }
 
 function populateTurfTypes() {
@@ -484,7 +480,6 @@ function resetCalculator() {
   document.getElementById("sqft").value        = "";
   document.getElementById("dim-unit").value    = "ft";
   document.getElementById("area-unit").value   = "ft";
-  document.getElementById("product").value     = "";
   document.getElementById("result-unit").value = "base";
   document.getElementById("use-row").classList.add("hidden");
   document.getElementById("use-type").innerHTML = "";
@@ -492,4 +487,5 @@ function resetCalculator() {
   document.getElementById("turf-status-banner").innerHTML = "";
   updateAreaUnitLabel();
   resetCustomSelect("turf-type");
+  resetCustomSelect("product");
 }

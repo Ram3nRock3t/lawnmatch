@@ -86,9 +86,11 @@
       <div id="turf-status-banner"></div>
 
       <label>Product
-        <select id="product">
-          <option value="">— select a product —</option>
-        </select>
+        <div class="custom-select" data-hidden-input="product">
+          <button type="button" class="custom-select-trigger">— select a product —</button>
+          <div class="custom-select-panel"></div>
+        </div>
+        <input type="hidden" id="product">
       </label>
 
       <label id="use-row" class="hidden">Application type
