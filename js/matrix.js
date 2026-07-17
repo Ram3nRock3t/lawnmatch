@@ -154,31 +154,6 @@ function getTurfSafetyStatus(product, turfType) {
   return "unknown";
 }
 
-// ─── POPULATE WEED CHECKBOXES ─────────────────────────────────────────────────
-
-function populateMatrixWeeds() {
-  var container = document.getElementById("matrix-weed-checkboxes");
-
-  var targetableWeeds = WEEDS.filter(isWeedTargetable);
-
-  targetableWeeds.slice().sort(function(a, b) {
-    return a.commonName.localeCompare(b.commonName);
-  }).forEach(function(w) {
-    var label = document.createElement("label");
-    label.className = "weed-label";
-    label.dataset.weedName = w.commonName.toLowerCase();
-
-    var checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.value = w.id;
-    checkbox.className = "matrix-weed-checkbox";
-
-    label.appendChild(checkbox);
-    label.appendChild(document.createTextNode(" " + w.commonName));
-    container.appendChild(label);
-  });
-}
-
 // ─── POPULATE MATRIX PRODUCT FILTER ──────────────────────────────────────────
 
 function populateMatrixProducts() {
@@ -206,12 +181,72 @@ function filterMatrixProductCheckboxes() {
   });
 }
 
+// ─── POPULATE WEED CHECKBOXES ─────────────────────────────────────────────────
+
+function populateMatrixWeeds() {
+  var container = document.getElementById("matrix-weed-checkboxes");
+
+  var targetableWeeds = WEEDS.filter(isWeedTargetable);
+
+  targetableWeeds.slice().sort(function(a, b) {
+    return a.commonName.localeCompare(b.commonName);
+  }).forEach(function(w) {
+    var label = document.createElement("label");
+    label.className = "weed-label";
+    label.dataset.commonName = w.commonName.toLowerCase();
+    label.dataset.scientificName = (w.scientificName || "").toLowerCase();
+    label.dataset.aliasList = Array.isArray(w.aliases) ? w.aliases.join("|") : "";
+
+    var checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.value = w.id;
+    checkbox.className = "matrix-weed-checkbox";
+
+    var textSpan = document.createElement("span");
+    textSpan.className = "weed-label-text";
+    textSpan.innerHTML = " " + escapeHTML(w.commonName) + " <em>(" + escapeHTML(w.scientificName) + ")</em>";
+
+    var aliasNote = document.createElement("span");
+    aliasNote.className = "weed-alias-note";
+
+    label.appendChild(checkbox);
+    label.appendChild(textSpan);
+    label.appendChild(aliasNote);
+    container.appendChild(label);
+  });
+}
+
 // ─── FILTER WEED CHECKBOXES BY SEARCH TEXT ────────────────────────────────────
+// Matches against commonName, scientificName, and aliases. If the query only
+// matches via alias(es) — not the visible commonName/scientificName — shows
+// which alias(es) matched
 
 function filterWeedCheckboxes() {
   const query = document.getElementById("weed-search").value.toLowerCase().trim();
+
   document.querySelectorAll(".weed-label").forEach(function(label) {
-    label.classList.toggle("hidden", !label.dataset.weedName.includes(query));
+    const aliasNoteEl = label.querySelector(".weed-alias-note");
+
+    if (!query) {
+      label.classList.remove("hidden");
+      if (aliasNoteEl) aliasNoteEl.textContent = "";
+      return;
+    }
+
+    const commonMatch = label.dataset.commonName.includes(query);
+    const sciMatch = label.dataset.scientificName.includes(query);
+    const aliasList = label.dataset.aliasList ? label.dataset.aliasList.split("|") : [];
+    const matchingAliases = aliasList.filter(function(a) {
+      return a.toLowerCase().includes(query);
+    });
+
+    const isMatch = commonMatch || sciMatch || matchingAliases.length > 0;
+    label.classList.toggle("hidden", !isMatch);
+
+    if (aliasNoteEl) {
+      const showAliasNote = isMatch && !commonMatch && !sciMatch && matchingAliases.length > 0;
+      aliasNoteEl.textContent = showAliasNote ? "Alias: " + matchingAliases.join(", ") : "";
+    }
   });
 }
 
