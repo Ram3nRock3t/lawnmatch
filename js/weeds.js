@@ -93,7 +93,7 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "2",
     seasonality: "Warm-season",
-    notes: "Annual Cyperus species distinct from the perennial nutsedges." 
+    notes: "" 
   },
   {
     id: "arrowleaf-sida",
@@ -105,7 +105,7 @@ const WEEDS = [
     lifecycle: "Perennial",
     hracMoa: "4/2",
     seasonality: "Warm-season",
-    notes: "Split from prickly-sida; distinct perennial Sida species, more woody-based than the annual S. spinosa and S. acuta. Appears on some Southeast broadleaf herbicide labels."
+    notes: "More woody-based than the annual S. spinosa and S. acuta."
   },
   {
     id: "asiatic-hawksbeard",
@@ -132,6 +132,30 @@ const WEEDS = [
     notes: "Genus reclassified from Aster to Symphyotrichum per APG IV; most labels still use Aster spp. Genus parent — see aster-white-heath for the species-specific entry. Confidence in current name: 90%."
   },
   {
+    id: "aster-bushy",
+    commonName: "Aster (Bushy)",
+    scientificName: "Symphyotrichum dumosum",
+    aliases: ["Bushy Aster", "Rice Button Aster"],
+    parentGenus: "Symphyotrichum",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "2/4",
+    seasonality: "Warm-season",
+    notes: "Named separately on the Ortho Weed B Gon label."
+  },
+  {
+    id: "aster-purple",
+    commonName: "Aster (Purple)",
+    scientificName: "Symphyotrichum patens",
+    aliases: ["Purple Aster", "Late Purple Aster", "Spreading Aster"],
+    parentGenus: "Symphyotrichum",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "2/4",
+    seasonality: "Warm-season",
+    notes: "A somewhat generic common name applied to several Symphyotrichum species regionally; S. patens used here as the most commonly documented match. Confidence: 60%."
+  },
+  {
     id: "aster-white-heath",
     commonName: "Aster (White Heath)",
     scientificName: "Symphyotrichum ericoides",
@@ -141,7 +165,7 @@ const WEEDS = [
     lifecycle: "Perennial", 
     hracMoa: "2/4", 
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Aster entry."
+    notes: ""
   },
   {
     id: "bahiagrass",
@@ -165,7 +189,7 @@ const WEEDS = [
     lifecycle: "Perennial",
     hracMoa: "",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Wild Barley entry. Unlike the other Hordeum species here, this one is a short-lived perennial."
+    notes: "Unlike the other Hordeum species here, this one is a short-lived perennial."
   },
   {
     id: "barley-little",
@@ -177,7 +201,7 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Wild Barley entry."
+    notes: ""
   },
   {
     id: "barley-mouse",
@@ -189,7 +213,7 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Wild Barley entry."
+    notes: ""
   },
   {
     id: "barnyardgrass",
@@ -225,7 +249,31 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Bedstraw entry; the most common Galium species in turf and the one most often named individually on labels."
+    notes: "The most common Galium species in turf and the one most often named individually on labels."
+  },
+  {
+    id: "bedstraw-marsh",
+    commonName: "Bedstraw (Marsh)",
+    scientificName: "Galium palustre",
+    aliases: ["Marsh Bedstraw"],
+    parentGenus: "Galium",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "4/2",
+    seasonality: "Cool-season",
+    notes: "Found in wet or poorly-drained turf and ditch banks, unlike the more common bedstraw-catchweed."
+  },
+  {
+    id: "bedstraw-northern",
+    commonName: "Bedstraw (Northern)",
+    scientificName: "Galium boreale",
+    aliases: ["Northern Bedstraw"],
+    parentGenus: "Galium",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "4/2",
+    seasonality: "Cool-season",
+    notes: "More prevalent in northern US and Canada than the other Galium species in this database."
   },
   {
     id: "bedstraw-smoothweed",
@@ -237,7 +285,7 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Bedstraw entry; shares herbicide susceptibility with G. aparine."
+    notes: "Shares herbicide susceptibility with G. aparine."
   },
   { 
     id: "beggarweed", 
@@ -261,7 +309,19 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "4/2",
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Beggarweed entry. Common in Southeast US turf and landscape edges."
+    notes: "Common in Southeast US turf and landscape edges."
+  },
+  {
+    id: "beggarweed-dwarf",
+    commonName: "Beggarweed (Dwarf)",
+    scientificName: "Desmodium ciliare",
+    aliases: ["Hairy Small-leaf Tick-trefoil", "Littleleaf Tick-trefoil"],
+    parentGenus: "Desmodium",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "4/2",
+    seasonality: "Warm-season",
+    notes: "Smaller-leaved than beggarweed-creeping and beggarweed-florida; named separately on the BioAdvanced 5-in-1 label."
   },
   {
     id: "beggarweed-florida",
@@ -273,7 +333,31 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "4/2",
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Beggarweed entry. Common in Southeast US turf and landscape edges."
+    notes: "Common in Southeast US turf and landscape edges."
+  },
+  {
+    id: "beggarweed-threeflower",
+    commonName: "Beggarweed (Threeflower)",
+    scientificName: "Desmodium triflorum",
+    aliases: ["Threeflower Beggarweed", "Creeping Tick-trefoil"],
+    parentGenus: "Desmodium",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "4/2",
+    seasonality: "Warm-season",
+    notes: "Low, mat-forming growth habit distinguishes it from beggarweed-creeping and beggarweed-florida."
+  },
+  {
+    id: "bellflower-florida",
+    commonName: "Bellflower (Florida)",
+    scientificName: "Rotanthella Floridana",
+    aliases: ["Florida Bellflower", "Campanula floridana"],
+    parentGenus: "Campanula",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "4/2",
+    seasonality: "Warm-season",
+    notes: "Reclassified from Campanula floridana to Rotanthella floridana per current taxonomy; old name retained as alias."
   },
   {
     id: "bermudagrass",
@@ -310,6 +394,18 @@ const WEEDS = [
     hracMoa: "2/4",
     seasonality: "Cool-season",
     notes: ""
+  },
+  {
+    id: "birdsfoot-trefoil",
+    commonName: "Birdsfoot Trefoil",
+    scientificName: "Lotus corniculatus",
+    aliases: ["Bird's-foot Trefoil", "Birdfoot Deervetch"],
+    parentGenus: "Lotus",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "4/2",
+    seasonality: "Cool-season",
+    notes: "Often planted intentionally as a forage/erosion-control legume; context matters when targeting as a lawn weed. Appears on the Trimec Classic label."
   },
   { 
     id: "bitter-sneezeweed", 
@@ -431,6 +527,18 @@ const WEEDS = [
     seasonality: "Warm-season",
     notes: "Related to Florida Pusley (R. scabra, already in database); distinct species. Found in warm-season turf in Southeast and Gulf Coast US. Confidence in control response: 75%." 
   },
+  {
+    id: "bristly-oxtongue",
+    commonName: "Bristly Oxtongue",
+    scientificName: "Helminthotheca echioides",
+    aliases: ["Picris echioides", "Bristly Ox-tongue", "Prickly Oxtongue"],
+    parentGenus: "Helminthotheca",
+    category: "Broadleaf",
+    lifecycle: "Winter Annual",
+    hracMoa: "4/2",
+    seasonality: "Cool-season",
+    notes: "Reclassified from Picris echioides to Helminthotheca echioides per current taxonomy (Kew POWO); old name retained as alias. Coarse, bristly-leaved weed in the daisy family, primarily West Coast/California."
+  },
   { 
     id: "bristly-mallow", 
     commonName: "Bristly Mallow", 
@@ -441,7 +549,7 @@ const WEEDS = [
     lifecycle: "Perennial", 
     hracMoa: "4",
     seasonality: "Warm-season",
-    notes: "Member of Malvaceae; distinct from Malva spp. (Common Mallow, already in database). Found in warm-season turf in Southeast US. Documented on some broadleaf herbicide labels." 
+    notes: "Member of Malvaceae. Found in warm-season turf in Southeast US." 
   },
   {
     id: "brome",
@@ -465,7 +573,19 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Brome entry."
+    notes: ""
+  },
+  {
+    id: "brome-foxtail",
+    commonName: "Brome (Foxtail)",
+    scientificName: "Bromus rubens",
+    aliases: ["Foxtail Chess", "Red Brome"],
+    parentGenus: "Bromus",
+    category: "Grass",
+    lifecycle: "Annual",
+    hracMoa: "",
+    seasonality: "Cool-season",
+    notes: "More prevalent in western/southwestern US than the other Bromus species in this database."
   },
   {
     id: "brome-japanese",
@@ -477,7 +597,7 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Brome entry."
+    notes: ""
   },
   { 
     id: "browntop-millet", 
@@ -490,6 +610,30 @@ const WEEDS = [
     hracMoa: "15/2",
     seasonality: "Warm-season",
     notes: "Reclassified from Brachiaria ramosa / Panicum ramosum to Urochloa ramosa per current taxonomy (USDA PLANTS). Old names retained as aliases. Appears on Barricade and Celsius herbicide labels." 
+  },
+  {
+    id: "browntop-panicum",
+    commonName: "Browntop Panicum",
+    scientificName: "Urochloa fusca",
+    aliases: ["Browntop Signalgrass", "Panicum fasciculatum", "Brachiaria fasciculata"],
+    parentGenus: "Urochloa",
+    category: "Grass",
+    lifecycle: "Annual",
+    hracMoa: "",
+    seasonality: "Warm-season",
+    notes: "Reclassified from Panicum fasciculatum to Urochloa fusca per current taxonomy (USDA PLANTS)"
+  },
+  {
+    id: "buckthorn",
+    commonName: "Buckthorn",
+    scientificName: "Rhamnus spp.",
+    aliases: ["Common Buckthorn", "Glossy Buckthorn"],
+    parentGenus: "Rhamnus",
+    category: "Woody",
+    lifecycle: "Perennial",
+    hracMoa: "4/9",
+    seasonality: "Temperate",
+    notes: "Genus-level entry — the LESCO Three-Way Selective label lists 'Buckthorn' with no species given; most likely refers to Common Buckthorn (Rhamnus cathartica), a woody invasive shrub/small tree."
   },
   { 
     id: "buffalobur", 
@@ -537,7 +681,43 @@ const WEEDS = [
     lifecycle: "Biennial",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from common-burdock; closely related species with similar herbicide susceptibility but a larger habit. Less common in residential turf than A. minus."
+    notes: "Closely related species with similar herbicide susceptibility but a larger habit. Less common in residential turf than A. minus."
+  },
+  {
+    id: "burning-nettle",
+    commonName: "Burning Nettle",
+    scientificName: "Urtica urens",
+    aliases: ["Dwarf Nettle", "Annual Nettle"],
+    parentGenus: "Urtica",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "",
+    seasonality: "Cool-season",
+    notes: "More common in western US and coastal climates."
+  },
+  {
+    id: "bursage-woollyleaf",
+    commonName: "Bursage (Woollyleaf)",
+    scientificName: "Ambrosia grayi",
+    aliases: ["Woollyleaf Bursage", "Lakeweed", "Woolly-leaf Bur Ragweed"],
+    parentGenus: "Ambrosia",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "2/4",
+    seasonality: "Warm-season",
+    notes: "Related to Ragweed (same genus); primarily a Great Plains/Southwest weed found in low, poorly-drained sites."
+  },
+  {
+    id: "bush-honeysuckle",
+    commonName: "Bush Honeysuckle",
+    scientificName: "Lonicera spp.",
+    aliases: ["Shrub Honeysuckle", "Amur Honeysuckle (if L. maackii)", "Morrow's Honeysuckle (if L. morrowii)"],
+    parentGenus: "Lonicera",
+    category: "Woody",
+    lifecycle: "Perennial",
+    hracMoa: "4/9",
+    seasonality: "Temperate",
+    notes: "Genus parent — several invasive Lonicera species are commonly called Bush Honeysuckle without further distinction on most herbicide labels."
   },
   { 
     id: "buttercup", 
@@ -561,7 +741,7 @@ const WEEDS = [
     lifecycle: "Perennial", 
     hracMoa: "4/2", 
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Buttercup entry. Distinguished by a bulb-like swollen base of the stem."
+    notes: "Distinguished by a bulb-like swollen base of the stem."
   },
   {
     id: "buttercup-corn",
@@ -585,7 +765,7 @@ const WEEDS = [
     lifecycle: "Perennial",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Buttercup entry due to its stoloniferous growth, the dominant form encountered in residential turf."
+    notes: "Stoloniferous growth, the dominant form encountered in residential turf."
   },
   {
     id: "buttercup-sardous",
@@ -597,7 +777,19 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "4/2", 
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Buttercup entry. Unlike most other Ranunculus turf weeds, this species is annual rather than perennial."
+    notes: "Unlike most other Ranunculus turf weeds, this species is annual rather than perennial."
+  },
+  {
+    id: "buttercup-smallflower",
+    commonName: "Buttercup (Smallflower)",
+    scientificName: "Ranunculus abortivus",
+    aliases: ["Smallflower Buttercup", "Kidneyleaf Buttercup"],
+    parentGenus: "Ranunculus",
+    category: "Broadleaf",
+    lifecycle: "Winter Annual",
+    hracMoa: "4/2",
+    seasonality: "Cool-season",
+    notes: "Distinguished by small, inconspicuous flowers compared to the other Ranunculus species in this database."
   },
   {
     id: "buttercup-tall",
@@ -609,7 +801,19 @@ const WEEDS = [
     lifecycle: "Perennial", 
     hracMoa: "4/2", 
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Buttercup entry."
+    notes: ""
+  },
+  {
+    id: "buttonweed-bushy",
+    commonName: "Buttonweed (Bushy)",
+    scientificName: "Spermacoce verticillata",
+    aliases: ["Bushy Buttonweed", "Whitehead Broom", "Shrubby False Buttonweed"],
+    parentGenus: "Spermacoce",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "4/2",
+    seasonality: "Warm-season",
+    notes: "'Bushy Buttonweed' and 'Whitehead Broom' both appear as separate line items on the Ortho label but refer to the same species — combined here as aliases per Rule 1 rather than creating duplicate entries. Distinct from Virginia Buttonweed (Diodia virginiana) and Poorjoe (Diodia teres), both already in database."
   },
   {
     id: "canada-fleabane",
@@ -669,7 +873,7 @@ const WEEDS = [
     lifecycle: "Perennial", 
     hracMoa: "9/1", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Carpetgrass entry."
+    notes: ""
   },
   {
     id: "carpetgrass-tropical",
@@ -681,7 +885,7 @@ const WEEDS = [
     lifecycle: "Perennial", 
     hracMoa: "9/1", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Carpetgrass entry."
+    notes: ""
   },
   {
     id: "carpetweed",
@@ -720,6 +924,30 @@ const WEEDS = [
     notes: "Weed escape in bermudagrass, zoysia, and fine turf. Documented on some specialty herbicide labels (e.g. sulfosulfuron-based products). Selective control options limited; Group 9 spot treatment most commonly referenced. Confidence in Group 1 selective control: 70%."
   },
   {
+    id: "centella",
+    commonName: "Centella",
+    scientificName: "Centella asiatica",
+    aliases: ["Asiatic Pennywort", "Gotu Kola", "Indian Pennywort"],
+    parentGenus: "Centella",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "4/2",
+    seasonality: "Warm-season",
+    notes: "Distinct genus from Water Pennywort/Dollarweed (Hydrocotyle spp., already in database) despite the similar common name and creeping, round-leaved appearance. Found in moist Southern turf."
+  },
+  {
+    id: "chaff-flower-smooth",
+    commonName: "Chaff-flower (Smooth)",
+    scientificName: "Alternanthera paronychioides",
+    aliases: ["Smooth Chaff-flower", "Smooth Joyweed"],
+    parentGenus: "Alternanthera",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "4/2",
+    seasonality: "Warm-season",
+    notes: "Distinct from Alligatorweed (Alternanthera philoxeroides, already in database), same genus."
+  },
+  {
     id: "chamberbitter",
     commonName: "Chamberbitter",
     scientificName: "Phyllanthus urinaria",
@@ -753,7 +981,19 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "2/4",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Chamomile entry."
+    notes: ""
+  },
+  {
+    id: "false-chamomile",
+    commonName: "Chamomile (False)",
+    scientificName: "Tripleurospermum inodorum",
+    aliases: ["Scentless Chamomile", "Scentless Mayweed", "Matricaria inodora", "Matricaria perforata"],
+    parentGenus: "Tripleurospermum",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Resembles both Chamomile (Anthemis spp.) and Mayweed (Anthemis cotula) closely but lacks their characteristic strong scent when crushed."
   },
   {
     id: "chickweed",
@@ -777,7 +1017,7 @@ const WEEDS = [
     lifecycle: "Perennial", 
     hracMoa: "4/2", 
     seasonality: "Cool-season",
-    notes: "Split from mouseear-chickweed; distinct species sharing similar herbicide susceptibility."
+    notes: "Distinct species sharing similar herbicide susceptibility to mouseear-chickweed."
   },
   { 
     id: "chicory", 
@@ -790,6 +1030,18 @@ const WEEDS = [
     hracMoa: "4/2",
     seasonality: "Cool-season",
     notes: "Recognized by distinctive bright blue flowers in summer. Taproot makes it persistent; mowing does not control it. Common in thin or unmaintained turf areas. Documented on multiple broadleaf herbicide labels." 
+  },
+  {
+    id: "chinchweed-spreading",
+    commonName: "Chinchweed (Spreading)",
+    scientificName: "Pectis prostrata",
+    aliases: ["Spreading Chinchweed", "Prostrate Pectis"],
+    parentGenus: "Pectis",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "",
+    seasonality: "Warm-season",
+    notes: "Low, mat-forming annual with a strong lemony scent when crushed; found in dry, sandy, disturbed turf areas, primarily southern/southwestern US."
   },
   { 
     id: "cinquefoil", 
@@ -813,7 +1065,7 @@ const WEEDS = [
     lifecycle: "Perennial",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Cinquefoil entry. Stoloniferous growth habit makes this the most common cinquefoil in residential turf."
+    notes: "Stoloniferous growth habit makes this the most common cinquefoil in residential turf."
   },
   {
     id: "cinquefoil-dwarf",
@@ -825,7 +1077,19 @@ const WEEDS = [
     lifecycle: "Perennial",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Cinquefoil entry."
+    notes: ""
+  },
+  {
+    id: "cinquefoil-oldfield",
+    commonName: "Cinquefoil (Oldfield)",
+    scientificName: "Potentilla simplex",
+    aliases: ["Oldfield Cinquefoil", "Common Cinquefoil (alt.)"],
+    parentGenus: "Potentilla",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "4/2",
+    seasonality: "Cool-season",
+    notes: "Common in eastern US turf and disturbed areas, spreading via slender runners."
   },
   {
     id: "cinquefoil-rough",
@@ -849,7 +1113,7 @@ const WEEDS = [
     lifecycle: "Perennial",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Cinquefoil entry. More commonly an invasive rangeland/pasture weed than a residential turf weed."
+    notes: "More commonly an invasive rangeland/pasture weed than a residential turf weed."
   },
   {
     id: "clover",
@@ -862,6 +1126,30 @@ const WEEDS = [
     hracMoa: "4/2",
     seasonality: "Cool-season",
     notes: "Genus parent for Trifolium species not covered by the more specific white-clover, red-clover, hop-clover, hop-clover-large, or hop-clover-low entries."
+  },
+  {
+    id: "clover-alyce",
+    commonName: "Clover (Alyce)",
+    scientificName: "Alysicarpus vaginalis",
+    aliases: ["Alyce Clover"],
+    parentGenus: "Alysicarpus",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "4/2",
+    seasonality: "Warm-season",
+    notes: "Legume, not a true Trifolium clover despite the common name. Primarily a Southeast US/Gulf Coast turf and pasture weed."
+  },
+  {
+    id: "clover-crimson",
+    commonName: "Clover (Crimson)",
+    scientificName: "Trifolium incarnatum",
+    aliases: ["Crimson Clover"],
+    parentGenus: "Trifolium",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "4/2",
+    seasonality: "Cool-season",
+    notes: "Often planted intentionally as a cover crop or ornamental (distinctive deep-red flower spikes); context matters when targeting as a weed."
   },
   {
     id: "cocklebur",
@@ -933,6 +1221,18 @@ const WEEDS = [
     seasonality: "Cool-season",
     notes: "Primarily an agricultural weed introduced from Europe; uncommon in maintained residential turf. Highly toxic seeds. Appears on some broadleaf herbicide labels primarily for non-cropland use. Confidence in residential prevalence: 55%." 
   },
+  {
+    id: "corn-spurry",
+    commonName: "Corn Spurry",
+    scientificName: "Spergula arvensis",
+    aliases: ["Spurry", "Stickwort"],
+    parentGenus: "Spergula",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "2/4",
+    seasonality: "Warm-season",
+    notes: "Primarily an agricultural and sandy-soil weed; documented on the Sedgehammer/Sedgehammer+ labels as a postemergent turf target."
+  },
   { 
     id: "cow-cockle", 
     commonName: "Cow Cockle", 
@@ -961,13 +1261,13 @@ const WEEDS = [
     id: "crabgrass-hairy",
     commonName: "Crabgrass (Hairy)",
     scientificName: "Digitaria ciliaris",
-    aliases: ["Hairy Crabgrass", "Southern Crabgrass"],
+    aliases: ["Hairy Crabgrass", "Southern Crabgrass", "Henry Crabgrass"],
     parentGenus: "Digitaria", 
     category: "Grass", 
     lifecycle: "Annual", 
     hracMoa: "15/4", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Crabgrass entry."
+    notes: "S"
   },
   {
     id: "crabgrass-large",
@@ -979,7 +1279,7 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "15/4", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Crabgrass entry. The most common crabgrass species in residential turf."
+    notes: "The most common crabgrass species in residential turf."
   },
   {
     id: "crabgrass-smooth",
@@ -991,7 +1291,7 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "15/4", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Crabgrass entry."
+    notes: ""
   },
   {
     id: "creeping-bentgrass-weed-escape",
@@ -1120,7 +1420,7 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "4/2", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Dayflower entry."
+    notes: ""
   },
   {
     id: "dayflower-spreading",
@@ -1132,7 +1432,7 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "4/2", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Dayflower entry."
+    notes: ""
   },
   {
     id: "dichondra",
@@ -1146,6 +1446,17 @@ const WEEDS = [
     seasonality: "Warm-season",
     notes: "Intentionally planted as a lawn alternative in some Western US regions; context matters when targeting. Documented as invasive weed in bermudagrass and other warm-season turf on multiple herbicide labels."
   },
+  { id: "dock", 
+    commonName: "Dock", 
+    scientificName: "Rumex spp.",
+    aliases: [],
+    parentGenus: "Rumex", 
+    category: "Broadleaf", 
+    lifecycle: "Perennial", 
+    hracMoa: "4/9",
+    seasonality: "Cool-season",
+    notes: "Genus parent for Rumex species not covered by the more specific dock-curly, dock-broadleaf, or red-sorrel entries. Distinct from Red Sorrel (R. acetosella, already in database)."
+  },
   {
     id: "dock-broadleaf",
     commonName: "Dock (Broadleaf)",
@@ -1156,7 +1467,7 @@ const WEEDS = [
     lifecycle: "Perennial",
     hracMoa: "4/9",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Dock entry per labels that name this species specifically. Deep taproot requires repeat applications for control."
+    notes: "Deep taproot requires repeat applications for control."
   },
   {
     id: "dock-curly",
@@ -1168,18 +1479,7 @@ const WEEDS = [
     lifecycle: "Perennial",
     hracMoa: "4/9",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Dock entry per labels that name this species specifically. Deep taproot requires repeat applications for control."
-  },
-  { id: "dock", 
-    commonName: "Dock", 
-    scientificName: "Rumex spp.",
-    aliases: [],
-    parentGenus: "Rumex", 
-    category: "Broadleaf", 
-    lifecycle: "Perennial", 
-    hracMoa: "4/9",
-    seasonality: "Cool-season",
-    notes: "Genus parent for Rumex species not covered by the more specific dock-curly, dock-broadleaf, or red-sorrel entries. Distinct from Red Sorrel (R. acetosella, already in database)."
+    notes: "Deep taproot requires repeat applications for control."
   },
   { id: "dogfennel", 
     commonName: "Dogfennel", 
@@ -1193,6 +1493,18 @@ const WEEDS = [
     notes: "Major weed in Southeast US turf, pastures, and roadsides. Distinctive feathery, finely dissected foliage. NOT Anthemis cotula (see mayweed entry), which is sometimes also called 'dog fennel' in casual regional usage despite being an unrelated genus. Documented in UF/IFAS, NC State, and Virginia Tech extension guides."
   },
   {
+    id: "dovefoot-geranium",
+    commonName: "Dovefoot Geranium",
+    scientificName: "Geranium molle",
+    aliases: ["Dove's-foot Geranium", "Dove's-foot Cranesbill"],
+    parentGenus: "Geranium",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "4/2",
+    seasonality: "Cool-season",
+    notes: "Distinct from Carolina Geranium (geranium-carolina) and Wild Geranium (geranium-wild), both already in database; named separately on the Trimec Classic label."
+  },
+  {
     id: "doveweed",
     commonName: "Doveweed",
     scientificName: "Murdannia nudiflora",
@@ -1203,6 +1515,18 @@ const WEEDS = [
     hracMoa: "4/2",
     seasonality: "Warm-season",
     notes: "Member of Commelinaceae (spiderwort family); managed as broadleaf on herbicide labels. Major Southeast turf weed. Post-emergent control is challenging and often requires multiple applications. Documented in UF/IFAS, NC State, and Virginia Tech extension guides. Confidence in Group 4 post-emergent efficacy: 70%."
+  },
+  {
+    id: "drymary-heartleaf",
+    commonName: "Drymary (Heartleaf)",
+    scientificName: "Drymaria cordata",
+    aliases: ["Heartleaf Drymary", "Tropical Chickweed", "West Indian Chickweed"],
+    parentGenus: "Drymaria",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "",
+    seasonality: "Warm-season",
+    notes: "Found in moist, shaded turf and landscape beds in Florida and the Gulf Coast."
   },
   {
     id: "eclipta",
@@ -1248,7 +1572,7 @@ const WEEDS = [
     lifecycle: "Biennial",
     hracMoa: "2/4",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Evening Primrose entry; named separately on the Fahrenheit label. Forms a basal rosette in year one and bolts in year two."
+    notes: "Forms a basal rosette in year one and bolts in year two."
   },
   {
     id: "evening-primrose-cutleaf",
@@ -1260,7 +1584,19 @@ const WEEDS = [
     lifecycle: "Biennial",
     hracMoa: "2/4",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Evening Primrose entry; named separately on the Fahrenheit label."
+    notes: "Named separately on the Fahrenheit label."
+  },
+  {
+    id: "evening-primrose-showy",
+    commonName: "Evening Primrose (Showy)",
+    scientificName: "Oenothera speciosa",
+    aliases: ["Showy Evening Primrose", "Pink Evening Primrose", "Mexican Evening Primrose"],
+    parentGenus: "Oenothera",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "2/4",
+    seasonality: "Warm-season",
+    notes: "Distinguished from evening-primrose-common and evening-primrose-cutleaf by showy pink (not yellow) flowers and a spreading perennial habit; often cultivated intentionally as a wildflower."
   },
   {
     id: "facelis",
@@ -1332,13 +1668,13 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "2/4",
     seasonality: "Cool-season",
-    notes: "Split out of the genus-level Fiddleneck entry, where it had been incorrectly bundled as an alias alongside the distinct species Bristly Fiddleneck (Amsinckia tessellata, not currently in this database) rather than listed as its own species."
+    notes: ""
   },
   {
     id: "field-bindweed",
     commonName: "Field Bindweed",
     scientificName: "Convolvulus arvensis",
-    aliases: ["Creeping Jenny", "Perennial Morningglory", "Wild Morningglory", "Bellbine"],
+    aliases: ["Perennial Morningglory", "Wild Morningglory", "Bellbine"],
     parentGenus: "Convolvulus",
     category: "Vine",
     lifecycle: "Perennial",
@@ -1391,7 +1727,7 @@ const WEEDS = [
     lifecycle: "Winter Annual",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Filaree entry. Distinctive corkscrew-shaped seed awns that coil when wet."
+    notes: "Distinctive corkscrew-shaped seed awns that coil when wet."
   },
   {
     id: "filaree-whitestem",
@@ -1403,7 +1739,31 @@ const WEEDS = [
     lifecycle: "Winter Annual",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Filaree entry."
+    notes: ""
+  },
+  {
+    id: "flatsedge-rice",
+    commonName: "Flatsedge (Rice)",
+    scientificName: "Cyperus iria",
+    aliases: ["Rice Flatsedge"],
+    parentGenus: "Cyperus",
+    category: "Sedge",
+    lifecycle: "Annual",
+    hracMoa: "2",
+    seasonality: "Warm-season",
+    notes: "Annual Cyperus species distinct from the perennial nutsedges (nutsedge-purple, nutsedge-yellow) and the other annual flatsedge, annual-sedge (C. compressus)."
+  },
+  {
+    id: "fleabane",
+    commonName: "Fleabane",
+    scientificName: "Erigeron spp.",
+    aliases: [],
+    parentGenus: "Erigeron",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "9/2",
+    seasonality: "Cool-season",
+    notes: "Genus parent for Erigeron species not covered by the more specific fleabane-annual, fleabane-hairy, fleabane-philadelphia, or fleabane-rough entries, or by canada-fleabane (a related genus-level alias situation, since Canada Fleabane/Horseweed is technically Erigeron canadensis)."
   },
   {
     id: "fleabane-annual",
@@ -1418,6 +1778,42 @@ const WEEDS = [
     notes: "Distinct from Canada Fleabane/Horseweed (Erigeron canadensis) and Rough Fleabane (Erigeron strigosus), both already in database."
   },
   {
+    id: "fleabane-hairy",
+    commonName: "Fleabane (Hairy)",
+    scientificName: "Erigeron bonariensis",
+    aliases: ["Hairy Fleabane", "Conyza bonariensis", "South American Fleabane", "Asthmaweed"],
+    parentGenus: "Erigeron",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "9/2",
+    seasonality: "Cool-season",
+    notes: "Distinct species from Canada Fleabane (canada-fleabane), Annual Fleabane (fleabane-annual), Philadelphia Fleabane (fleabane-philadelphia), and Rough Fleabane (fleabane-rough), all already in database."
+  },
+  {
+    id: "fleabane-oakleaf",
+    commonName: "Fleabane (Oakleaf)",
+    scientificName: "Erigeron foliosus",
+    aliases: ["Oakleaf Fleabane", "Leafy Fleabane"],
+    parentGenus: "Erigeron",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "9/2",
+    seasonality: "Cool-season",
+    notes: "Primarily a western US species."
+  },
+  {
+    id: "fleabane-philadelphia",
+    commonName: "Fleabane (Philadelphia)",
+    scientificName: "Erigeron philadelphicus",
+    aliases: ["Philadelphia Fleabane", "Marsh Fleabane"],
+    parentGenus: "Erigeron",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Distinct species from Canada Fleabane (canada-fleabane), Annual Fleabane (fleabane-annual), and Rough Fleabane (fleabane-rough), all already in database. Documented on the Sedgehammer/Sedgehammer+ labels."
+  },
+  {
     id: "fleabane-rough",
     commonName: "Fleabane (Rough)",
     scientificName: "Erigeron strigosus",
@@ -1427,7 +1823,7 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "9/2", 
     seasonality: "Cool-season",
-    notes: "Split from canada-fleabane; closely related species with similar herbicide susceptibility."
+    notes: "Closely related species with similar herbicide susceptibility to Canada Fleabane."
   },
   {
     id: "flixweed",
@@ -1439,7 +1835,7 @@ const WEEDS = [
     lifecycle: "Winter Annual",
     hracMoa: "2/4",
     seasonality: "Cool-season",
-    notes: "Distinct from Tansy Mustard (Descurainia pinnata, already in database) despite the similar common name overlap in some regional usage."
+    notes: "Similar common name overlap with Tansy Mustard (Descurainia pinnata) in some regional usage."
   },
   { id: "florida-betony", 
     commonName: "Florida Betony", 
@@ -1486,7 +1882,7 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "15/1", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Foxtail entry."
+    notes: ""
   },
   {
     id: "foxtail-green",
@@ -1498,7 +1894,7 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "15/1", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Foxtail entry."
+    notes: ""
   },
   {
     id: "foxtail-yellow",
@@ -1510,7 +1906,7 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "15/1", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Foxtail entry."
+    notes: ""
   },
   {
     id: "galinsoga",
@@ -1522,7 +1918,7 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "2/4",
     seasonality: "Warm-season",
-    notes: "Genus parent — see galinsoga-hairy for the species-specific entry."
+    notes: ""
   },
   {
     id: "galinsoga-hairy",
@@ -1534,7 +1930,7 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "2/4", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Galinsoga entry."
+    notes: ""
   },
   {
     id: "galinsoga-smallflower",
@@ -1581,7 +1977,7 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Geranium entry. The most common Geranium species in maintained turf; annual/biennial habit."
+    notes: "The most common Geranium species in maintained turf; annual/biennial habit."
   },
   {
     id: "geranium-wild",
@@ -1593,7 +1989,7 @@ const WEEDS = [
     lifecycle: "Perennial",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Geranium entry. Perennial and less common in maintained lawns than G. carolinianum."
+    notes: "Perennial and less common in maintained lawns than G. carolinianum."
   },
   {
     id: "giant-ragweed",
@@ -1667,6 +2063,30 @@ const WEEDS = [
     notes: "Primarily an agricultural and disturbed-area weed. Uncommon in maintained residential turf. Appears on the Fahrenheit herbicide label. Confidence in residential prevalence: 55%." 
   },
   {
+    id: "ground-cherry-clammy",
+    commonName: "Ground Cherry (Clammy)",
+    scientificName: "Physalis heterophylla",
+    aliases: ["Clammy Ground Cherry"],
+    parentGenus: "Physalis",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "",
+    seasonality: "Warm-season",
+    notes: "Genus parent situation — no bare Physalis entry currently exists; this and Ground Cherry (Smooth) are the first two Physalis species in the database. Named for the sticky, glandular-hairy foliage. Papery husk around the fruit distinguishes this genus."
+  },
+  {
+    id: "ground-cherry-smooth",
+    commonName: "Ground Cherry (Smooth)",
+    scientificName: "Physalis longifolia",
+    aliases: ["Smooth Ground Cherry"],
+    parentGenus: "Physalis",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "",
+    seasonality: "Warm-season",
+    notes: "Distinguished from Ground Cherry (Clammy) (P. heterophylla) by smooth (non-glandular) foliage."
+  },
+  {
     id: "ground-ivy",
     commonName: "Ground Ivy",
     scientificName: "Glechoma hederacea",
@@ -1689,6 +2109,18 @@ const WEEDS = [
     hracMoa: "2/4",
     seasonality: "Cool-season",
     notes: "Some authorities (Kew, Euro+Med) reclassify S. vulgaris to Jacobaea vulgaris; Senecio retained as canonical due to predominant use on North American labels and extension publications. Confidence: 75%."
+  },
+  {
+    id: "guineagrass",
+    commonName: "Guineagrass",
+    scientificName: "Urochloa maxima",
+    aliases: ["Panicum maximum", "Colonial Guineagrass", "Green Panic"],
+    parentGenus: "Urochloa",
+    category: "Grass",
+    lifecycle: "Perennial",
+    hracMoa: "",
+    seasonality: "Warm-season",
+    notes: "Reclassified from Panicum maximum to Urochloa maxima per current taxonomy (USDA PLANTS, Kew POWO); old name retained as alias. Large tufted perennial grass, primarily a Gulf Coast/Florida turf and pasture weed."
   },
   {
     id: "hairy-bittercress",
@@ -1761,6 +2193,18 @@ const WEEDS = [
     seasonality: "Cool-season",
     notes: ""
   },
+  {
+    id: "himalayan-blackberry",
+    commonName: "Himalayan Blackberry",
+    scientificName: "Rubus armeniacus",
+    aliases: ["Rubus bifrons", "Rubus procerus", "Armenian Blackberry"],
+    parentGenus: "Rubus",
+    category: "Woody",
+    lifecycle: "Perennial",
+    hracMoa: "4/9",
+    seasonality: "Temperate",
+    notes: "Distinct invasive species from the genus-parent Blackberry entry — a significant noxious weed on the West Coast, particularly Pacific Northwest and California. Rubus bifrons is an older synonym still occasionally used."
+  },
   { 
     id: "hoary-cress", 
     commonName: "Hoary Cress", 
@@ -1795,7 +2239,7 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from hop-clover. Appears on Drive XLR8 and Tenacity labels."
+    notes: ""
   },
   {
     id: "hop-clover-low",
@@ -1807,7 +2251,7 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from hop-clover. Appears on Drive XLR8 and Tenacity labels. Trifolium procumbens is an older synonym still used on some herbicide labels."
+    notes: "Trifolium procumbens is an older synonym still used on some herbicide labels."
   },
   {
     id: "horse-purslane",
@@ -1879,7 +2323,7 @@ const WEEDS = [
     lifecycle: "Perennial", 
     hracMoa: "4/9", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Ironweed entry."
+    notes: ""
   },
   {
     id: "ironweed-new-york",
@@ -1891,7 +2335,7 @@ const WEEDS = [
     lifecycle: "Perennial", 
     hracMoa: "4/9", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Ironweed entry. Tall perennial with vivid purple flowers in late summer."
+    notes: "Tall perennial with vivid purple flowers in late summer."
   },
   { 
     id: "itchgrass", 
@@ -1977,6 +2421,18 @@ const WEEDS = [
     seasonality: "Cool-season",
     notes: ""
   },
+  {
+    id: "joyweed-yellow",
+    commonName: "Joyweed (Yellow)",
+    scientificName: "Alternanthera flavescens",
+    aliases: ["Yellow Joyweed", "Yellowtop Joyweed"],
+    parentGenus: "Alternanthera",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "4/2",
+    seasonality: "Warm-season",
+    notes: "Distinct species from Alligatorweed (Alternanthera philoxeroides) and Chaff-flower, Smooth (Alternanthera paronychioides), both already in database. Primarily a Florida/Gulf Coast turf and disturbed-area weed."
+  },
   { 
     id: "junglerice", 
     commonName: "Junglerice", 
@@ -2036,6 +2492,18 @@ const WEEDS = [
     hracMoa: "2/4",
     seasonality: "Cool-season",
     notes: ""
+  },
+  {
+    id: "knotweed-tufted",
+    commonName: "Knotweed (Tufted)",
+    scientificName: "Persicaria caespitosa",
+    aliases: ["Tufted Knotweed", "Polygonum caespitosum"],
+    parentGenus: "Persicaria",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "2/4",
+    seasonality: "Warm-season",
+    notes: "Upright/tufted rather than prostrate, and taxonomically sits in Persicaria."
   },
   {
     id: "kochia",
@@ -2203,7 +2671,7 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "15/1",
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Lovegrass entry."
+    notes: ""
   },
   {
     id: "lovegrass-tufted",
@@ -2215,7 +2683,7 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "15/1",
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Lovegrass entry. The most common Eragrostis species in residential turf."
+    notes: "The most common Eragrostis species in residential turf."
   },
   {
     id: "lovegrass-weeping",
@@ -2227,7 +2695,19 @@ const WEEDS = [
     lifecycle: "Perennial",
     hracMoa: "15/1",
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Lovegrass entry to correct a lifecycle error — this species is perennial, unlike the annual species in that entry. Sometimes planted intentionally for erosion control and can escape into turf."
+    notes: "Sometimes planted intentionally for erosion control and can escape into turf."
+  },
+  {
+    id: "mallow-alkali",
+    commonName: "Mallow (Alkali)",
+    scientificName: "Malvella leprosa",
+    aliases: ["Alkali Mallow", "Alkali Weed"],
+    parentGenus: "Malvella",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "4/2",
+    seasonality: "Warm-season",
+    notes: "Found in alkaline/saline soils, primarily western and southern US."
   },
   {
     id: "mallow-common",
@@ -2239,7 +2719,7 @@ const WEEDS = [
     lifecycle: "Biennial",
     hracMoa: "2/4",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Malva entry. Distinguished from Mallow (Dwarf) (M. neglecta) by a taller, more upright growth habit and larger flowers."
+    notes: "Distinguished from Mallow (Dwarf) (M. neglecta) by a taller, more upright growth habit and larger flowers."
   },
   {
     id: "mallow-dwarf",
@@ -2251,7 +2731,31 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "2/4",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Malva entry. The most common Malva species encountered in residential turf; low, spreading growth habit."
+    notes: "The most common Malva species encountered in residential turf; low, spreading growth habit."
+  },
+  {
+    id: "mallow-little",
+    commonName: "Mallow (Little)",
+    scientificName: "Malva parviflora",
+    aliases: ["Little Mallow", "Cheeseweed Mallow", "Small Mallow"],
+    parentGenus: "Malva",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Distinct species from Mallow (Common) (M. sylvestris) and Mallow (Dwarf) (M. neglecta), both already in database. More prevalent in western/southern US."
+  },
+  {
+    id: "mallow-venice",
+    commonName: "Mallow (Venice)",
+    scientificName: "Hibiscus trionum",
+    aliases: ["Venice Mallow", "Flower-of-an-hour"],
+    parentGenus: "Hibiscus",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "2/4",
+    seasonality: "Warm-season",
+    notes: "Despite the common name, this is Hibiscus trionum — not a true Malva species (see malva, mallow-common, mallow-dwarf for the Malva genus entries)."
   },
   {
     id: "malva",
@@ -2264,6 +2768,18 @@ const WEEDS = [
     hracMoa: "2/4",
     seasonality: "Cool-season",
     notes: ""
+  },
+  {
+    id: "marcela",
+    commonName: "Marcela",
+    scientificName: "Achyrocline satureioides",
+    aliases: ["Macela", "Marcela Weed", "Kumanda-Kaa"],
+    parentGenus: "Achyrocline",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "",
+    seasonality: "Warm-season",
+    notes: "Member of the daisy family (Asteraceae); found in Southeast US turf and disturbed areas. Sometimes used medicinally/as a tea herb in South America, which is the origin of the common name."
   },
   { 
     id: "matchweed", 
@@ -2278,6 +2794,18 @@ const WEEDS = [
     notes: "Creeping perennial that spreads along the soil surface; can form dense mats in moist, low-maintenance turf areas in the Southeast US. Lippia nodiflora is an older name still used on some herbicide labels. Appears on the SpeedZone Southern label." 
   },
   {
+    id: "maypop-passionflower",
+    commonName: "Maypop Passionflower",
+    scientificName: "Passiflora incarnata",
+    aliases: ["Maypop", "Purple Passionflower", "Wild Apricot"],
+    parentGenus: "Passiflora",
+    category: "Vine",
+    lifecycle: "Perennial",
+    hracMoa: "4/9",
+    seasonality: "Warm-season",
+    notes: "Spreading perennial vine, native to the Southeast US; can become weedy in turf and disturbed areas via extensive rhizomes despite also being cultivated for its edible fruit and ornamental flowers."
+  },
+  {
     id: "mayweed",
     commonName: "Mayweed",
     scientificName: "Anthemis cotula",
@@ -2287,7 +2815,7 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "2/4",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Chamomile entry. Sometimes called 'Dog Fennel' regionally due to superficial leaf resemblance, but is NOT the true Dogfennel (Eupatorium capillifolium, a different genus — see dogfennel entry). The alias is retained here only to catch users searching by that regional nickname."
+    notes: "Sometimes called 'Dog Fennel' regionally due to superficial leaf resemblance, but is NOT the true Dogfennel (Eupatorium capillifolium, a different genus — see dogfennel entry). The alias is retained here only to catch users searching by that regional nickname."
   },
   { 
     id: "milk-thistle", 
@@ -2312,6 +2840,18 @@ const WEEDS = [
     hracMoa: "4/9",
     seasonality: "Warm-season",
     notes: ""
+  },
+  {
+    id: "milkweed-honeyvine",
+    commonName: "Milkweed (Honeyvine)",
+    scientificName: "Cynanchum laeve",
+    aliases: ["Honeyvine Milkweed", "Bluevine", "Ampelamus albidus"],
+    parentGenus: "Cynanchum",
+    category: "Vine",
+    lifecycle: "Perennial",
+    hracMoa: "2/4",
+    seasonality: "Warm-season",
+    notes: "Despite the common name, this is Cynanchum laeve (synonym Ampelamus albidus) — not a true Asclepias milkweed (see the milkweed genus entry). Twining vine habit distinguishes it from upright Asclepias species."
   },
   { 
     id: "miners-lettuce", 
@@ -2362,6 +2902,18 @@ const WEEDS = [
     notes: "Genus parent — see morningglory-tall, morningglory-pitted, and morningglory-ivyleaf for species-specific entries."
   },
   {
+    id: "morningglory-bigroot",
+    commonName: "Morningglory (Bigroot)",
+    scientificName: "Ipomoea pandurata",
+    aliases: ["Bigroot Morningglory", "Man-of-the-Earth", "Wild Potato Vine"],
+    parentGenus: "Ipomoea",
+    category: "Vine",
+    lifecycle: "Perennial",
+    hracMoa: "4/9",
+    seasonality: "Warm-season",
+    notes: "Unlike the other Ipomoea species in this database (all annuals), this is a persistent perennial with a large tuberous root, making it far more difficult to control."
+  },
+  {
     id: "morningglory-ivyleaf",
     commonName: "Morningglory (Ivyleaf)",
     scientificName: "Ipomoea hederacea",
@@ -2371,7 +2923,19 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "4/9", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Morningglory entry."
+    notes: ""
+  },
+  {
+    id: "morningglory-mexican",
+    commonName: "Morningglory (Mexican)",
+    scientificName: "Ipomoea trichocarpa",
+    aliases: ["Mexican Morningglory", "Woolly Morningglory"],
+    parentGenus: "Ipomoea",
+    category: "Vine",
+    lifecycle: "Annual",
+    hracMoa: "4/9",
+    seasonality: "Warm-season",
+    notes: ""
   },
   {
     id: "morningglory-pitted",
@@ -2383,7 +2947,19 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "4/9", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Morningglory entry."
+    notes: ""
+  },
+  {
+    id: "morningglory-red",
+    commonName: "Morningglory (Red)",
+    scientificName: "Ipomoea coccinea",
+    aliases: ["Red Morningglory", "Redstar", "Scarlet Creeper"],
+    parentGenus: "Ipomoea",
+    category: "Vine",
+    lifecycle: "Annual",
+    hracMoa: "4/9",
+    seasonality: "Warm-season",
+    notes: " Distinctive small, star-shaped scarlet flowers."
   },
   {
     id: "morningglory-tall",
@@ -2395,7 +2971,7 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "4/9", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Morningglory entry."
+    notes: ""
   },
   {
     id: "mouseear-chickweed",
@@ -2434,6 +3010,42 @@ const WEEDS = [
     notes: ""
   },
   {
+    id: "muhly-deer-grass",
+    commonName: "Muhly (Deer Grass)",
+    scientificName: "Muhlenbergia rigens",
+    aliases: ["Deergrass", "Deer Grass", "Deergrass Muhly"],
+    parentGenus: "Muhlenbergia",
+    category: "Grass",
+    lifecycle: "Perennial",
+    hracMoa: "",
+    seasonality: "Warm-season",
+    notes: "Large bunchgrass native to the Southwest US; often planted intentionally as an ornamental/erosion-control grass, so context matters when targeting as a weed. Not documented on the Roundup Weed & Grass Killer label — added per user request as part of the broader Muhlenbergia entries. Distinct from Nimblewill (M. schreberi), Wirestem Muhly (M. frondosa), and New Mexico Muhly (M. pauciflora), all already in database."
+  },
+  {
+    id: "muhly-new-mexico",
+    commonName: "Muhly (New Mexico)",
+    scientificName: "Muhlenbergia pauciflora",
+    aliases: ["New Mexico Muhly", "Few-flower Muhly"],
+    parentGenus: "Muhlenbergia",
+    category: "Grass",
+    lifecycle: "Perennial",
+    hracMoa: "",
+    seasonality: "Warm-season",
+    notes: "Primarily a Southwest US (New Mexico, Arizona, Texas) species found in rocky/desert grassland habitats; not documented on the Roundup Weed & Grass Killer label — added per user request as part of the broader Muhlenbergia entries. Distinct from Nimblewill (M. schreberi) and Wirestem Muhly (M. frondosa), both already in database."
+  },
+  {
+    id: "muhly-wirestem",
+    commonName: "Muhly (Wirestem)",
+    scientificName: "Muhlenbergia frondosa",
+    aliases: ["Wirestem Muhly", "Western Muhly", "Common Satin Grass", "Satin Grass", "Wood-grass"],
+    parentGenus: "Muhlenbergia",
+    category: "Grass",
+    lifecycle: "Perennial",
+    hracMoa: "",
+    seasonality: "Warm-season",
+    notes: "Distinct from Nimblewill (Muhlenbergia schreberi, already in database) — M. frondosa is rhizomatous and forms creeping colonies, while nimblewill lacks rhizomes and has a more delicate growth habit. 'Western Muhly' is a documented secondary common name (Darbyshire et al. 2011, Biology of Canadian Weeds); USDA PLANTS standard name is Wirestem Muhly, used here as canonical."
+  },
+  {
     id: "mulberry",
     commonName: "Mulberry",
     scientificName: "Morus spp.",
@@ -2470,6 +3082,18 @@ const WEEDS = [
     notes: ""
   },
   {
+    id: "mullein-moth",
+    commonName: "Mullein (Moth)",
+    scientificName: "Verbascum blattaria",
+    aliases: ["Moth Mullein"],
+    parentGenus: "Verbascum",
+    category: "Broadleaf",
+    lifecycle: "Biennial",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Smaller, with less pronounced woolly foliage."
+  },
+  {
     id: "mustard",
     commonName: "Mustard",
     scientificName: "Brassica spp.",
@@ -2482,6 +3106,30 @@ const WEEDS = [
     notes: ""
   },
   {
+    id: "mustard-ball",
+    commonName: "Mustard (Ball)",
+    scientificName: "Neslia paniculata",
+    aliases: ["Ball Mustard"],
+    parentGenus: "Neslia",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Distinguished by small, round (ball-shaped) seed pods."
+  },
+  {
+    id: "mustard-black",
+    commonName: "Mustard (Black)",
+    scientificName: "Brassica nigra",
+    aliases: ["Black Mustard"],
+    parentGenus: "Brassica",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "True Brassica genus, like mustard-field; distinct from White and Wild Mustard, both reclassified to Sinapis."
+  },
+  {
     id: "mustard-field",
     commonName: "Mustard (Field)",
     scientificName: "Brassica rapa",
@@ -2492,6 +3140,18 @@ const WEEDS = [
     hracMoa: "2/4",
     seasonality: "Cool-season",
     notes: "Remains true Brassica genus, unlike White and Wild Mustard (both reclassified to Sinapis) — this is the species most directly covered by the bare Brassica spp. genus parent entry."
+  },
+  {
+    id: "mustard-indian",
+    commonName: "Mustard (Indian)",
+    scientificName: "Brassica juncea",
+    aliases: ["Indian Mustard", "Brown Mustard", "Chinese Mustard"],
+    parentGenus: "Brassica",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "True Brassica genus, like mustard-field and mustard-black."
   },
   {
     id: "mustard-white",
@@ -2530,6 +3190,18 @@ const WEEDS = [
     notes: "Genus parent — see nightshade-eastern-black and nightshade-hairy for species-specific entries."
   },
   {
+    id: "nightshade-bitter",
+    commonName: "Nightshade (Bitter)",
+    scientificName: "Solanum dulcamara",
+    aliases: ["Bitter Nightshade", "Bittersweet Nightshade", "Climbing Nightshade"],
+    parentGenus: "Solanum",
+    category: "Vine",
+    lifecycle: "Perennial",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Distinguished from the other Solanum entries by its climbing/scrambling vine habit; toxic berries."
+  },
+  {
     id: "nightshade-black",
     commonName: "Nightshade (Black)",
     scientificName: "Solanum nigrum",
@@ -2542,6 +3214,18 @@ const WEEDS = [
     notes: "Distinct from Eastern Black Nightshade (S. ptychanthum), which is the predominant native species in eastern North America."
   },
   {
+    id: "nightshade-cutleaf",
+    commonName: "Nightshade (Cutleaf)",
+    scientificName: "Solanum triflorum",
+    aliases: ["Cutleaf Nightshade", "Cutleaf Groundcherry"],
+    parentGenus: "Solanum",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "2/4",
+    seasonality: "Warm-season",
+    notes: "Deeply lobed ('cutleaf') foliage distinguishes it from the other Solanum species in this database."
+  },
+  {
     id: "nightshade-eastern-black",
     commonName: "Nightshade (Eastern Black)",
     scientificName: "Solanum ptychanthum",
@@ -2551,7 +3235,7 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "2/4", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Nightshade entry."
+    notes: ""
   },
   {
     id: "nightshade-hairy",
@@ -2673,18 +3357,6 @@ const WEEDS = [
     seasonality: "Warm-season",
     notes: "Documented multi-site resistance to Groups 2, 4, 9, 14, and 27 across US populations (HRAC Resistance Map, 2024). Verify local resistance profile with county extension before selecting MOA."
   },
-  {
-    id: "browntop-panicum",
-    commonName: "Panicum (Browntop)",
-    scientificName: "Urochloa fusca",
-    aliases: ["Browntop Panicum", "Browntop Signalgrass", "Panicum fasciculatum", "Brachiaria fasciculata"],
-    parentGenus: "Urochloa",
-    category: "Grass",
-    lifecycle: "Annual",
-    hracMoa: "",
-    seasonality: "Warm-season",
-    notes: "Reclassified from Panicum fasciculatum to Urochloa fusca per current taxonomy (USDA PLANTS); old name retained as alias. Distinct from Browntop Millet (Urochloa ramosa, already in database) despite the similar common name."
-  },
   { 
     id: "parsley-piert", 
     commonName: "Parsley-Piert", 
@@ -2710,6 +3382,30 @@ const WEEDS = [
     notes: "Distinguished from A. arvensis by smaller stipules and a preference for acidic, sandy soils. Named separately on the Celsius label."
   },
   {
+    id: "parthenium",
+    commonName: "Parthenium",
+    scientificName: "Parthenium hysterophorus",
+    aliases: ["Congress Grass", "Santa Maria Feverfew", "Carrot Grass", "Whitetop Weed"],
+    parentGenus: "Parthenium",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "2/4",
+    seasonality: "Warm-season",
+    notes: "Foliage can cause contact dermatitis and is a significant allergen in some individuals; handle with care. Primarily a Gulf Coast/tropical weed in the continental US."
+  },
+  {
+    id: "pellitory-florida",
+    commonName: "Pellitory (Florida)",
+    scientificName: "Parietaria floridana",
+    aliases: ["Florida Pellitory", "Florida Pellitory-of-the-Wall"],
+    parentGenus: "Parietaria",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "",
+    seasonality: "Warm-season",
+    notes: "Found in shaded, moist turf and landscape edges in Florida and the Gulf Coast."
+  },
+  {
     id: "pennycress",
     commonName: "Pennycress",
     scientificName: "Thlaspi arvense",
@@ -2731,7 +3427,7 @@ const WEEDS = [
     lifecycle: "Perennial", 
     hracMoa: "4/2", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Water Pennywort entry."
+    notes: ""
   },
   {
     id: "pepperweed",
@@ -2755,7 +3451,7 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "2/4",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Pepperweed entry; distinct from Field Pepperweed (L. campestre), already in database."
+    notes: ""
   },
   {
     id: "perilla-mint",
@@ -2770,6 +3466,18 @@ const WEEDS = [
     notes: ""
   },
   {
+    id: "phyllanthus-longstalked",
+    commonName: "Phyllanthus (Longstalked)",
+    scientificName: "Phyllanthus tenellus",
+    aliases: ["Longstalked Phyllanthus", "Mascarene Island Leafflower"],
+    parentGenus: "Phyllanthus",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "4",
+    seasonality: "Warm-season",
+    notes: "Distinct from Chamberbitter (P. urinaria, already in database) — a related but separate leafflower species, both found in Southeast US turf."
+  },
+  {
     id: "pigweed",
     commonName: "Pigweed",
     scientificName: "Amaranthus spp.",
@@ -2782,6 +3490,18 @@ const WEEDS = [
     notes: ""
   },
   {
+    id: "pigweed-prostrate",
+    commonName: "Pigweed (Prostrate)",
+    scientificName: "Amaranthus blitoides",
+    aliases: ["Prostrate Pigweed", "Matweed", "Prostrate Amaranth"],
+    parentGenus: "Amaranthus",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "2/14",
+    seasonality: "Warm-season",
+    notes: "Distinguished by a low, mat-forming (prostrate) growth habit unlike the upright pigweed-redroot and pigweed-smooth."
+  },
+  {
     id: "pigweed-redroot",
     commonName: "Pigweed (Redroot)",
     scientificName: "Amaranthus retroflexus",
@@ -2791,7 +3511,7 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "2/14", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Pigweed entry."
+    notes: ""
   },
   {
     id: "pigweed-smooth",
@@ -2803,7 +3523,7 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "2/14", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Pigweed entry."
+    notes: ""
   },
   {
     id: "pigweed-tumble",
@@ -2815,7 +3535,7 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "2/14",
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Pigweed entry."
+    notes: ""
   },
   { 
     id: "pineappleweed", 
@@ -2851,7 +3571,7 @@ const WEEDS = [
     lifecycle: "Perennial", 
     hracMoa: "4/2", 
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Plantain entry."
+    notes: ""
   },
   {
     id: "plantain-buckhorn",
@@ -2863,7 +3583,7 @@ const WEEDS = [
     lifecycle: "Perennial", 
     hracMoa: "4/2", 
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Plantain entry."
+    notes: ""
   },
   {
     id: "poison-hemlock",
@@ -2899,7 +3619,7 @@ const WEEDS = [
     lifecycle: "Perennial", 
     hracMoa: "4/9", 
     seasonality: "Warm-season",
-    notes: "Split from poison-ivy; distinct species, shrubbier growth habit than T. radicans."
+    notes: "Shrubbier growth habit than T. radicans."
   },
   {
     id: "pokeweed",
@@ -3010,6 +3730,30 @@ const WEEDS = [
     notes: "Thick succulent cuticle reduces post-emergent uptake; pre-emergent Group 15 applications are more reliable. Post-emergent efficacy of Groups 4 and 27 is variable across extension trials. Confidence in post-emergent control: 70%."
   },
   {
+    id: "pusley-largeflower",
+    commonName: "Pusley (Largeflower)",
+    scientificName: "Richardia grandiflora",
+    aliases: ["Largeflower Pusley", "Largeflower Mexican Clover"],
+    parentGenus: "Richardia",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "2/4",
+    seasonality: "Warm-season",
+    notes: "Distinguished by noticeably larger flowers and a more persistent perennial habit, making it harder to control."
+  },
+  {
+    id: "pussytoes",
+    commonName: "Pussytoes",
+    scientificName: "Antennaria plantaginifolia",
+    aliases: ["Plantain-leaf Pussytoes", "Woman's Tobacco"],
+    parentGenus: "Antennaria",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "4/2",
+    seasonality: "Cool-season",
+    notes: "Low-growing, mat-forming perennial with fuzzy, cat's-paw-shaped flower clusters; found in dry, thin, or poor-quality turf. Distinct from true tobacco despite the folk name."
+  },
+  {
     id: "quackgrass",
     commonName: "Quackgrass",
     scientificName: "Elymus repens",
@@ -3044,6 +3788,18 @@ const WEEDS = [
     hracMoa: "2/4",
     seasonality: "Warm-season",
     notes: ""
+  },
+  {
+    id: "ragweed-lanceleaf",
+    commonName: "Ragweed (Lanceleaf)",
+    scientificName: "Ambrosia bidentata",
+    aliases: ["Lanceleaf Ragweed", "Southern Ragweed"],
+    parentGenus: "Ambrosia",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "2/4",
+    seasonality: "Warm-season",
+    notes: "Distinguished from Common Ragweed (A. artemisiifolia) and Western Ragweed (A. psilostachya) by narrow, lance-shaped (not finely dissected) leaves."
   },
   {
     id: "ragweed-western",
@@ -3094,6 +3850,18 @@ const WEEDS = [
     notes: ""
   },
   {
+    id: "redmaids",
+    commonName: "Redmaids",
+    scientificName: "Calandrinia menziesii",
+    aliases: ["Redmaid", "Desert Rockpurslane", "Fewflower Redmaids"],
+    parentGenus: "Calandrinia",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "",
+    seasonality: "Cool-season",
+    notes: "Primarily a western US winter annual; found in disturbed turf and open ground."
+  },
+  {
     id: "redweed",
     commonName: "Redweed",
     scientificName: "Melochia corchorifolia",
@@ -3116,6 +3884,18 @@ const WEEDS = [
     hracMoa: "15/2",
     seasonality: "Cool-season",
     notes: ""
+  },
+  {
+    id: "roundleaf-greenbriar",
+    commonName: "Roundleaf Greenbriar",
+    scientificName: "Smilax rotundifolia",
+    aliases: ["Common Greenbrier", "Catbrier", "Horsebrier"],
+    parentGenus: "Smilax",
+    category: "Vine",
+    lifecycle: "Perennial",
+    hracMoa: "4",
+    seasonality: "Warm-season",
+    notes: "Woody, thorny perennial vine; primarily a landscape/fence-line and woodland-edge weed rather than a turf weed. Appears on the Trimec Classic label."
   },
   {
     id: "russian-thistle",
@@ -3169,7 +3949,7 @@ const WEEDS = [
     id: "sandbur", 
     commonName: "Sandbur", 
     scientificName: "Cenchrus spp.",
-    aliases: ["Grassbur", "Stickerweed", "Bur Grass"],
+    aliases: ["Grassbur", "Stickerweed", "Bur Grass", "Sandspur"],
     parentGenus: "Cenchrus", 
     category: "Grass", 
     lifecycle: "Annual", 
@@ -3187,7 +3967,7 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "15/2",
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Sandbur entry. Named separately on some herbicide labels; controlled the same way as other sandbur species."
+    notes: "Controlled the same way as other sandbur species."
   },
   {
     id: "sandbur-field",
@@ -3199,7 +3979,7 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "15/2",
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Sandbur entry. Major nuisance in sandy-soil lawns in Southeast and Gulf Coast. Cenchrus incertus is an older synonym still used on some herbicide labels."
+    notes: "Major nuisance in sandy-soil lawns in Southeast and Gulf Coast. Cenchrus incertus is an older synonym still used on some herbicide labels."
   },
   {
     id: "sandbur-southern",
@@ -3211,7 +3991,31 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "15/2",
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Sandbur entry. Appears on Celsius and MSMA Target 6 Plus labels."
+    notes: ""
+  },
+  {
+    id: "scarlet-pimpernel",
+    commonName: "Scarlet Pimpernel",
+    scientificName: "Anagallis arvensis",
+    aliases: ["Poor Man's Weatherglass", "Red Chickweed", "Shepherd's Clock"],
+    parentGenus: "Anagallis",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Small, low-growing annual with distinctive orange-red (occasionally blue) flowers that close in overcast weather (hence 'Shepherd's Clock'). Toxic if ingested by livestock."
+  },
+  {
+    id: "shadflower-whitlowort",
+    commonName: "Shadflower (Whitlowort)",
+    scientificName: "Draba verna",
+    aliases: ["Whitlow-grass", "Spring Draba", "Erophila verna"],
+    parentGenus: "Draba",
+    category: "Broadleaf",
+    lifecycle: "Winter Annual",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Erophila verna is an older synonym still occasionally used. Tiny, early-spring-flowering winter annual, often overlooked in thin or compacted turf due to its small size."
   },
   {
     id: "shattercane",
@@ -3236,6 +4040,18 @@ const WEEDS = [
     hracMoa: "2/4",
     seasonality: "Cool-season",
     notes: ""
+  },
+  {
+    id: "sibara",
+    commonName: "Sibara",
+    scientificName: "Sibara virginica",
+    aliases: ["Virginia Rockcress", "Sibara"],
+    parentGenus: "Sibara",
+    category: "Broadleaf",
+    lifecycle: "Winter Annual",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Small winter annual in the mustard family; found in thin, disturbed turf and open ground, primarily southern/western US."
   },
   { 
     id: "sicklepod", 
@@ -3283,7 +4099,7 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "15/2", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Signalgrass entry."
+    notes: ""
   },
   {
     id: "signalgrass-tropical",
@@ -3370,6 +4186,30 @@ const WEEDS = [
     notes: ""
   },
   {
+    id: "southern-brassbuttons",
+    commonName: "Southern Brassbuttons",
+    scientificName: "Cotula australis",
+    aliases: ["Annual Buttonweed (alt.)", "Carrot Fern", "Australian Brassbuttons"],
+    parentGenus: "Cotula",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "",
+    seasonality: "Cool-season",
+    notes: "Low-growing winter annual with finely divided, carrot-like foliage; found in thin or moist turf in the Southeast US."
+  },
+  {
+    id: "southern-dewberry",
+    commonName: "Southern Dewberry",
+    scientificName: "Rubus trivialis",
+    aliases: ["Dewberry (Southern)", "Trailing Blackberry"],
+    parentGenus: "Rubus",
+    category: "Woody",
+    lifecycle: "Perennial",
+    hracMoa: "4/9",
+    seasonality: "Warm-season",
+    notes: "Trailing, low-growing Rubus species distinct from the generally upright genus-parent Blackberry entry and from Himalayan Blackberry; common warm-season turf and pasture weed in the Southeast."
+  },
+  {
     id: "southern-sida",
     commonName: "Southern Sida",
     scientificName: "Sida acuta",
@@ -3379,7 +4219,7 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "4/2",
     seasonality: "Warm-season",
-    notes: "Split from prickly-sida; named separately on the Fahrenheit label but controlled the same way as S. spinosa."
+    notes: "Controlled the same way as S. spinosa."
   },
   {
     id: "southwestern-cupgrass",
@@ -3391,7 +4231,7 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "",
     seasonality: "Warm-season",
-    notes: "Distinct from woolly cupgrass (Eriochloa villosa), which has its own entry."
+    notes: ""
   },
   {
     id: "sowthistle-perennial",
@@ -3403,7 +4243,7 @@ const WEEDS = [
     lifecycle: "Perennial",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from common-sowthistle. Unlike the annual S. oleraceus and S. asper, this species spreads via creeping rhizomes, making it more persistent."
+    notes: "Unlike the annual S. oleraceus and S. asper, this species spreads via creeping rhizomes, making it more persistent."
   },
   {
     id: "sowthistle-spiny",
@@ -3415,7 +4255,7 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from common-sowthistle. Shares herbicide susceptibility with S. oleraceus."
+    notes: "Shares herbicide susceptibility with S. oleraceus."
   },
   { 
     id: "speedwell", 
@@ -3430,6 +4270,18 @@ const WEEDS = [
     notes: "Genus parent for Veronica species not covered by the more specific speedwell-persian, speedwell-slender, speedwell-corn, speedwell-thymeleaf, speedwell-common, or speedwell-purslane entries."
   },
   {
+    id: "speedwell-bilobed",
+    commonName: "Speedwell (Bilobed)",
+    scientificName: "Veronica biloba",
+    aliases: ["Bilobed Speedwell"],
+    parentGenus: "Veronica",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Named for its distinctively bilobed (two-lobed) seed capsules."
+  },
+  {
     id: "speedwell-common",
     commonName: "Speedwell (Common)",
     scientificName: "Veronica officinalis",
@@ -3439,7 +4291,7 @@ const WEEDS = [
     lifecycle: "Perennial",
     hracMoa: "2/4",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Speedwell entry."
+    notes: ""
   },
   {
     id: "speedwell-corn",
@@ -3451,7 +4303,19 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "2/4",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Speedwell entry."
+    notes: ""
+  },
+  {
+    id: "speedwell-ivyleaf",
+    commonName: "Speedwell (Ivyleaf)",
+    scientificName: "Veronica hederifolia",
+    aliases: ["Ivyleaf Speedwell", "Winter Speedwell"],
+    parentGenus: "Veronica",
+    category: "Broadleaf",
+    lifecycle: "Winter Annual",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "'Ivyleaf Speedwell' and 'Winter Speedwell' both appear as separate line items on the Ortho label but refer to the same species — combined as aliases per Rule 1. Ivy-shaped leaves distinguish it from the other Veronica species in this database."
   },
   {
     id: "speedwell-persian",
@@ -3463,7 +4327,7 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "2/4",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Speedwell entry. One of the most common Veronica species in residential turf."
+    notes: " One of the most common Veronica species in residential turf."
   },
   {
     id: "speedwell-purslane",
@@ -3475,7 +4339,7 @@ const WEEDS = [
     lifecycle: "Annual",
     hracMoa: "2/4",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Speedwell entry."
+    notes: ""
   },
   {
     id: "speedwell-slender",
@@ -3487,7 +4351,7 @@ const WEEDS = [
     lifecycle: "Perennial",
     hracMoa: "2/4",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Speedwell entry due to being particularly difficult to control once established — control behavior differs meaningfully from the annual speedwells."
+    notes: "Control behavior differs meaningfully from the annual speedwells."
   },
   {
     id: "speedwell-thymeleaf",
@@ -3499,8 +4363,20 @@ const WEEDS = [
     lifecycle: "Perennial",
     hracMoa: "2/4",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Speedwell entry."
+    notes: ""
   },  
+  {
+    id: "spiderwort-common",
+    commonName: "Spiderwort (Common)",
+    scientificName: "Tradescantia ohiensis",
+    aliases: ["Common Spiderwort", "Ohio Spiderwort", "Bluejacket"],
+    parentGenus: "Tradescantia",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "4/2",
+    seasonality: "Warm-season",
+    notes: "Member of Commelinaceae (spiderwort family), like Dayflower and Doveweed, already in database. Often grown intentionally as an ornamental, so context matters when targeting as a weed."
+  },
   {
     id: "spiny-amaranth",
     commonName: "Spiny Amaranth",
@@ -3571,7 +4447,7 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "15/2", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Sprangletop entry. Found in moist or irrigated turf areas."
+    notes: "Found in moist or irrigated turf areas."
   }, 
   {
     id: "sprangletop-panicoides",
@@ -3583,7 +4459,7 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "15/2", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Sprangletop entry."
+    notes: ""
   },
   {
     id: "sprangletop-mexican",
@@ -3775,7 +4651,7 @@ const WEEDS = [
   lifecycle: "Biennial",
   hracMoa: "4/2",
   seasonality: "Cool-season",
-  notes: "Split from the genus-level Sweet Clover entry."
+  notes: ""
   },
   {
     id: "sweet-clover-yellow",
@@ -3787,7 +4663,7 @@ const WEEDS = [
     lifecycle: "Biennial",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Sweet Clover entry."
+    notes: ""
   },
   {
     id: "swinecress",
@@ -3838,6 +4714,18 @@ const WEEDS = [
     notes: "Invasive biennial; spiny bracts on seed heads are distinctive. Primarily found at lawn margins, unmaintained areas, and roadsides rather than in maintained turf. Appears on the Fahrenheit herbicide label." 
   },
   {
+    id: "tassel-flower",
+    commonName: "Tassel Flower",
+    scientificName: "Emilia sonchifolia",
+    aliases: ["Cupid's Shaving Brush", "Lilac Tasselflower", "Emilia fosbergii (similar species)"],
+    parentGenus: "Emilia",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "2/4",
+    seasonality: "Warm-season",
+    notes: "Two similar Emilia species (E. sonchifolia and E. fosbergii) are both called Tassel Flower in the Southeast US and are not always distinguished on herbicide labels; this entry uses E. sonchifolia as the more widely documented species, with E. fosbergii noted as a similar alternative pending label/source confirmation."
+  },
+  {
     id: "teasel-common",
     commonName: "Teasel (Common)",
     scientificName: "Dipsacus fullonum",
@@ -3847,7 +4735,7 @@ const WEEDS = [
     lifecycle: "Biennial",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Teasel entry."
+    notes: ""
   },
   {
     id: "teasel-cutleaf",
@@ -3859,7 +4747,7 @@ const WEEDS = [
     lifecycle: "Biennial",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Teasel entry."
+    notes: ""
   },
   {
     id: "texas-panicum",
@@ -3919,7 +4807,7 @@ const WEEDS = [
     lifecycle: "Biennial", 
     hracMoa: "2/4", 
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Thistle entry. Forms a basal rosette in year one, bolts and flowers in year two."
+    notes: "Forms a basal rosette in year one, bolts and flowers in year two."
   },
   {
     id: "thistle-canada",
@@ -3931,7 +4819,114 @@ const WEEDS = [
     lifecycle: "Perennial", 
     hracMoa: "2/4", 
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Thistle entry to correct a lifecycle conflict — this species spreads via creeping rhizomes and is perennial, significantly harder to eradicate than the biennial Cirsium species. Treat as multi-season management."
+    notes: "Spreads via creeping rhizomes and is perennial, significantly harder to eradicate than the biennial Cirsium species. Treat as multi-season management."
+  },{
+    id: "thistle-cotton",
+    commonName: "Thistle (Cotton)",
+    scientificName: "Onopordum acanthium",
+    aliases: ["Cotton Thistle", "Scotch Thistle"],
+    parentGenus: "Onopordum",
+    category: "Broadleaf",
+    lifecycle: "Biennial",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "'Scotch Thistle' is a widely-used synonym for the same species, combined here as an alias per Rule 1. Large biennial with cottony-gray, spiny foliage; noxious weed in several western states."
+  },
+  {
+    id: "thistle-distaff",
+    commonName: "Thistle (Distaff)",
+    scientificName: "Carthamus lanatus",
+    aliases: ["Distaff Thistle", "Woolly Distaff Thistle"],
+    parentGenus: "Carthamus",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Related to safflower (same genus); primarily a California/western US rangeland and disturbed-area weed."
+  },
+  {
+    id: "thistle-drummonds",
+    commonName: "Thistle (Drummond's)",
+    scientificName: "Cirsium drummondii",
+    aliases: ["Drummond's Thistle"],
+    parentGenus: "Cirsium",
+    category: "Broadleaf",
+    lifecycle: "Biennial",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Some regional sources treat this as a variety of Wavyleaf Thistle (C. undulatum) rather than a fully distinct species — taxonomic treatment varies by authority. Kept separate here per the Ortho label listing both names individually."
+  },
+  {
+    id: "thistle-elk",
+    commonName: "Thistle (Elk)",
+    scientificName: "Cirsium scariosum",
+    aliases: ["Elk Thistle", "Meadow Thistle (alt., western US usage)"],
+    parentGenus: "Cirsium",
+    category: "Broadleaf",
+    lifecycle: "Biennial",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Primarily a western US mountain-meadow and rangeland species."
+  },
+  {
+    id: "thistle-flodman",
+    commonName: "Thistle (Flodman)",
+    scientificName: "Cirsium flodmanii",
+    aliases: ["Flodman Thistle"],
+    parentGenus: "Cirsium",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Spreads via creeping rhizomes like Canada Thistle (C. arvense, already in database); primarily a Great Plains species."
+  },
+  {
+    id: "thistle-gray",
+    commonName: "Thistle (Gray)",
+    scientificName: "Cirsium canescens",
+    aliases: ["Gray Thistle", "Platte Thistle"],
+    parentGenus: "Cirsium",
+    category: "Broadleaf",
+    lifecycle: "Biennial",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "'Gray Thistle' and 'Platte Thistle' both appear as separate line items on the Ortho label but refer to the same species — combined as aliases per Rule 1. Primarily a Great Plains sandhills species."
+  },
+  {
+    id: "thistle-italian",
+    commonName: "Thistle (Italian)",
+    scientificName: "Carduus pycnocephalus",
+    aliases: ["Italian Thistle"],
+    parentGenus: "Carduus",
+    category: "Broadleaf",
+    lifecycle: "Winter Annual",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Same genus as Musk Thistle (thistle-musk, already in database). Primarily a California/West Coast invasive."
+  },
+  {
+    id: "thistle-leafy",
+    commonName: "Thistle (Leafy)",
+    scientificName: "Cirsium foliosum",
+    aliases: ["Leafy Thistle", "Elk Thistle (alt.)"],
+    parentGenus: "Cirsium",
+    category: "Broadleaf",
+    lifecycle: "Biennial",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Primarily a western/northern US mountain species."
+  },
+  {
+    id: "thistle-meadow",
+    commonName: "Thistle (Meadow)",
+    scientificName: "Cirsium discolor",
+    aliases: ["Meadow Thistle", "Field Thistle"],
+    parentGenus: "Cirsium",
+    category: "Broadleaf",
+    lifecycle: "Biennial",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "'Meadow Thistle' is applied regionally to more than one Cirsium species; C. discolor (also called Field Thistle) used here as the most commonly documented eastern US match. Confidence: 65%."
   },
   {
     id: "thistle-musk",
@@ -3943,7 +4938,91 @@ const WEEDS = [
     lifecycle: "Biennial", 
     hracMoa: "2/4", 
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Thistle entry. Note this species is actually genus Carduus, not Cirsium, despite being commonly grouped with thistles on labels."
+    notes: "Note this species is actually genus Carduus, not Cirsium, despite being commonly grouped with thistles on labels."
+  },
+  {
+    id: "thistle-plumeless",
+    commonName: "Thistle (Plumeless)",
+    scientificName: "Carduus acanthoides",
+    aliases: ["Plumeless Thistle"],
+    parentGenus: "Carduus",
+    category: "Broadleaf",
+    lifecycle: "Biennial",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Named for seed heads that lack the feathery 'plume' (pappus) typical of true Cirsium thistles."
+  },
+  {
+    id: "thistle-slenderflower",
+    commonName: "Thistle (Slenderflower)",
+    scientificName: "Carduus tenuiflorus",
+    aliases: ["Slenderflower Thistle", "Winged Slenderflower Thistle"],
+    parentGenus: "Carduus",
+    category: "Broadleaf",
+    lifecycle: "Annual",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Primarily a California/Pacific Coast invasive."
+  },
+  {
+    id: "thistle-tall",
+    commonName: "Thistle (Tall)",
+    scientificName: "Cirsium altissimum",
+    aliases: ["Tall Thistle", "Roadside Thistle"],
+    parentGenus: "Cirsium",
+    category: "Broadleaf",
+    lifecycle: "Biennial",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Can reach significant height (up to 10 ft) in favorable conditions; native, less aggressive than Canada Thistle."
+  },
+  {
+    id: "thistle-wavyleaf",
+    commonName: "Thistle (Wavyleaf)",
+    scientificName: "Cirsium undulatum",
+    aliases: ["Wavyleaf Thistle"],
+    parentGenus: "Cirsium",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Named for the wavy leaf margins; primarily a Great Plains/western US species. See thistle-drummonds note regarding possible taxonomic overlap."
+  },
+  {
+    id: "thistle-yellowspine",
+    commonName: "Thistle (Yellowspine)",
+    scientificName: "Cirsium ochrocentrum",
+    aliases: ["Yellowspine Thistle"],
+    parentGenus: "Cirsium",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "2/4",
+    seasonality: "Warm-season",
+    notes: "Distinguished by yellow (rather than tan/brown) spines; primarily a southern Great Plains/Southwest species."
+  },
+  {
+    id: "thymeleaved-sandwort",
+    commonName: "Thymeleaved Sandwort",
+    scientificName: "Arenaria serpyllifolia",
+    aliases: ["Thyme-leaved Sandwort", "Thyme-leaf Sandwort"],
+    parentGenus: "Arenaria",
+    category: "Broadleaf",
+    lifecycle: "Winter Annual",
+    hracMoa: "2/4",
+    seasonality: "Cool-season",
+    notes: "Small, low-growing winter annual with tiny thyme-like leaves; found in thin, dry, sandy or compacted turf."
+  },
+  {
+    id: "timothy",
+    commonName: "Timothy",
+    scientificName: "Phleum pratense",
+    aliases: ["Timothy Grass", "Herd's Grass"],
+    parentGenus: "Phleum",
+    category: "Grass",
+    lifecycle: "Perennial",
+    hracMoa: "",
+    seasonality: "Cool-season",
+    notes: "Widely grown intentionally as a hay/forage grass; treated as a weed escape when it appears in maintained turf outside its intended use."
   },
   {
     id: "toad-rush",
@@ -4051,7 +5130,7 @@ const WEEDS = [
     lifecycle: "Perennial",
     hracMoa: "4/2",
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Verbena entry; this is the species named specifically on the Tenacity label."
+    notes: ""
   },
   {
     id: "verbena-brazilian",
@@ -4063,7 +5142,7 @@ const WEEDS = [
     lifecycle: "Perennial",
     hracMoa: "4/2",
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Verbena entry. Introduced species, increasingly common as a turf and pasture weed in the Southeast."
+    notes: "Introduced species, increasingly common as a turf and pasture weed in the Southeast."
   },
   {
     id: "verbena-hoary",
@@ -4075,7 +5154,19 @@ const WEEDS = [
     lifecycle: "Perennial",
     hracMoa: "4/2",
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Verbena entry. Primarily a Midwest and Great Plains prairie/roadside species."
+    notes: "Primarily a Midwest and Great Plains prairie/roadside species."
+  },
+  {
+    id: "verbena-stiff",
+    commonName: "Verbena (Stiff)",
+    scientificName: "Verbena rigida",
+    aliases: ["Stiff Verbena", "Sandpaper Verbena", "Slender Vervain (alt.)"],
+    parentGenus: "Verbena",
+    category: "Broadleaf",
+    lifecycle: "Perennial",
+    hracMoa: "4/2",
+    seasonality: "Warm-season",
+    notes: "Rough, sandpaper-textured leaves distinguish it from the other Verbena species in this database. Also cultivated as a groundcover, so context matters when targeting as a weed."
   },
   {
     id: "vetch",
@@ -4099,19 +5190,19 @@ const WEEDS = [
     lifecycle: "Perennial",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Vetch entry. 'Bird Vetch' and 'Tufted Vetch' are both common names for this same species (V. cracca), not two different plants — kept as aliases on one entry per rule 1."
+    notes: ""
   },
   {
     id: "vetch-common",
     commonName: "Vetch (Common)",
     scientificName: "Vicia sativa",
-    aliases: ["Common Vetch", "Garden Vetch", "Spring Vetch"],
+    aliases: ["Common Vetch", "Garden Vetch", "Spring Vetch", "Narrowleaf Vetch"],
     parentGenus: "Vicia",
     category: "Broadleaf",
     lifecycle: "Annual",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Vetch entry."
+    notes: ""
   },
   {
     id: "vetch-hairy",
@@ -4123,7 +5214,19 @@ const WEEDS = [
     lifecycle: "Winter Annual",
     hracMoa: "4/2",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Vetch entry. Often grown intentionally as a cover crop, so context matters when targeting it as a weed."
+    notes: "Often grown intentionally as a cover crop, so context matters when targeting it as a weed."
+  },
+  {
+    id: "vetch-purple",
+    commonName: "Vetch (Purple)",
+    scientificName: "Vicia benghalensis",
+    aliases: ["Purple Vetch", "Winter Vetch (alt.)"],
+    parentGenus: "Vicia",
+    category: "Broadleaf",
+    lifecycle: "Winter Annual",
+    hracMoa: "4/2",
+    seasonality: "Cool-season",
+    notes: "More common in western/southern states than vetch-common or vetch-hairy."
   },
   {
     id: "violet-common-blue",
@@ -4135,7 +5238,7 @@ const WEEDS = [
     lifecycle: "Perennial", 
     hracMoa: "4", 
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Wild Violet entry. The most common Viola species in residential turf."
+    notes: "The most common Viola species in residential turf."
   },
   {
     id: "violet-field",
@@ -4243,7 +5346,7 @@ const WEEDS = [
     lifecycle: "Perennial", 
     hracMoa: "4/9", 
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Waterhemlock entry. Highly toxic — see genus parent notes."
+    notes: "Highly toxic — see genus parent notes."
   },
   {
     id: "waterhemp",
@@ -4256,6 +5359,18 @@ const WEEDS = [
     hracMoa: "2/14",
     seasonality: "Warm-season",
     notes: "Documented resistance to Groups 2, 4, 9, 14, and 27 across Midwest and Southeast populations (HRAC Resistance Map, 2024). Confirm local resistance history with county extension before selecting MOA."
+  },
+  {
+    id: "western-salsify",
+    commonName: "Western Salsify",
+    scientificName: "Tragopogon dubius",
+    aliases: ["Yellow Salsify", "Goatsbeard"],
+    parentGenus: "Tragopogon",
+    category: "Broadleaf",
+    lifecycle: "Biennial",
+    hracMoa: "4/2",
+    seasonality: "Cool-season",
+    notes: "Distinguished from true Goatsbeard (Aruncus dioicus, an unrelated genus) by the shared common name; more prevalent in western/plains states. Appears on the Trimec Classic label."
   },
   {
     id: "white-clover",
@@ -4447,7 +5562,7 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "15/1", 
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Windmill Grass entry."
+    notes: ""
   },
   {
     id: "windmill-grass-tumble",
@@ -4495,7 +5610,7 @@ const WEEDS = [
     lifecycle: "Perennial", 
     hracMoa: "4/2", 
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Woodsorrel entry. The most problematic residential species, prolific seed production and persistent seed bank."
+    notes: "The most problematic residential species, prolific seed production and persistent seed bank."
   },
   {
     id: "woodsorrel-yellow",
@@ -4507,7 +5622,7 @@ const WEEDS = [
     lifecycle: "Annual", 
     hracMoa: "4/2", 
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Woodsorrel entry. Behaves as annual or short-lived perennial depending on climate; still treated as persistent due to seed bank."
+    notes: "Behaves as annual or short-lived perennial depending on climate; still treated as persistent due to seed bank."
   },
   { 
     id: "woolly-cupgrass", 
@@ -4543,7 +5658,7 @@ const WEEDS = [
     lifecycle: "Perennial",
     hracMoa: "2/9",
     seasonality: "Cool-season",
-    notes: "Split from the genus-level Wormwood entry."
+    notes: ""
   },
   {
     id: "wormwood-louisiana",
@@ -4555,7 +5670,7 @@ const WEEDS = [
     lifecycle: "Perennial",
     hracMoa: "2/9",
     seasonality: "Warm-season",
-    notes: "Split from the genus-level Wormwood entry."
+    notes: ""
   },
   { 
     id: "yankeeweed", 
@@ -4567,7 +5682,7 @@ const WEEDS = [
     lifecycle: "Perennial", 
     hracMoa: "4/2",
     seasonality: "Warm-season",
-    notes: "Primarily a Southeast US weed, particularly Florida, Georgia, and Alabama. Found in sandy, disturbed turf areas and roadsides. Distinct from Dogfennel (E. capillifolium, see that entry) despite being in the same genus. Documented in UF/IFAS extension materials. Appears on the Fahrenheit herbicide label." 
+    notes: "Primarily a Southeast US weed, particularly Florida, Georgia, and Alabama. Found in sandy, disturbed turf areas and roadsides." 
   },
   { 
     id: "yarrow", 
@@ -4580,6 +5695,18 @@ const WEEDS = [
     hracMoa: "4/2",
     seasonality: "Cool-season",
     notes: "Feathery, finely divided leaves with flat-topped white flower clusters in summer. Spreads by rhizomes and seed. Common in thin, unmaintained turf and lawn margins. Appears on Fahrenheit and SpeedZone Southern labels." 
+  },
+  {
+    id: "yellow-bluestem",
+    commonName: "Yellow Bluestem",
+    scientificName: "Bothriochloa ischaemum",
+    aliases: ["King Ranch Bluestem", "Turkestan Bluestem", "Old World Bluestem"],
+    parentGenus: "Bothriochloa",
+    category: "Grass",
+    lifecycle: "Perennial",
+    hracMoa: "",
+    seasonality: "Warm-season",
+    notes: "Invasive warm-season perennial, particularly problematic in Texas and the southern Great Plains; originally introduced for forage/erosion control."
   },
   {
     id: "yellow-rocket",
