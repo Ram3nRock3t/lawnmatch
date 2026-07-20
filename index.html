@@ -136,9 +136,14 @@
   <div id="page-matrix" class="hidden">
 
     <h1>Product Matrix</h1>
-    <p class="page-intro">Select your turf and the weeds you're dealing with to see which products fit.</p>
+    <p class="page-intro">Select your turf and the weeds or diseases you're dealing with to see which products fit.</p>
 
     <section id="matrix-section">
+
+      <div class="mode-toggle" id="matrix-entity-toggle" style="display:flex; gap:8px; margin-bottom:1rem;">
+        <button class="view-btn active" data-mode="weed">🌿 Weeds</button>
+        <button class="view-btn" data-mode="disease">🍂 Diseases</button>
+      </div>
 
       <label>Turf type
         <div class="custom-select" data-hidden-input="matrix-turf-type">
@@ -155,17 +160,17 @@
       </fieldset>
 
       <fieldset id="matrix-weed-fieldset">
-        <legend>Target weed(s)</legend>
-        <input type="text" id="weed-search" placeholder="Type to filter weeds...">
+        <legend><span id="matrix-weed-legend-text">Target weed(s)</span></legend>
+        <input type="text" id="weed-search" placeholder="Type to filter...">
         <div id="matrix-weed-checkboxes"></div>
       </fieldset>
 
       <button id="matrix-submit-btn">Check Products</button>
       <button id="matrix-reset-btn" class="btn-secondary">Clear All</button>
 
-      <div class="view-toggle">
-        <button class="view-btn active" data-view="table">📊 Table</button>
-        <button class="view-btn" data-view="cards">🗂️ Cards</button>
+      <div class="mode-toggle" id="reverse-category-toggle" style="display:flex; gap:8px; margin-bottom:1rem;">
+        <button class="view-btn active" data-mode="herbicide">🌿 Herbicide</button>
+        <button class="view-btn" data-mode="fungicide">🍂 Fungicide</button>
       </div>
       <div id="matrix-results"></div>
 
@@ -177,9 +182,14 @@
   <div id="page-reverse" class="hidden">
 
     <h1>Weeds Coverage</h1>
-    <p class="page-intro">Not sure what weeds you have? Select your turf and one or more products to see what they target.</p>
+    <p class="page-intro">Not sure what weeds or diseases you have? Select your turf and one or more products to see what they target.</p>
 
     <section id="reverse-section">
+
+      <div class="view-toggle" id="reverse-category-toggle">
+        <button class="view-btn active" data-mode="herbicide">🌿 Herbicide</button>
+        <button class="view-btn" data-mode="fungicide">🍂 Fungicide</button>
+      </div>
 
       <label>Turf type
         <div class="custom-select" data-hidden-input="reverse-turf-type">
@@ -190,7 +200,7 @@
       </label>
 
       <fieldset id="reverse-product-fieldset">
-        <legend>Product(s)</legend>
+        <legend><span id="reverse-product-legend-text">Herbicide(s)</span></legend>
         <input type="text" id="product-search" placeholder="Type to filter products...">
         <div id="reverse-product-checkboxes"></div>
       </fieldset>
@@ -285,6 +295,7 @@
 </div>
 
 <script src="js/weeds.js"></script>
+<script src="js/diseases.js"></script>
 <script src="js/products.js"></script>
 <script src="js/custom-select.js"></script>
 <script src="js/calculator.js"></script>

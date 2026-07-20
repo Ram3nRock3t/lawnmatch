@@ -64,10 +64,15 @@ function buildDetails(summary, items, rawHTML) {
   return html;
 }
 
-// ← CHANGED: new helper — looks up commonName from WEEDS by ID.
+// Looks up commonName from weeds and diseases by ID.
 // Falls back to the raw ID string if somehow not found.
 function getWeedCommonName(id) {
   var found = WEEDS.find(function(w) { return w.id === id; });
+  return found ? found.commonName : id;
+}
+
+function getDiseaseCommonName(id) {
+  var found = DISEASES.find(function(d) { return d.id === id; });
   return found ? found.commonName : id;
 }
 
@@ -143,6 +148,18 @@ function buildProductInfoCard(p) {
       return displayName + rate;
     });
     html += buildDetails("Target Weeds (" + p.targetWeeds.length + ")", weedItems, true);
+  }
+  if (p.targetDiseases && p.targetDiseases.length > 0) {
+    var diseaseItems = p.targetDiseases.map(function (d) {
+      var displayName = escapeHTML(
+        d.label || (Array.isArray(d.ids) ? d.ids.map(getDiseaseCommonName).join(" / ") : "")
+      );
+      var rate = d.rateRequired
+        ? ' <span class="weed-rate-tag">— ' + d.rateRequired + ' rate</span>'
+        : "";
+      return displayName + rate;
+    });
+    html += buildDetails("Target Diseases (" + p.targetDiseases.length + ")", diseaseItems, true);
   }
   if (p.genericAlternatives && p.genericAlternatives.length > 0) {
     var altItems = p.genericAlternatives.map(function (g) {

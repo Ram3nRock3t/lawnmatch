@@ -1,5 +1,5 @@
 // weeds.js — LawnMatch canonical weed reference database
-// 130 entries sorted alphabetically by commonName.
+// Sorted alphabetically by commonName.
 //
 // Sources: USDA PLANTS Database, Kew Plants of the World Online,
 // HRAC (2021) classification, and university extension publications

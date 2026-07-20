@@ -13,9 +13,13 @@ function updateAreaUnitLabel() {
 }
 
 // ─── RESULT UNIT OPTIONS BY FORMULATION ──────────────────────────────────────
+// Keys MUST exactly match the canonical formulation strings used in
+// products.js: "Liquid", "Liquid, Ready-To-Spray", "Granule", "WDG".
+// Any product whose formulation string doesn't match one of these keys
+// falls back to the Liquid option set below.
 
 const RESULT_UNIT_OPTIONS = {
-  liquid: [
+  "Liquid": [
     { value: "base", label: "Default (fl oz)" },
     { value: "mL",   label: "mL"   },
     { value: "tsp",  label: "tsp"  },
@@ -25,7 +29,23 @@ const RESULT_UNIT_OPTIONS = {
     { value: "qt",   label: "qt"   },
     { value: "gal",  label: "gal"  }
   ],
-  granule: [
+  "Liquid, Ready-To-Spray": [
+    { value: "base", label: "Default (fl oz)" },
+    { value: "mL",   label: "mL"   },
+    { value: "tsp",  label: "tsp"  },
+    { value: "tbsp", label: "tbsp" },
+    { value: "cup",  label: "cup"  },
+    { value: "pt",   label: "pt"   },
+    { value: "qt",   label: "qt"   },
+    { value: "gal",  label: "gal"  }
+  ],
+  "Granule": [
+    { value: "base", label: "Default (oz)"        },
+    { value: "g",    label: "g"                   },
+    { value: "tsp",  label: "tsp (approx)"        },
+    { value: "tbsp", label: "tbsp (approx)"       }
+  ],
+  "WDG": [
     { value: "base", label: "Default (oz)"        },
     { value: "g",    label: "g"                   },
     { value: "tsp",  label: "tsp (approx)"        },
@@ -36,7 +56,7 @@ const RESULT_UNIT_OPTIONS = {
 function updateResultUnitOptions(formulation) {
   const select = document.getElementById("result-unit");
   const current = select.value;
-  const opts = RESULT_UNIT_OPTIONS[formulation] || RESULT_UNIT_OPTIONS.liquid;
+  const opts = RESULT_UNIT_OPTIONS[formulation] || RESULT_UNIT_OPTIONS["Liquid"];
   select.innerHTML = "";
   opts.forEach(function(o) {
     const opt = document.createElement("option");
@@ -47,6 +67,13 @@ function updateResultUnitOptions(formulation) {
   // Keep current selection if it's still valid, otherwise fall back to base
   const stillValid = opts.some(function(o) { return o.value === current; });
   select.value = stillValid ? current : "base";
+}
+
+// Whether a product is a hose-end / auto-diluting Ready-To-Spray formulation.
+// Used to suppress the "Water / carrier" stat, since there's no separate
+// manual dilution step for the user to check on the label.
+function isReadyToSpray(formulation) {
+  return formulation === "Liquid, Ready-To-Spray";
 }
 
 // ─── AUTO-POPULATE AREA FROM LENGTH × WIDTH ───────────────────────────────────
@@ -289,10 +316,12 @@ function calculate(product, sqft, turfType, rateTierLabel) {
 // ─── UNIT CONVERSION FOR DISPLAY ─────────────────────────────────────────────
 
 function convertAmount(oz, formulation, displayUnit) {
+  const isLiquidLike = formulation === "Liquid" || formulation === "Liquid, Ready-To-Spray";
+
   if (displayUnit === "base") {
-    return { value: round(oz), unit: formulation === "liquid" ? "fl oz" : "oz" };
+    return { value: round(oz), unit: isLiquidLike ? "fl oz" : "oz" };
   }
-  if (formulation === "liquid") {
+  if (isLiquidLike) {
     switch (displayUnit) {
       case "mL":   return { value: round(oz * 29.5735), unit: "mL"   };
       case "tsp":  return { value: round(oz * 6),       unit: "tsp"  };
@@ -303,14 +332,13 @@ function convertAmount(oz, formulation, displayUnit) {
       case "gal":  return { value: round(oz / 128),     unit: "gal"  };
     }
   }
-  if (formulation === "granule") {
-    switch (displayUnit) {
-      case "g":    return { value: round(oz * 28.3495), unit: "g"              };
-      case "tsp":  return { value: round(oz * 2),       unit: "tsp (approx)"  };
-      case "tbsp": return { value: round(oz * 0.67),    unit: "tbsp (approx)" };
-    }
+  // Granule or WDG
+  switch (displayUnit) {
+    case "g":    return { value: round(oz * 28.3495), unit: "g"              };
+    case "tsp":  return { value: round(oz * 2),       unit: "tsp (approx)"  };
+    case "tbsp": return { value: round(oz * 0.67),    unit: "tbsp (approx)" };
   }
-  return { value: round(oz), unit: formulation === "liquid" ? "fl oz" : "oz" };
+  return { value: round(oz), unit: isLiquidLike ? "fl oz" : "oz" };
 }
 
 function round(n) {
@@ -343,7 +371,7 @@ function renderResults() {
 
   var min          = convertAmount(calc.amountMin, product.formulation, displayUnit);
   var max          = convertAmount(calc.amountMax, product.formulation, displayUnit);
-  var waterRounded = calc.water === null ? "See label" : round(calc.water);
+  var waterRounded = calc.water === null ? "No water dilution indicated" : round(calc.water);
 
   // ── Calculation Summary stats ──────────────────────────────────────────────
   var metricsHTML = "";
@@ -358,7 +386,10 @@ function renderResults() {
 
   metricsHTML += '<div class="result-stat"><span class="result-stat-label">Area</span><span class="result-stat-value">' + displayArea(sqft) + '</span></div>';
   metricsHTML += '<div class="result-stat"><span class="result-stat-label">Product needed</span><span class="result-stat-value result-stat-highlight">' + productAmount + '</span></div>';
-  metricsHTML += '<div class="result-stat"><span class="result-stat-label">Water / carrier</span><span class="result-stat-value">' + waterRounded + (calc.water === null ? '' : ' gal') + '</span></div>';
+
+  if (!isReadyToSpray(product.formulation)) {
+    metricsHTML += '<div class="result-stat"><span class="result-stat-label">Water / carrier</span><span class="result-stat-value">' + waterRounded + (calc.water === null ? '' : ' gal') + '</span></div>';
+  }
 
   if (calc.overAnnualMax) {
     metricsHTML += '<p class="result-warning-caution">⚠️ Amount exceeds annual maximum of ' + round(calc.annualMax) + ' oz. Split into multiple applications.</p>';
