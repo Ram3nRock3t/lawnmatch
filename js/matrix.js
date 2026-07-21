@@ -176,6 +176,7 @@ function getEntityConfig(mode) {
       getFlagLabelFn: function() { return null; },
       isTargetableFn: isDiseaseTargetable,
       legendText: "Target disease(s)",
+      productLegendText: "Filter by fungicide(s)",
       entityLabel: "Disease",
       noItemMessage: "Please select at least one disease."
     };
@@ -188,6 +189,7 @@ function getEntityConfig(mode) {
     getFlagLabelFn: getMatchFlagLabel,
     isTargetableFn: isWeedTargetable,
     legendText: "Target weed(s)",
+    productLegendText: "Filter by herbicide(s)",
     entityLabel: "Weed",
     noItemMessage: "Please select at least one weed."
   };
@@ -490,8 +492,11 @@ function setMatrixEntityMode(mode) {
   document.querySelectorAll("#matrix-entity-toggle .view-btn").forEach(function(btn) {
     btn.classList.toggle("active", btn.dataset.mode === mode);
   });
+  var config = getEntityConfig(mode);
   var legendEl = document.getElementById("matrix-weed-legend-text");
   if (legendEl) legendEl.textContent = getEntityConfig(mode).legendText;
+  var productLegendEl = document.getElementById("matrix-product-legend-text");
+  if (productLegendEl) productLegendEl.textContent = config.productLegendText;
 
   document.getElementById("weed-search").value = "";
   document.getElementById("matrix-product-search").value = "";
